@@ -1,81 +1,47 @@
-# Kirki Customizer Framework #
-**Contributors:** [themeum]
-**Tags:** customizer, options framework, theme, mods, toolkit, gutenberg
-**Requires at least:** 5.2
-**Tested up to:** 6.8.3
-**Stable tag:** 5.1.1
+# Kirki Classic #
+**Tags:** customizer, options framework, theme, mods, toolkit
+**Requires at least:** 5.3
+**Tested up to:** 6.8
+**Stable tag:** 5.2.3
 **License:** MIT
 **License URI:** https://opensource.org/licenses/MIT
 
-The ultimate customizer framework for WordPress theme developers.
+A lightweight WordPress Customizer framework for theme developers — forked from Kirki at v5.2.3.
 
-## Description ##
+## Why this fork? ##
 
-[![Build Status](https://travis-ci.org/aristath/kirki.svg?branch=develop)](https://travis-ci.org/aristath/kirki) [![Code Climate](https://codeclimate.com/github/aristath/kirki/badges/gpa.svg)](https://codeclimate.com/github/aristath/kirki) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/66d6d8b6a4654cd18686ed1cd9f1bfb3)](https://www.codacy.com/app/aristath/kirki?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aristath/kirki&amp;utm_campaign=Badge_Grade) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/aristath/kirki/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/aristath/kirki/?branch=develop)
+Kirki was once the go-to Customizer framework for WordPress theme developers. Over time, the project shifted toward becoming a full visual page builder — a direction most existing users never asked for.
 
-[Kirki](https://www.themeum.com/kirki/) allows theme developers to build themes quicker & more easily.
+Kirki Classic forks Kirki at v5.2.3, the last stable, lightweight release before that pivot. The goal is to keep the original Customizer-focused toolkit alive: no bloat, no builder, just a clean API for building theme options.
 
-With over **30 custom controls** ranging from simple sliders to complex typography controls with Google-Fonts integration and features like automatic CSS & `postMessage` script generation, Kirki makes theme development a breeze.
+## Features ##
 
-### Features ###
-* Increased Performance
-* Simplified API
-* Automatic CSS Generation
-* Automatic postMessage Generation
-* Partial Refresh
-* Conditional Logic
-* GDPR Compliance
-* Improved Page Speed
-* & more!
+* 30+ custom Customizer controls
+* Simplified field registration API
+* Automatic CSS generation
+* Automatic `postMessage` script generation
+* Partial refresh support
+* Conditional logic
+* Google Fonts integration
+* GDPR compliant
 
-### Controls ###
+## Controls ##
 
-* [Background Customizer Control](https://docs.themeum.com/kirki/controls/background/)
-* [Code Customizer Control](https://docs.themeum.com/kirki/controls/code/)
-* [Checkbox Customizer Control](https://docs.themeum.com/kirki/controls/checkbox/)
-* [Color Customizer Control](https://docs.themeum.com/kirki/controls/color/)
-* [Color Palette Customizer Control](https://docs.themeum.com/kirki/controls/color-palette/)
-* [Dashicons Customizer Control](https://docs.themeum.com/kirki/controls/dashicons/)
-* [Date Customizer Control](https://docs.themeum.com/kirki/controls/date/)
-* [Dimension Customizer Control](https://docs.themeum.com/kirki/controls/dimension/)
-* [Dimensions Customizer Control](https://docs.themeum.com/kirki/controls/dimensions/)
-* [Dropdown Pages Customizer Control](https://docs.themeum.com/kirki/controls/dropdown-pages/)
-* [Editor Customizer Control](https://docs.themeum.com/kirki/controls/editor/)
-* [Generic Customizer Control](https://docs.themeum.com/kirki/controls/generic/)
-* [Image Customizer Control](https://docs.themeum.com/kirki/controls/image/)
-* [Link Customizer Control](https://docs.themeum.com/kirki/controls/url/)
-* [Multiple Checkbox Customizer Control](https://docs.themeum.com/kirki/controls/multicheck/)
-* [Multicolor Customizer Control](https://docs.themeum.com/kirki/controls/multicolor/)
-* [Number Customizer Control](https://docs.themeum.com/kirki/controls/number/)
-* [Radio Customizer Control](https://docs.themeum.com/kirki/controls/radio/)
-* [Radio Buttonset Customizer Control](https://docs.themeum.com/kirki/controls/radio-buttonset/)
-* [Radio Image Customizer Control](https://docs.themeum.com/kirki/controls/radio-image/)
-* [Repeater Customizer Control](https://docs.themeum.com/kirki/controls/repeater/)
-* [Select Customizer Control](https://docs.themeum.com/kirki/controls/select/)
-* [Slider Customizer Control](https://docs.themeum.com/kirki/controls/slider/)
-* [Sortable Customizer Control](https://docs.themeum.com/kirki/controls/sortable/)
-* [Switch Customizer Control](https://docs.themeum.com/kirki/controls/switch/)
-* [Text Customizer Control](https://docs.themeum.com/kirki/controls/text/)
-* [Textarea Customizer Control](https://docs.themeum.com/kirki/controls/textarea/)
-* [Toggle Customizer Control](https://docs.themeum.com/kirki/controls/toggle/)
-* [Typography Customizer Control](https://docs.themeum.com/kirki/controls/typography/)
-* [Upload Customizer Control](https://docs.themeum.com/kirki/controls/upload/)
+Background, Code, Checkbox, Color, Color Palette, Dashicons, Date, Dimension, Dimensions, Dropdown Pages, Editor, Generic, Image, Link, Multicheck, Multicolor, Number, Radio, Radio Buttonset, Radio Image, Repeater, Select, Slider, Sortable, Switch, Text, Textarea, Toggle, Typography, Upload.
 
+## Differences from Kirki ##
 
-### Documentation ###
+- Plugin slug and text domain: `kirki-classic`
+- PHP namespace: `KirkiClassic` (instead of `Kirki`)
+- Constants prefix: `KIRKI_CLASSIC_` (instead of `KIRKI_`)
+- Function/hook prefix: `kirki_classic_` (instead of `kirki_`)
 
-You can find detailed documentation on how to use Kirki on [themeum.com](https://www.themeum.com/kirki/)
-
-### Disclaimer ###
-
-Theme developers should be familiar with the Customizer API before starting to build a theme using Kirki. An excellent handbook for the WordPress Customizer can be found on the [developer.wordpress.org](https://developer.wordpress.org/themes/customize-api/) website.
+Kirki Classic can be installed alongside the original Kirki plugin without conflicts.
 
 ## Installation ##
 
-Simply install as a normal WordPress plugin and activate.
-
-If you want to integrate Kirki in your theme or plugin, please read the instructions on [our documentation site](https://docs.themeum.com/kirki/getting-started/integration/).
+Install as a standard WordPress plugin and activate. To bundle it in a theme or plugin, require `kirki-classic.php` directly from your code.
 
 ## Changelog ##
 
-[See the previous changelogs here](https://github.com/kirki-framework/kirki/blob/master/CHANGELOG.md).
+See [CHANGELOG.md](CHANGELOG.md) for the upstream history up to v5.2.3.
