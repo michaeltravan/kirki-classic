@@ -13,7 +13,7 @@
 
 		// Reflow Panels.
 		wp.customize.panel.each( function( panel ) {
-			if ( 'kirki-nested' !== panel.params.type || _.isUndefined( panel.params.panel ) ) {
+			if ( 'kirki-classic-nested' !== panel.params.type || _.isUndefined( panel.params.panel ) ) {
 				return;
 			}
 			panels.push( panel );
@@ -50,7 +50,7 @@
 		attachEvents: function() {
 			var panel = this;
 
-			if ( 'kirki-nested' !== this.params.type || _.isUndefined( this.params.panel ) ) {
+			if ( 'kirki-classic-nested' !== this.params.type || _.isUndefined( this.params.panel ) ) {
 				_panelAttachEvents.call( this );
 				return;
 			}
@@ -81,7 +81,7 @@
 
 			var panel = this,
 				parentContainer;
-			if ( 'kirki-nested' !== this.params.type || _.isUndefined( this.params.panel ) ) {
+			if ( 'kirki-classic-nested' !== this.params.type || _.isUndefined( this.params.panel ) ) {
 				_panelEmbed.call( this );
 				return;
 			}
@@ -103,7 +103,7 @@
 				activeCount = 0,
 				children;
 
-			if ( 'kirki-nested' !== this.params.type ) {
+			if ( 'kirki-classic-nested' !== this.params.type ) {
 				return _panelIsContextuallyActive.call( this );
 			}
 

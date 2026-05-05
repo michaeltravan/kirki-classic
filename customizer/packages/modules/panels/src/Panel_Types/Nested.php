@@ -2,14 +2,14 @@
 /**
  * Nested section.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @subpackage  Custom Sections Module
  * @copyright   Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since       3.0.0
  */
 
-namespace Kirki\Panel_Types;
+namespace KirkiClassic\Panel_Types;
 
 /**
  * Nested panel.
@@ -32,7 +32,7 @@ class Nested extends \WP_Customize_Panel {
 	 * @since 3.0.0
 	 * @var string
 	 */
-	public $type = 'kirki-nested';
+	public $type = 'kirki-classic-nested';
 
 	/**
 	 * Gather the parameters passed to client JavaScript via JSON.

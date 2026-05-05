@@ -27,9 +27,9 @@ var kirkiPostMessage = {
 		 */
 		add: function (id) {
 			id = id.replace(/[^\w\s]/gi, '-');
-			if (null === document.getElementById('kirki-postmessage-' + id) || 'undefined' === typeof document.getElementById('kirki-postmessage-' + id)) {
+			if (null === document.getElementById('kirki-classic-postmessage-' + id) || 'undefined' === typeof document.getElementById('kirki-classic-postmessage-' + id)) {
 				var styleTag = document.createElement('style');
-				styleTag.id = 'kirki-postmessage-' + id;
+				styleTag.id = 'kirki-classic-postmessage-' + id;
 				document.head.appendChild(styleTag);
 			}
 		},
@@ -48,7 +48,7 @@ var kirkiPostMessage = {
 		addData: function (id, styles) {
 			id = id.replace('[', '-').replace(']', '');
 			kirkiPostMessage.styleTag.add(id);
-			var styleElement = document.getElementById('kirki-postmessage-' + id);
+			var styleElement = document.getElementById('kirki-classic-postmessage-' + id);
 			if (styleElement) {
 				styleElement.textContent = styles;
 			}
@@ -164,8 +164,8 @@ var kirkiPostMessage = {
 
 			if ('' === styles) {
 				switch (controlType) {
-					case 'kirki-multicolor':
-					case 'kirki-sortable':
+					case 'kirki-classic-multicolor':
+					case 'kirki-classic-sortable':
 						styles += output.element + '{';
 						_.each(value, function (val, key) {
 							if (output.choice && key !== output.choice) {
@@ -182,7 +182,7 @@ var kirkiPostMessage = {
 								}
 							}
 
-							var customProperty = controlType === 'kirki-sortable' ? output.property + '-' + key : output.property;
+							var customProperty = controlType === 'kirki-classic-sortable' ? output.property + '-' + key : output.property;
 
 							if (false !== processedValue) {
 								styles += output.property ? customProperty + ":" + processedValue + ";" : key + ":" + processedValue + ";";
@@ -191,7 +191,7 @@ var kirkiPostMessage = {
 						styles += '}';
 						break;
 					default:
-						if ('kirki-image' === controlType) {
+						if ('kirki-classic-image' === controlType) {
 							value = (!_.isUndefined(value.url)) ? kirkiPostMessage.util.backgroundImageValue(value.url) : kirkiPostMessage.util.backgroundImageValue(value);
 						}
 						if (_.isObject(value)) {

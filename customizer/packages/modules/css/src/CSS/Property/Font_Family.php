@@ -2,17 +2,17 @@
 /**
  * Handles CSS output for font-family.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @subpackage  Controls
  * @copyright   Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.0
  */
 
-namespace Kirki\Module\CSS\Property;
+namespace KirkiClassic\Module\CSS\Property;
 
-use Kirki\Module\CSS\Property;
-use Kirki\Module\Webfonts\Fonts;
+use KirkiClassic\Module\CSS\Property;
+use KirkiClassic\Module\Webfonts\Fonts;
 
 /**
  * Output overrides.

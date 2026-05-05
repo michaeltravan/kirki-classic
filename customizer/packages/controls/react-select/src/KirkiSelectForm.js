@@ -84,7 +84,7 @@ const KirkiSelectForm = (props) => {
 
   const inputId = props.inputId
     ? props.inputId
-    : "kirki-react-select-input--" + props.customizerSetting.id;
+    : "kirki-classic-react-select-input--" + props.customizerSetting.id;
   const label = props.label ? (
     <label
       className="customize-control-title"
@@ -114,9 +114,9 @@ const KirkiSelectForm = (props) => {
       <Select
         {...props}
         inputId={inputId}
-        className="kirki-react-select-container"
-        classNamePrefix="kirki-react-select"
-        inputClassName="kirki-react-select-input"
+        className="kirki-classic-react-select-container"
+        classNamePrefix="kirki-classic-react-select"
+        inputClassName="kirki-classic-react-select-input"
         openMenuOnFocus={props.openMenuOnFocus} // @see https://github.com/JedWatson/react-select/issues/888#issuecomment-209376601
         formatOptionLabel={getLabel}
         options={props.control.getFormattedOptions()}

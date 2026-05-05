@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Compatibility\Field;
-use Kirki\Field\Upload;
+use KirkiClassic\Compatibility\Field;
+use KirkiClassic\Field\Upload;
 
 /**
  * Field overrides.
@@ -27,7 +27,7 @@ class Repeater extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-repeater';
+	public $type = 'kirki-classic-repeater';
 
 	/**
 	 * Used only on repeaters.
@@ -146,7 +146,7 @@ class Repeater extends Field {
 							break;
 						case 'color':
 							if ( $subfield_value ) {
-								$subfield_value = \Kirki\Field\ReactColorful::sanitize( $subfield_value );
+								$subfield_value = \KirkiClassic\Field\ReactColorful::sanitize( $subfield_value );
 							}
 							break;
 						case 'text':

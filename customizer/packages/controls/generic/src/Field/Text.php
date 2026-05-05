@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Text extends Generic {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-text';
+	public $type = 'kirki-classic-text';
 
 	/**
 	 * Filter arguments before creating the setting.
@@ -61,7 +61,7 @@ class Text extends Generic {
 			$args = parent::filter_control_args( $args, $wp_customize );
 
 			// Set the control-type.
-			$args['type'] = 'kirki-generic';
+			$args['type'] = 'kirki-classic-generic';
 
 			// Choices.
 			$args['choices']            = isset( $args['choices'] ) ? $args['choices'] : [];

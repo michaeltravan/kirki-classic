@@ -1,10 +1,10 @@
 <?php
 /**
- * The Kirki API class.
+ * The KirkiClassic API class.
  * Takes care of adding panels, sections & fields to the customizer.
  * For documentation please see https://github.com/aristath/kirki/wiki
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -12,11 +12,11 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
-// ? Bagus: do we really need these? They are already under the same namespace as Kirki class (this file).
-use Kirki\Compatibility\Config;
-use Kirki\Compatibility\Field;
+// ? Bagus: do we really need these? They are already under the same namespace as KirkiClassic class (this file).
+use KirkiClassic\Compatibility\Config;
+use KirkiClassic\Compatibility\Field;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,10 +29,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * You can also access all available configurations, fields, panels and sections
  * by accessing the object's static properties.
  */
-class Kirki extends Init {
+class KirkiClassic extends Init {
 
 	/**
-	 * URL to the Kirki folder.
+	 * URL to the KirkiClassic folder.
 	 *
 	 * @deprecated This is no longer used. Only kept here for backwards compatibility to avoid fatal errors.
 	 * @static
@@ -129,7 +129,7 @@ class Kirki extends Init {
 	 */
 	public static function add_panel( $id = '', $args = [] ) {
 
-		new \Kirki\Panel( $id, $args );
+		new \KirkiClassic\Panel( $id, $args );
 
 	}
 
@@ -143,7 +143,7 @@ class Kirki extends Init {
 	 */
 	public static function remove_panel( $id = '' ) {
 
-		$panel = new \Kirki\Panel( $id );
+		$panel = new \KirkiClassic\Panel( $id );
 		$panel->remove();
 
 	}
@@ -158,7 +158,7 @@ class Kirki extends Init {
 	 */
 	public static function add_section( $id, $args ) {
 
-		new \Kirki\Section( $id, $args );
+		new \KirkiClassic\Section( $id, $args );
 
 	}
 
@@ -172,7 +172,7 @@ class Kirki extends Init {
 	 */
 	public static function remove_section( $id = '' ) {
 
-		$section = new \Kirki\Section( $id );
+		$section = new \KirkiClassic\Section( $id );
 		$section->remove();
 
 	}
@@ -188,7 +188,7 @@ class Kirki extends Init {
 	public static function add_field( $config_id, $args = [] ) {
 
 		if ( doing_action( 'customize_register' ) ) {
-			_doing_it_wrong( __METHOD__, esc_html__( 'Kirki fields should not be added on customize_register. Please add them directly, or on init.', 'kirki' ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, esc_html__( 'Kirki Classic fields should not be added on customize_register. Please add them directly, or on init.', 'kirki-classic' ), '3.0.10' );
 		}
 
 		parent::maybe_show_fontawesome_nag( $args );
@@ -201,10 +201,10 @@ class Kirki extends Init {
 		$args = self::migrate_css_vars( $args );
 
 		$str       = str_replace( [ '-', '_' ], ' ', $args['type'] );
-		$classname = '\Kirki\Field\\' . str_replace( ' ', '_', ucwords( $str ) );
+		$classname = '\KirkiClassic\Field\\' . str_replace( ' ', '_', ucwords( $str ) );
 
 		$config               = Config::get_instance( $config_id )->get_config();
-		$args['kirki_config'] = isset( $args['kirki_config'] ) ? $args['kirki_config'] : $config_id;
+		$args['kirki_classic_config'] = isset( $args['kirki_classic_config'] ) ? $args['kirki_classic_config'] : $config_id;
 
 		unset( $config['id'] );
 

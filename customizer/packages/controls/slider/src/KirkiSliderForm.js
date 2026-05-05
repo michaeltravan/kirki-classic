@@ -48,15 +48,15 @@ const KirkiSliderForm = (props) => {
   };
 
   // Preparing for the template.
-  const fieldId = `kirki-control-input-${customizerSetting.id}`;
+  const fieldId = `kirki-classic-control-input-${customizerSetting.id}`;
   const value = "" !== props.value ? props.value : 0;
 
   const sliderRef = useRef(null);
   const valueRef = useRef(null);
 
   return (
-    <div className="kirki-control-form" tabIndex="1">
-      <label className="kirki-control-label" htmlFor={fieldId}>
+    <div className="kirki-classic-control-form" tabIndex="1">
+      <label className="kirki-classic-control-label" htmlFor={fieldId}>
         <span className="customize-control-title">{props.label}</span>
         <span
           className="customize-control-description description"
@@ -71,14 +71,14 @@ const KirkiSliderForm = (props) => {
 
       <button
         type="button"
-        className="kirki-control-reset"
+        className="kirki-classic-control-reset"
         onClick={handleReset}
       >
         <i className="dashicons dashicons-image-rotate"></i>
       </button>
 
-      <div className="kirki-control-cols">
-        <div className="kirki-control-left-col">
+      <div className="kirki-classic-control-cols">
+        <div className="kirki-classic-control-left-col">
           <input
             ref={sliderRef}
             type="range"
@@ -87,12 +87,12 @@ const KirkiSliderForm = (props) => {
             min={choices.min}
             max={choices.max}
             step={choices.step}
-            className="kirki-control-slider"
+            className="kirki-classic-control-slider"
             onChange={handleChange}
           />
         </div>
-        <div className="kirki-control-right-col">
-          <div className="kirki-control-value" ref={valueRef}>
+        <div className="kirki-classic-control-right-col">
+          <div className="kirki-classic-control-value" ref={valueRef}>
             {value}
           </div>
         </div>

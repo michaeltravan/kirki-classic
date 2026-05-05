@@ -2,12 +2,12 @@
 /**
  * Handle CSS output for padding control.
  *
- * @package Kirki
+ * @package KirkiClassic
  * @subpackage Controls
  * @since 1.0.0
  */
 
-namespace Kirki\Field\CSS;
+namespace KirkiClassic\Field\CSS;
 
 /**
  * Output overrides.
@@ -21,6 +21,6 @@ class Padding extends Margin {
 	 * @access public
 	 * @var string
 	 */
-	protected $type = 'kirki-padding';
+	protected $type = 'kirki-classic-padding';
 
 }

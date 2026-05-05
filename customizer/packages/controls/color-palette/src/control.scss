@@ -5,23 +5,23 @@
 }
 
 .customize-control-kirki-color-palette {
-  .kirki-control-label {
+  .kirki-classic-control-label {
     position: relative;
     display: block;
   }
 
-  .kirki-control-form {
+  .kirki-classic-control-form {
     position: relative;
     margin-bottom: 6px;
 
     &:hover {
-      .kirki-control-reset {
+      .kirki-classic-control-reset {
         opacity: 1;
       }
     }
   }
 
-  .kirki-control-reset {
+  .kirki-classic-control-reset {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,12 +46,12 @@
     }
   }
 
-  .kirki-control-reset:hover i {
+  .kirki-classic-control-reset:hover i {
     color: #f00;
     transform: rotate(-45deg);
   }
 
-  .kirki-control-reset i {
+  .kirki-classic-control-reset i {
     font-size: 12px;
     width: auto;
     height: auto;
@@ -59,7 +59,7 @@
     transition: transform 0.3s;
   }
 
-  .kirki-colors {
+  .kirki-classic-colors {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -68,8 +68,8 @@
     padding: 0;
     list-style: none;
 
-    &.kirki-round-colors {
-      .kirki-color {
+    &.kirki-classic-round-colors {
+      .kirki-classic-color {
         div {
           border-radius: 50%;
         }
@@ -77,7 +77,7 @@
     }
   }
 
-  .kirki-color {
+  .kirki-classic-color {
     position: relative;
     display: block;
     margin: 0 11px 11px 0;

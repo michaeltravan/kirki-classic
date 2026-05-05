@@ -33,7 +33,7 @@
             : "normal";
         }
 
-        if ("kirki-typography" === controlType) {
+        if ("kirki-classic-typography" === controlType) {
           styles += output.element + "{";
 
           _.each(value, function (val, key) {

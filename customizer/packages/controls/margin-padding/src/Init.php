@@ -1,12 +1,12 @@
 <?php
 /**
- * Init the Kirki margin & padding package.
+ * Init the KirkiClassic margin & padding package.
  *
  * @package kirki-margin-padding
  * @since 1.0.0
  */
 
-namespace Kirki\MarginPadding;
+namespace KirkiClassic\MarginPadding;
 
 /**
  * Manage the tabs package.
@@ -18,7 +18,7 @@ class Init {
 	 */
 	public function __construct() {
 
-		add_filter( 'kirki_control_types', [ $this, 'control_type' ] );
+		add_filter( 'kirki_classic_control_types', [ $this, 'control_type' ] );
 
 	}
 
@@ -29,8 +29,8 @@ class Init {
 	 */
 	public function control_type( $control_types ) {
 
-		$control_types['kirki-margin']  = 'Kirki\Control\Margin';
-		$control_types['kirki-padding'] = 'Kirki\Control\Padding';
+		$control_types['kirki-classic-margin']  = 'KirkiClassic\Control\Margin';
+		$control_types['kirki-classic-padding'] = 'KirkiClassic\Control\Padding';
 
 		return $control_types;
 

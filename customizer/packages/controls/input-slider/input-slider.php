@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Kirki Input Slider
+ * Plugin Name: KirkiClassic Input Slider
  * Plugin URI:  https://www.themeum.com
- * Description: Input slider control for Kirki Customizer Framework.
+ * Description: Input slider control for Kirki Classic Customizer Framework.
  * Version:     1.1
  * Author:      Themeum
  * Author URI:  https://www.themeum.com
  * License:     GPL-3.0
- * License URI: https://oss.ninja/gpl-3.0?organization=Kirki%20Framework&project=control%20input%20slider
+ * License URI: https://oss.ninja/gpl-3.0?organization=KirkiClassic%20Framework&project=control%20input%20slider
  * Text Domain: kirki-input-slider
  * Domain Path: /languages
  *
@@ -16,25 +16,25 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'kirki_load_input_slider_control' ) ) {
+if ( ! function_exists( 'kirki_classic_load_input_slider_control' ) ) {
 
 	/**
 	 * Load input slider control.
 	 */
-	function kirki_load_input_slider_control() {
+	function kirki_classic_load_input_slider_control() {
 
-		// Stop, if Kirki is not installed.
-		if ( ! defined( 'KIRKI_VERSION' ) ) {
+		// Stop, if KirkiClassic is not installed.
+		if ( ! defined( 'KIRKI_CLASSIC_VERSION' ) ) {
 			return;
 		}
 
-		// Stop, if Kirki controls are already loaded.
-		if ( defined( 'KIRKI_CONTROLS_VERSION' ) ) {
+		// Stop, if KirkiClassic controls are already loaded.
+		if ( defined( 'KIRKI_CLASSIC_CONTROLS_VERSION' ) ) {
 			return;
 		}
 
-		// Stop, if Kirki Input Slider is already installed.
-		if ( class_exists( '\Kirki\InputSlider\Init' ) ) {
+		// Stop, if KirkiClassic Input Slider is already installed.
+		if ( class_exists( '\KirkiClassic\InputSlider\Init' ) ) {
 			return;
 		}
 
@@ -44,12 +44,12 @@ if ( ! function_exists( 'kirki_load_input_slider_control' ) ) {
 
 		$plugin_data = get_plugin_data( __FILE__ );
 
-		define( 'KIRKI_INPUT_SLIDER_VERSION', $plugin_data['Version'] );
-		define( 'KIRKI_INPUT_SLIDER_PLUGIN_FILE', __FILE__ );
+		define( 'KIRKI_CLASSIC_INPUT_SLIDER_VERSION', $plugin_data['Version'] );
+		define( 'KIRKI_CLASSIC_INPUT_SLIDER_PLUGIN_FILE', __FILE__ );
 
-		new \Kirki\InputSlider\Init();
+		new \KirkiClassic\InputSlider\Init();
 
 	}
-	add_action( 'plugins_loaded', 'kirki_load_input_slider_control' );
+	add_action( 'plugins_loaded', 'kirki_classic_load_input_slider_control' );
 
 }

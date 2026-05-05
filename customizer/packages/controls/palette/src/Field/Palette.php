@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Palette extends Radio {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-palette';
+	public $type = 'kirki-classic-palette';
 
 	/**
 	 * The control class-name.
@@ -33,7 +33,7 @@ class Palette extends Radio {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Palette';
+	protected $control_class = '\KirkiClassic\Control\Palette';
 
 	/**
 	 * Filter arguments before creating the control.
@@ -47,7 +47,7 @@ class Palette extends Radio {
 	public function filter_control_args( $args, $wp_customize ) {
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-palette';
+			$args['type'] = 'kirki-classic-palette';
 		}
 		return $args;
 	}

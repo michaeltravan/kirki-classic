@@ -2,14 +2,14 @@
 /**
  * Handle CSS output for margin control.
  *
- * @package Kirki
+ * @package KirkiClassic
  * @subpackage Controls
  * @since 1.0.0
  */
 
-namespace Kirki\Field\CSS;
+namespace KirkiClassic\Field\CSS;
 
-use Kirki\Module\CSS\Output;
+use KirkiClassic\Module\CSS\Output;
 
 /**
  * Output overrides.
@@ -23,7 +23,7 @@ class Margin extends Output {
 	 * @access public
 	 * @var string
 	 */
-	protected $type = 'kirki-margin';
+	protected $type = 'kirki-classic-margin';
 
 	/**
 	 * Process a single item from the `output` array.
@@ -36,7 +36,7 @@ class Margin extends Output {
 	 */
 	protected function process_output( $output, $value ) {
 
-		$property = str_ireplace( 'kirki-', '', $this->type );
+		$property = str_ireplace( 'kirki-classic-', '', $this->type );
 		$unit     = isset( $this->field['choices'] ) && isset( $this->field['choices']['unit'] ) ? $this->field['choices']['unit'] : 'px';
 
 		$output = wp_parse_args(
@@ -61,8 +61,8 @@ class Margin extends Output {
 			}
 		}
 
-		if ( 'kirki_demo_responsive_margin[desktop]' === $this->field['settings'] ) {
-			// error_log( print_r( get_theme_mod( 'kirki_demo_responsive_margin[desktop]' ), true ) );
+		if ( 'kirki_classic_demo_responsive_margin[desktop]' === $this->field['settings'] ) {
+			// error_log( print_r( get_theme_mod( 'kirki_classic_demo_responsive_margin[desktop]' ), true ) );
 			// error_log( print_r( $this->styles, true ) );
 			// error_log( print_r( $value, true ) );
 		}

@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
 /**
  * Adds the image control.
@@ -24,5 +24,5 @@ class Cropped_Image extends \WP_Customize_Cropped_Image_Control {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-cropped-image';
+	public $type = 'kirki-classic-cropped-image';
 }

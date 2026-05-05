@@ -1,6 +1,6 @@
 <?php
 /**
- * Automatic preset scripts calculation for Kirki controls.
+ * Automatic preset scripts calculation for KirkiClassic controls.
  *
  * @package kirki-framework/module-preset
  * @author Themeum
@@ -9,9 +9,9 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * Adds styles to the customizer.
@@ -36,7 +36,7 @@ class Preset {
 	 */
 	public function __construct() {
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'customize_controls_print_footer_scripts' ] );
-		add_filter( 'kirki_field_add_control_args', [ $this, 'field_add_control_args' ] );
+		add_filter( 'kirki_classic_field_add_control_args', [ $this, 'field_add_control_args' ] );
 	}
 
 	/**
@@ -61,6 +61,6 @@ class Preset {
 	 * @since 1.0.0
 	 */
 	public function customize_controls_print_footer_scripts() {
-		wp_localize_script( 'kirki-customizer', 'kirkiPresetControls', self::$preset_controls );
+		wp_localize_script( 'kirki-classic-customizer', 'kirkiPresetControls', self::$preset_controls );
 	}
 }

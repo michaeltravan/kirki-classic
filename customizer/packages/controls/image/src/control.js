@@ -1,4 +1,4 @@
-wp.customize.controlConstructor['kirki-image'] = wp.customize.kirkiDynamicControl.extend( {
+wp.customize.controlConstructor['kirki-classic-image'] = wp.customize.kirkiDynamicControl.extend( {
 
 	initKirkiControl: function( control ) {
 		var value, saveAs, preview, previewImage, removeButton, defaultButton, container;

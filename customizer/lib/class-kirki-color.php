@@ -1,9 +1,9 @@
 <?php
 /**
- * Color Calculations class for Kirki
- * Initially built for the Shoestrap-3 theme and then tweaked for Kirki.
+ * Color Calculations class for KirkiClassic
+ * Initially built for the Shoestrap-3 theme and then tweaked for KirkiClassic.
  *
- * @package Kirki
+ * @package KirkiClassic
  * @category Core
  * @author Themeum
  * @copyright Copyright (c) 2023, Themeum
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Helper class for color manipulation.
  */
-final class Kirki_Color extends ariColor {
+final class KirkiClassic_Color extends ariColor {
 
 	/**
 	 * A proxy for the sanitize_color method.

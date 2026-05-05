@@ -6,9 +6,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Checkbox_Switch;
+use KirkiClassic\Control\Checkbox_Switch;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

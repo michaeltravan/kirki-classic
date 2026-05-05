@@ -1,8 +1,8 @@
 <?php
 /**
- * Handles sections created via the Kirki API.
+ * Handles sections created via the KirkiClassic API.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 /**
  * Each setting is a separate instance
@@ -38,7 +38,7 @@ class Settings {
 	 * Class constructor.
 	 *
 	 * @access public
-	 * @param array $args The field definition as sanitized in Kirki\Compatibility\Field.
+	 * @param array $args The field definition as sanitized in KirkiClassic\Compatibility\Field.
 	 */
 	public function __construct( $args = [] ) {
 
@@ -64,7 +64,7 @@ class Settings {
 	 * If not an array, then it just calls add_setting
 	 *
 	 * @access private
-	 * @param array $args The field definition as sanitized in Kirki\Compatibility\Field.
+	 * @param array $args The field definition as sanitized in KirkiClassic\Compatibility\Field.
 	 */
 	final function add_settings( $args = [] ) {
 
@@ -129,20 +129,20 @@ class Settings {
 
 	/**
 	 * Sets the $this->setting_types property.
-	 * Makes sure the kirki_setting_types filter is applied
+	 * Makes sure the kirki_classic_setting_types filter is applied
 	 * and that the defined classes actually exist.
 	 * If a defined class does not exist, it is removed.
 	 */
 	final function set_setting_types() {
 
-		// Apply the kirki_setting_types filter.
+		// Apply the kirki_classic_setting_types filter.
 		$this->setting_types = apply_filters(
-			'kirki_setting_types',
+			'kirki_classic_setting_types',
 			[
 				'default'     => 'WP_Customize_Setting',
-				'repeater'    => '\Kirki_Settings_Repeater_Setting',
-				'user_meta'   => '\Kirki\Util\Setting\User_Meta',
-				'site_option' => '\Kirki\Util\Setting\Site_Option',
+				'repeater'    => '\KirkiClassic_Settings_Repeater_Setting',
+				'user_meta'   => '\KirkiClassic\Util\Setting\User_Meta',
+				'site_option' => '\KirkiClassic\Util\Setting\Site_Option',
 			]
 		);
 

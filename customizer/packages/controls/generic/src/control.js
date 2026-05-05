@@ -1,4 +1,4 @@
-wp.customize.controlConstructor["kirki-generic"] =
+wp.customize.controlConstructor["kirki-classic-generic"] =
   wp.customize.kirkiDynamicControl.extend({
     initKirkiControl: function (_control) {
       const control = _control ?? this;
@@ -16,7 +16,7 @@ wp.customize.controlConstructor["kirki-generic"] =
 
           // Apply min/max validation for number inputs
           if (
-            "kirki-generic" === params.type &&
+            "kirki-classic-generic" === params.type &&
             params.choices &&
             "number" === params.choices.type
           ) {

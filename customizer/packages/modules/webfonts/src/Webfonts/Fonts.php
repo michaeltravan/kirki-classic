@@ -9,9 +9,9 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module\Webfonts;
+namespace KirkiClassic\Module\Webfonts;
 
-use Kirki\GoogleFonts;
+use KirkiClassic\GoogleFonts;
 
 /**
  * The Fonts object.
@@ -73,7 +73,7 @@ final class Fonts {
 	public static function get_all_fonts() {
 		$standard_fonts = self::get_standard_fonts();
 		$google_fonts   = self::get_google_fonts();
-		return apply_filters( 'kirki_fonts_all', array_merge( $standard_fonts, $google_fonts ) );
+		return apply_filters( 'kirki_classic_fonts_all', array_merge( $standard_fonts, $google_fonts ) );
 	}
 
 	/**
@@ -97,7 +97,7 @@ final class Fonts {
 			],
 		];
 
-		return apply_filters( 'kirki_fonts_standard_fonts', $standard_fonts );
+		return apply_filters( 'kirki_classic_fonts_standard_fonts', $standard_fonts );
 	}
 
 	/**
@@ -159,29 +159,29 @@ final class Fonts {
 	 */
 	public static function get_all_variants() {
 		return [
-			'100'       => esc_html__( 'Ultra-Light 100', 'kirki' ),
-			'100light'  => esc_html__( 'Ultra-Light 100', 'kirki' ),
-			'100italic' => esc_html__( 'Ultra-Light 100 Italic', 'kirki' ),
-			'200'       => esc_html__( 'Light 200', 'kirki' ),
-			'200italic' => esc_html__( 'Light 200 Italic', 'kirki' ),
-			'300'       => esc_html__( 'Book 300', 'kirki' ),
-			'300italic' => esc_html__( 'Book 300 Italic', 'kirki' ),
-			'400'       => esc_html__( 'Normal 400', 'kirki' ),
-			'regular'   => esc_html__( 'Normal 400', 'kirki' ),
-			'italic'    => esc_html__( 'Normal 400 Italic', 'kirki' ),
-			'500'       => esc_html__( 'Medium 500', 'kirki' ),
-			'500italic' => esc_html__( 'Medium 500 Italic', 'kirki' ),
-			'600'       => esc_html__( 'Semi-Bold 600', 'kirki' ),
-			'600bold'   => esc_html__( 'Semi-Bold 600', 'kirki' ),
-			'600italic' => esc_html__( 'Semi-Bold 600 Italic', 'kirki' ),
-			'700'       => esc_html__( 'Bold 700', 'kirki' ),
-			'700italic' => esc_html__( 'Bold 700 Italic', 'kirki' ),
-			'800'       => esc_html__( 'Extra-Bold 800', 'kirki' ),
-			'800bold'   => esc_html__( 'Extra-Bold 800', 'kirki' ),
-			'800italic' => esc_html__( 'Extra-Bold 800 Italic', 'kirki' ),
-			'900'       => esc_html__( 'Ultra-Bold 900', 'kirki' ),
-			'900bold'   => esc_html__( 'Ultra-Bold 900', 'kirki' ),
-			'900italic' => esc_html__( 'Ultra-Bold 900 Italic', 'kirki' ),
+			'100'       => esc_html__( 'Ultra-Light 100', 'kirki-classic' ),
+			'100light'  => esc_html__( 'Ultra-Light 100', 'kirki-classic' ),
+			'100italic' => esc_html__( 'Ultra-Light 100 Italic', 'kirki-classic' ),
+			'200'       => esc_html__( 'Light 200', 'kirki-classic' ),
+			'200italic' => esc_html__( 'Light 200 Italic', 'kirki-classic' ),
+			'300'       => esc_html__( 'Book 300', 'kirki-classic' ),
+			'300italic' => esc_html__( 'Book 300 Italic', 'kirki-classic' ),
+			'400'       => esc_html__( 'Normal 400', 'kirki-classic' ),
+			'regular'   => esc_html__( 'Normal 400', 'kirki-classic' ),
+			'italic'    => esc_html__( 'Normal 400 Italic', 'kirki-classic' ),
+			'500'       => esc_html__( 'Medium 500', 'kirki-classic' ),
+			'500italic' => esc_html__( 'Medium 500 Italic', 'kirki-classic' ),
+			'600'       => esc_html__( 'Semi-Bold 600', 'kirki-classic' ),
+			'600bold'   => esc_html__( 'Semi-Bold 600', 'kirki-classic' ),
+			'600italic' => esc_html__( 'Semi-Bold 600 Italic', 'kirki-classic' ),
+			'700'       => esc_html__( 'Bold 700', 'kirki-classic' ),
+			'700italic' => esc_html__( 'Bold 700 Italic', 'kirki-classic' ),
+			'800'       => esc_html__( 'Extra-Bold 800', 'kirki-classic' ),
+			'800bold'   => esc_html__( 'Extra-Bold 800', 'kirki-classic' ),
+			'800italic' => esc_html__( 'Extra-Bold 800 Italic', 'kirki-classic' ),
+			'900'       => esc_html__( 'Ultra-Bold 900', 'kirki-classic' ),
+			'900bold'   => esc_html__( 'Ultra-Bold 900', 'kirki-classic' ),
+			'900italic' => esc_html__( 'Ultra-Bold 900 Italic', 'kirki-classic' ),
 		];
 	}
 

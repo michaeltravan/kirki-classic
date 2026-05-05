@@ -2,7 +2,7 @@
 /**
  * Injects tooltips to controls when the 'tooltip' argument is used.
  *
- * @package   Kirki
+ * @package   KirkiClassic
  * @category  Modules
  * @author    Themeum
  * @copyright Copyright (c) 2023, Themeum
@@ -10,9 +10,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * Adds the tooltips.
@@ -39,7 +39,7 @@ class Tooltips {
 	public function __construct() {
 
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'customize_controls_print_footer_scripts' ] );
-		add_filter( 'kirki_field_add_control_args', [ $this, 'filter_control_args' ], 10, 2 );
+		add_filter( 'kirki_classic_field_add_control_args', [ $this, 'filter_control_args' ], 10, 2 );
 
 	}
 
@@ -52,7 +52,7 @@ class Tooltips {
 	public function customize_controls_print_footer_scripts() {
 
 
-		wp_localize_script( 'kirki-customizer', 'kirkiTooltips', $this->tooltips_content );
+		wp_localize_script( 'kirki-classic-customizer', 'kirkiTooltips', $this->tooltips_content );
 
 	}
 

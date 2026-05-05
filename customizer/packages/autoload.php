@@ -1,6 +1,6 @@
 <?php
 /**
- * Lightweight PSR-4 autoloader for Kirki packages.
+ * Lightweight PSR-4 autoloader for KirkiClassic packages.
  *
  * This replaces the per-package Composer vendor folders so we only keep
  * one shared autoloader and source files to reduce build size.
@@ -9,11 +9,11 @@
 defined( 'ABSPATH' ) || exit;
 
 // Prevent registering multiple times.
-if ( defined( 'KIRKI_AUTOLOAD_REGISTERED' ) ) {
+if ( defined( 'KIRKI_CLASSIC_AUTOLOAD_REGISTERED' ) ) {
 	return;
 }
 
-define( 'KIRKI_AUTOLOAD_REGISTERED', true );
+define( 'KIRKI_CLASSIC_AUTOLOAD_REGISTERED', true );
 
 $packages = array(
 	'headline-divider' => 'HeadlineDivider',
@@ -26,8 +26,8 @@ $packages = array(
 $base_dir = __DIR__ . '/controls/';
 
 $psr4_map = array(
-	'Kirki\\Control\\' => array(),
-	'Kirki\\Field\\'   => array(),
+	'KirkiClassic\\Control\\' => array(),
+	'KirkiClassic\\Field\\'   => array(),
 );
 
 foreach ( $packages as $slug => $namespace ) {
@@ -35,17 +35,17 @@ foreach ( $packages as $slug => $namespace ) {
 
 	$control_dir = $package_base . '/src/Control';
 	if ( is_dir( $control_dir ) ) {
-		$psr4_map['Kirki\\Control\\'][] = $control_dir;
+		$psr4_map['KirkiClassic\\Control\\'][] = $control_dir;
 	}
 
 	$field_dir = $package_base . '/src/Field';
 	if ( is_dir( $field_dir ) ) {
-		$psr4_map['Kirki\\Field\\'][] = $field_dir;
+		$psr4_map['KirkiClassic\\Field\\'][] = $field_dir;
 	}
 
 	$root_dir = $package_base . '/src';
 	if ( is_dir( $root_dir ) ) {
-		$psr4_map[ 'Kirki\\' . $namespace . '\\' ][] = $root_dir;
+		$psr4_map[ 'KirkiClassic\\' . $namespace . '\\' ][] = $root_dir;
 	}
 }
 

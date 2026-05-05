@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\URL;
-use Kirki\Control\Base;
+use KirkiClassic\URL;
+use KirkiClassic\Control\Base;
 
 /**
  * Sortable control (uses checkboxes).
@@ -25,7 +25,7 @@ class Sortable extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-sortable';
+	public $type = 'kirki-classic-sortable';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -60,7 +60,7 @@ class Sortable extends Base {
 	 */
 	protected function content_template() {
 		?>
-		<label class='kirki-sortable'>
+		<label class='kirki-classic-sortable'>
 			<span class="customize-control-title">
 				{{{ data.label }}}
 			</span>
@@ -71,7 +71,7 @@ class Sortable extends Base {
 			<ul class="sortable">
 				<# _.each( data.value, function( choiceID ) { #>
 					<# if ( data.choices[ choiceID ] ) { #>
-						<li {{{ data.inputAttrs }}} class='kirki-sortable-item' data-value='{{ choiceID }}'>
+						<li {{{ data.inputAttrs }}} class='kirki-classic-sortable-item' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
 							{{{ data.choices[ choiceID ] }}}
@@ -80,7 +80,7 @@ class Sortable extends Base {
 				<# }); #>
 				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
 					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
-						<li {{{ data.inputAttrs }}} class='kirki-sortable-item invisible' data-value='{{ choiceID }}'>
+						<li {{{ data.inputAttrs }}} class='kirki-classic-sortable-item invisible' data-value='{{ choiceID }}'>
 							<i class='dashicons dashicons-menu'></i>
 							<i class="dashicons dashicons-visibility visibility"></i>
 							{{{ data.choices[ choiceID ] }}}

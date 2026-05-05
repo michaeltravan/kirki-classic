@@ -9,13 +9,13 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\Compatibility\Values;
-use Kirki\Compatibility\Kirki;
-use Kirki\Module\Webfonts\Google;
-use Kirki\Module\Webfonts\Embed;
-use Kirki\Module\Webfonts\Async;
+use KirkiClassic\Compatibility\Values;
+use KirkiClassic\Compatibility\KirkiClassic;
+use KirkiClassic\Module\Webfonts\Google;
+use KirkiClassic\Module\Webfonts\Embed;
+use KirkiClassic\Module\Webfonts\Async;
 
 /**
  * The Webfonts object.
@@ -27,7 +27,7 @@ class Webfonts {
 	 *
 	 * @access protected
 	 * @since 1.0.0
-	 * @var \Kirki\Module\Webfonts\Google
+	 * @var \KirkiClassic\Module\Webfonts\Google
 	 */
 	protected $fonts_google;
 
@@ -48,7 +48,7 @@ class Webfonts {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-        add_action( 'kirki_field_init', [ $this, 'field_init' ], 10, 2 );
+        add_action( 'kirki_classic_field_init', [ $this, 'field_init' ], 10, 2 );
 		add_action( 'wp_loaded', [ $this, 'run' ] );
 	}
 
@@ -70,7 +70,7 @@ class Webfonts {
 	 * @since 1.0.0
 	 */
 	protected function init() {
-		foreach ( array_keys( Kirki::$config ) as $config_id ) {
+		foreach ( array_keys( KirkiClassic::$config ) as $config_id ) {
 			if ( 'async' === $this->get_method() ) {
 				new Async( $config_id, $this, $this->fonts_google );
 			}
@@ -105,7 +105,7 @@ class Webfonts {
 			$args['type'] = $object->type;
 		}
 
-		if ( ! isset( $args['type'] ) || $args['type'] !== 'kirki-typography' ) {
+		if ( ! isset( $args['type'] ) || $args['type'] !== 'kirki-classic-typography' ) {
 			return;
 		}
 
@@ -122,7 +122,7 @@ class Webfonts {
 	 */
 	public function loop_fields( $config_id ) {
 		foreach ( self::$fields as $field ) {
-			if ( isset( $field['kirki_config'] ) && $config_id !== $field['kirki_config'] ) {
+			if ( isset( $field['kirki_classic_config'] ) && $config_id !== $field['kirki_classic_config'] ) {
 				continue;
 			}
 

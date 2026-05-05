@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Radio;
-use Kirki\URL;
+use KirkiClassic\Control\Radio;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +32,7 @@ class Palette extends Radio {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-palette';
+	public $type = 'kirki-classic-palette';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.

@@ -6,10 +6,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +27,7 @@ class Responsive extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-responsive';
+	public $type = 'kirki-classic-responsive';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -73,7 +73,7 @@ class Responsive extends Base {
 			$loop_index++;
 
 			$device_menu .= '
-			<li class="kirki-device-button kirki-device-button-' . $device . ( 1 === $loop_index ? ' is-active' : '' ) . '" data-kirki-device="' . esc_attr( $device ) . '">
+			<li class="kirki-classic-device-button kirki-device-button-' . $device . ( 1 === $loop_index ? ' is-active' : '' ) . '" data-kirki-device="' . esc_attr( $device ) . '">
 				<i class="dashicons ' . esc_html( $device_icons[ $device ] ) . '"></i>
 			</li>
 			';
@@ -95,8 +95,8 @@ class Responsive extends Base {
 	protected function content_template() {
 		?>
 
-		<div class="kirki-responsive" data-kirki-responsive-id="{{{ data.settings.default }}}">
-			<div class="kirki-control-label">
+		<div class="kirki-classic-responsive" data-kirki-responsive-id="{{{ data.settings.default }}}">
+			<div class="kirki-classic-control-label">
 				<div class="customize-control-title">
 					<span>{{{ data.label }}}</span>
 				</div>
@@ -104,7 +104,7 @@ class Responsive extends Base {
 					<div class="customize-control-description">{{{ data.description }}}</div>
 				<# } #>
 			</div>
-			<ul class="kirki-device-buttons">
+			<ul class="kirki-classic-device-buttons">
 				{{{ data.deviceMenu }}}
 			</ul>
 		</div>

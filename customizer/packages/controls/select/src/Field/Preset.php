@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.

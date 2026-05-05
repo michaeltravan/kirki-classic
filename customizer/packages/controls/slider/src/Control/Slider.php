@@ -5,14 +5,14 @@
  * Creates a slider control.
  *
  * @package kirki-framework/control-slider
- * @license MIT (https://oss.ninja/mit?organization=Kirki%20Framework)
+ * @license MIT (https://oss.ninja/mit?organization=KirkiClassic%20Framework)
  * @since   1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * Slider control.
@@ -28,7 +28,7 @@ class Slider extends Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-slider';
+	public $type = 'kirki-classic-slider';
 
 	/**
 	 * The control version.

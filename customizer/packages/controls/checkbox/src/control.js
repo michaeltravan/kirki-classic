@@ -15,6 +15,6 @@ var kirkiCheckboxScript = {
 	}
 };
 
-wp.customize.controlConstructor['kirki-checkbox'] = wp.customize.kirkiDynamicControl.extend( kirkiCheckboxScript );
-wp.customize.controlConstructor['kirki-switch']   = wp.customize.kirkiDynamicControl.extend( kirkiCheckboxScript );
-wp.customize.controlConstructor['kirki-toggle']   = wp.customize.kirkiDynamicControl.extend( kirkiCheckboxScript );
+wp.customize.controlConstructor['kirki-classic-checkbox'] = wp.customize.kirkiDynamicControl.extend( kirkiCheckboxScript );
+wp.customize.controlConstructor['kirki-classic-switch']   = wp.customize.kirkiDynamicControl.extend( kirkiCheckboxScript );
+wp.customize.controlConstructor['kirki-classic-toggle']   = wp.customize.kirkiDynamicControl.extend( kirkiCheckboxScript );

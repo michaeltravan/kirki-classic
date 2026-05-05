@@ -5,13 +5,13 @@
  * Creates a code editor control.
  *
  * @package kirki-framework/control-code
- * @license MIT (https://oss.ninja/mit?organization=Kirki%20Framework)
+ * @license MIT (https://oss.ninja/mit?organization=KirkiClassic%20Framework)
  * @since   1.0.2
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
+use KirkiClassic\Control\Base;
 
 /**
  * Slider control.

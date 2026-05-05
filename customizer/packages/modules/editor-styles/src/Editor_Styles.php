@@ -1,12 +1,12 @@
 <?php
 /**
- * Gutenberg integration for Kirki.
+ * Gutenberg integration for KirkiClassic.
  *
- * This class contains methods for integrating Kirki with
+ * This class contains methods for integrating KirkiClassic with
  * the new WordPress core editor, Gutenberg.  It provides
  * fonts and styles to be output by the theme.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Tim Elsass
  * @copyright   Copyright (c) 2023, Themeum
@@ -14,9 +14,9 @@
  * @since       3.0.35
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\Compatibility\Kirki;
+use KirkiClassic\Compatibility\KirkiClassic;
 
 /**
  * Wrapper class for static methods.
@@ -127,7 +127,7 @@ class Editor_Styles {
 	/**
 	 * Helper method to check if feature is disabled.
 	 *
-	 * Feature can be disabled by KIRKI_NO_OUTPUT constant,
+	 * Feature can be disabled by KIRKI_CLASSIC_NO_OUTPUT constant,
 	 * gutenbeg_support argument, and disabled output argument.
 	 *
 	 * @access public
@@ -137,15 +137,15 @@ class Editor_Styles {
 	 * @return bool $disabled Is gutenberg integration feature disabled?
 	 */
 	private function is_disabled( $args = [] ) {
-		if ( defined( 'KIRKI_NO_OUTPUT' ) && true === KIRKI_NO_OUTPUT ) {
+		if ( defined( 'KIRKI_CLASSIC_NO_OUTPUT' ) && true === KIRKI_CLASSIC_NO_OUTPUT ) {
 			return true;
 		}
 
 		/**
-		 * We would prefer to use "KIRKI_GUTENBERG_OUTPUT" instead.
-		 * For consistency however, we will use "KIRKI_NO_GUTENBERG_OUTPUT".
+		 * We would prefer to use "KIRKI_CLASSIC_GUTENBERG_OUTPUT" instead.
+		 * For consistency however, we will use "KIRKI_CLASSIC_NO_GUTENBERG_OUTPUT".
 		 */
-		if ( defined( 'KIRKI_NO_GUTENBERG_OUTPUT' ) && true === KIRKI_NO_GUTENBERG_OUTPUT ) {
+		if ( defined( 'KIRKI_CLASSIC_NO_GUTENBERG_OUTPUT' ) && true === KIRKI_CLASSIC_NO_GUTENBERG_OUTPUT ) {
 			return true;
 		}
 
@@ -159,7 +159,7 @@ class Editor_Styles {
 	 * @since 3.0.35
 	 */
 	private function set_configs() {
-		$this->configs = Kirki::$config;
+		$this->configs = KirkiClassic::$config;
 		return $this->configs;
 	}
 
@@ -180,7 +180,7 @@ class Editor_Styles {
 	 * @since 3.0.35
 	 */
 	private function set_modules_css() {
-		$this->modules_css = new \Kirki\Module\CSS();
+		$this->modules_css = new \KirkiClassic\Module\CSS();
 	}
 
 	/**
@@ -190,7 +190,7 @@ class Editor_Styles {
 	 * @since 3.0.35
 	 */
 	private function set_google_fonts() {
-		$this->google_fonts = \Kirki\Module\Webfonts\Google::get_instance();
+		$this->google_fonts = \KirkiClassic\Module\Webfonts\Google::get_instance();
 	}
 
 	/**
@@ -200,6 +200,6 @@ class Editor_Styles {
 	 * @since 3.0.35
 	 */
 	private function set_modules_webfonts() {
-		$this->modules_webfonts = new \Kirki\Module\Webfonts();
+		$this->modules_webfonts = new \KirkiClassic\Module\Webfonts();
 	}
 }

@@ -3,14 +3,14 @@
  * Handles CSS properties.
  * Extend this class in order to handle exceptions.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @subpackage  Controls
  * @copyright   Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.0
  */
 
-namespace Kirki\Module\CSS;
+namespace KirkiClassic\Module\CSS;
 
 /**
  * Output for CSS properties.

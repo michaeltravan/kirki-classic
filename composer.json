@@ -1,5 +1,5 @@
 {
-    "name": "kirki-framework/kirki",
+    "name": "michaeltravan/kirki-classic",
     "type": "library",
     "version": "5.0.0",
     "keywords": [
@@ -11,7 +11,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Kirki Framework",
+            "name": "Kirki Classic Framework",
             "email": "support@themeum.com"
         }
     ],
@@ -27,13 +27,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Kirki\\Compatibility\\": [
+            "KirkiClassic\\Compatibility\\": [
                 "customizer/packages/compatibility/src"
             ],
-            "Kirki\\Data\\": [
+            "KirkiClassic\\Data\\": [
                 "customizer/packages/utils/data-option/src"
             ],
-            "Kirki\\Field\\": [
+            "KirkiClassic\\Field\\": [
                 "customizer/packages/fields/base/src/Field",
                 "customizer/packages/fields/background/src",
                 "customizer/packages/fields/dimensions/src",
@@ -69,7 +69,7 @@
                 "customizer/packages/controls/responsive/src/Field",
                 "customizer/packages/controls/tabs/src/Field"
             ],
-            "Kirki\\Module\\": [
+            "KirkiClassic\\Module\\": [
                 "customizer/packages/modules/css/src",
                 "customizer/packages/modules/editor-styles/src",
                 "customizer/packages/modules/field-dependencies/src",
@@ -80,16 +80,16 @@
                 "customizer/packages/modules/tooltips/src",
                 "customizer/packages/modules/webfonts/src" 
             ],
-            "Kirki\\Util\\": [
+            "KirkiClassic\\Util\\": [
                 "customizer/packages/utils/src",
                 "customizer/packages/utils/googlefonts/src",
                 "customizer/packages/utils/l10n/src",
                 "customizer/packages/utils/url-getter/src"
             ],
-            "Kirki\\Settings\\": [
+            "KirkiClassic\\Settings\\": [
                 "customizer/packages/settings/src"
             ],
-            "Kirki\\": [
+            "KirkiClassic\\": [
                 "customizer/packages/controls/base/src",
                 "customizer/packages/controls/checkbox/src",
                 "customizer/packages/controls/code/src",
@@ -126,7 +126,7 @@
                 "customizer/packages/utils/url-getter/src"
             ],
 
-            "Kirki\\Control\\": [
+            "KirkiClassic\\Control\\": [
                 "customizer/packages/controls/base/src/Control",
                 "customizer/packages/controls/checkbox/src/Control",
                 "customizer/packages/controls/code/src/Control",
@@ -154,11 +154,11 @@
                 "customizer/packages/controls/responsive/src/Control",
                 "customizer/packages/controls/tabs/src/Control"
             ],
-            "Kirki\\HeadlineDivider\\": "customizer/packages/controls/headline-divider/src",
-            "Kirki\\InputSlider\\": "customizer/packages/controls/input-slider/src",
-            "Kirki\\MarginPadding\\": "customizer/packages/controls/margin-padding/src",
-            "Kirki\\Responsive\\": "customizer/packages/controls/responsive/src",
-            "Kirki\\Tabs\\": "customizer/packages/controls/tabs/src"
+            "KirkiClassic\\HeadlineDivider\\": "customizer/packages/controls/headline-divider/src",
+            "KirkiClassic\\InputSlider\\": "customizer/packages/controls/input-slider/src",
+            "KirkiClassic\\MarginPadding\\": "customizer/packages/controls/margin-padding/src",
+            "KirkiClassic\\Responsive\\": "customizer/packages/controls/responsive/src",
+            "KirkiClassic\\Tabs\\": "customizer/packages/controls/tabs/src"
         }
     },
     "require": {

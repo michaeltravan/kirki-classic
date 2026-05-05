@@ -1,14 +1,14 @@
 <?php
 /**
- * Init the Kirki tabs package.
+ * Init the KirkiClassic tabs package.
  *
  * @package kirki-tabs
  * @since 1.0.0
  */
 
-namespace Kirki\Tabs;
+namespace KirkiClassic\Tabs;
 
-use Kirki\Field\Tabs;
+use KirkiClassic\Field\Tabs;
 
 /**
  * Manage the tabs package.
@@ -20,9 +20,9 @@ class Init {
 	 */
 	public function __construct() {
 
-		add_filter( 'kirki_control_types', [ $this, 'control_type' ] );
-		add_filter( 'kirki_field_add_control_args', array( $this, 'filter_control_args' ), 10, 2 );
-		add_action( 'kirki_section_init', [ $this, 'add_tab' ], 10, 2 );
+		add_filter( 'kirki_classic_control_types', [ $this, 'control_type' ] );
+		add_filter( 'kirki_classic_field_add_control_args', array( $this, 'filter_control_args' ), 10, 2 );
+		add_action( 'kirki_classic_section_init', [ $this, 'add_tab' ], 10, 2 );
 
 	}
 
@@ -33,7 +33,7 @@ class Init {
 	 */
 	public function control_type( $control_types ) {
 
-		$control_types['kirki-tab'] = 'Kirki\Control\Tabs';
+		$control_types['kirki-classic-tab'] = 'KirkiClassic\Control\Tabs';
 
 		return $control_types;
 
@@ -74,7 +74,7 @@ class Init {
 	}
 
 	/**
-	 * Add the tab by creating custom control using Kirki API.
+	 * Add the tab by creating custom control using KirkiClassic API.
 	 *
 	 * @since 1.0.0
 	 *
@@ -87,9 +87,9 @@ class Init {
 			return;
 		}
 
-		new \Kirki\Field\Tabs(
+		new \KirkiClassic\Field\Tabs(
 			[
-				'settings' => 'kirki_tabs_' . $section_id,
+				'settings' => 'kirki_classic_tabs_' . $section_id,
 				'section'  => $section_id,
 				'priority' => 0,
 				'choices'  => [

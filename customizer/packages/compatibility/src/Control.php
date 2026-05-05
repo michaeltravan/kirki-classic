@@ -2,17 +2,17 @@
 /**
  * Controls handler
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 /**
- * Our main Kirki\Control object
+ * Our main KirkiClassic\Control object
  */
 class Control {
 
@@ -37,7 +37,7 @@ class Control {
 	 * Creates the actual controls in the customizer.
 	 *
 	 * @access public
-	 * @param array $args The field definition as sanitized in Kirki\Field.
+	 * @param array $args The field definition as sanitized in KirkiClassic\Field.
 	 */
 	public function __construct( $args ) {
 
@@ -60,7 +60,7 @@ class Control {
 	 * Get the class name of the class needed to create tis control.
 	 *
 	 * @access private
-	 * @param array $args The field definition as sanitized in Kirki\Field.
+	 * @param array $args The field definition as sanitized in KirkiClassic\Field.
 	 *
 	 * @return         string   the name of the class that will be used to create this control.
 	 */
@@ -80,7 +80,7 @@ class Control {
 	 * Adds the control.
 	 *
 	 * @access protected
-	 * @param array $args The field definition as sanitized in Kirki\Field.
+	 * @param array $args The field definition as sanitized in KirkiClassic\Field.
 	 */
 	final protected function add_control( $args ) {
 
@@ -95,7 +95,7 @@ class Control {
 		 * @param WP_Customize_Manager $wp_customize The customizer instance.
 		 * @return array                             Return the arguments.
 		 */
-		$args = apply_filters( 'kirki_field_add_control_args', $args, $this->wp_customize );
+		$args = apply_filters( 'kirki_classic_field_add_control_args', $args, $this->wp_customize );
 
 		// Add the control.
 		$this->wp_customize->add_control( new $class_name( $this->wp_customize, $args['settings'], $args ) );
@@ -104,7 +104,7 @@ class Control {
 
 	/**
 	 * Sets the $control_types property.
-	 * Makes sure the kirki_control_types filter is applied
+	 * Makes sure the kirki_classic_control_types filter is applied
 	 * and that the defined classes actually exist.
 	 * If a defined class does not exist, it is removed.
 	 *
@@ -117,7 +117,7 @@ class Control {
 			return;
 		}
 
-		self::$control_types = apply_filters( 'kirki_control_types', [] );
+		self::$control_types = apply_filters( 'kirki_classic_control_types', [] );
 
 		// Make sure the defined classes actually exist.
 		foreach ( self::$control_types as $key => $classname ) {

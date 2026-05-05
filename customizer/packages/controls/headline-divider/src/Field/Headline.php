@@ -6,9 +6,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -23,7 +23,7 @@ class Headline extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-headline';
+	public $type = 'kirki-classic-headline';
 
 	/**
 	 * The control class-name.
@@ -31,7 +31,7 @@ class Headline extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Headline';
+	protected $control_class = '\KirkiClassic\Control\Headline';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -81,7 +81,7 @@ class Headline extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-headline';
+			$args['type'] = 'kirki-classic-headline';
 		}
 
 		return $args;

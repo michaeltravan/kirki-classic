@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Number extends Generic {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-number';
+	public $type = 'kirki-classic-number';
 
 	/**
 	 * Filter arguments before creating the setting.
@@ -82,7 +82,7 @@ class Number extends Generic {
 			$args = parent::filter_control_args( $args, $wp_customize );
 
 			// Set the control-type.
-			$args['type'] = 'kirki-generic';
+			$args['type'] = 'kirki-classic-generic';
 
 			// Choices.
 			$args['choices']            = isset( $args['choices'] ) ? $args['choices'] : [];

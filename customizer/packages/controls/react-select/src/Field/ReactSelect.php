@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,18 +26,18 @@ class ReactSelect extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-select';
+	public $type = 'kirki-classic-select';
 
 	/**
 	 * Whether this is a multi-select or not.
 	 *
 	 * *Backwards compatibility note:
 	 *
-	 * Previously (when Kirki used Select2), $multiple is used to:
+	 * Previously (when KirkiClassic used Select2), $multiple is used to:
 	 * - Determine whether the select is multiple or not.
 	 * - Determine the maximum number of selection.
 	 *
-	 * Start from Kirki 4 (when Kirki uses react-select),
+	 * Start from KirkiClassic 4 (when KirkiClassic uses react-select),
 	 * $multiple is used to determine whether the select is multiple or not.
 	 * The maximum selection number is now set in $max_selection.
 	 *
@@ -70,7 +70,7 @@ class ReactSelect extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\ReactSelect';
+	protected $control_class = '\KirkiClassic\Control\ReactSelect';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -149,7 +149,7 @@ class ReactSelect extends Field {
 				$args['max_selection_number'] = $multiple_and_max['max_selection_number'];
 			}
 
-			$args['type'] = 'kirki-react-select';
+			$args['type'] = 'kirki-classic-react-select';
 		}
 
 		return $args;
@@ -173,7 +173,7 @@ class ReactSelect extends Field {
 			$multiple = (int) $multiple;
 
 			/**
-			 * Treat -1 as unlimited just like in WordPress's get_posts (well, in this Kirki case, it's 999 :).
+			 * Treat -1 as unlimited just like in WordPress's get_posts (well, in this KirkiClassic case, it's 999 :).
 			 * Also treat 0 as "unlimited" because 1 it self will disable the multiple selection.
 			 */
 			if ( 0 >= $multiple ) {

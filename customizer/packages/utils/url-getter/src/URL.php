@@ -9,7 +9,7 @@
  * @since     1.0
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
 /**
  * A collection of methods to get the URL of files.
@@ -150,7 +150,7 @@ class URL {
 		}
 
 		$this->url = \set_url_scheme( $this->url );
-		return \apply_filters( 'kirki_path_url', $this->url, $this->path );
+		return \apply_filters( 'kirki_classic_path_url', $this->url, $this->path );
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * Registers scripts for WordPress Compatibility with versions prior to WP5.0
  *
- * @package   Kirki
+ * @package   KirkiClassic
  * @category  Core
  * @author    Themeum
  * @copyright Copyright (c) 2023, Themeum
@@ -10,9 +10,9 @@
  * @since     0.1
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * Adds scripts for backwards-compatibility

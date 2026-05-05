@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Settings;
+namespace KirkiClassic\Settings;
 
 /**
  * Repeater Settings.

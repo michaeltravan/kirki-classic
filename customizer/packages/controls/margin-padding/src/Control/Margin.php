@@ -8,10 +8,10 @@
  * @since   1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * Slider control.
@@ -27,7 +27,7 @@ class Margin extends Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-margin';
+	public $type = 'kirki-classic-margin';
 
 	/**
 	 * The control version.

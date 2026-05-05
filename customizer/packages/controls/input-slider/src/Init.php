@@ -1,12 +1,12 @@
 <?php
 /**
- * Init the Kirki input slider package.
+ * Init the KirkiClassic input slider package.
  *
  * @package kirki-input-slider
  * @since 1.0.0
  */
 
-namespace Kirki\InputSlider;
+namespace KirkiClassic\InputSlider;
 
 /**
  * Manage the tabs package.
@@ -22,7 +22,7 @@ class Init {
 	 */
 	public function __construct() {
 
-		add_filter( 'kirki_control_types', [ $this, 'control_type' ] );
+		add_filter( 'kirki_classic_control_types', [ $this, 'control_type' ] );
 
 	}
 
@@ -35,7 +35,7 @@ class Init {
 	 */
 	public function control_type( $control_types ) {
 
-		$control_types['kirki-input-slider'] = 'Kirki\Control\InputSlider';
+		$control_types['kirki-classic-input-slider'] = 'KirkiClassic\Control\InputSlider';
 
 		return $control_types;
 

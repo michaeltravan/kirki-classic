@@ -2,7 +2,7 @@
 /**
  * Try to automatically generate the script necessary for adding icons to panels & section
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,9 +10,9 @@
  * @since       3.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * Adds scripts for icons in sections & panels.
@@ -54,8 +54,8 @@ class Section_Icons {
 	public function __construct() {
 
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'customize_controls_enqueue_scripts' ], 99 );
-		add_action( 'kirki_panel_added', [ $this, 'panel_added' ], 10, 2 );
-		add_action( 'kirki_section_added', [ $this, 'section_added' ], 10, 2 );
+		add_action( 'kirki_classic_panel_added', [ $this, 'panel_added' ], 10, 2 );
+		add_action( 'kirki_classic_section_added', [ $this, 'section_added' ], 10, 2 );
 
 	}
 
@@ -75,7 +75,7 @@ class Section_Icons {
 	}
 
 	/**
-	 * Hooks in kirki_panel_added to populate $this->panels.
+	 * Hooks in kirki_classic_panel_added to populate $this->panels.
 	 *
 	 * @access public
 	 * @since 1.0
@@ -92,7 +92,7 @@ class Section_Icons {
 	}
 
 	/**
-	 * Hooks in kirki_section_added to populate $this->sections.
+	 * Hooks in kirki_classic_section_added to populate $this->sections.
 	 *
 	 * @access public
 	 * @since 1.0
@@ -123,7 +123,7 @@ class Section_Icons {
 			$this->add_icon( $section['id'], $section['icon'], 'section' );
 		}
 
-		wp_localize_script( 'kirki-customizer', 'kirkiIcons', self::$icons );
+		wp_localize_script( 'kirki-classic-customizer', 'kirkiIcons', self::$icons );
 
 	}
 

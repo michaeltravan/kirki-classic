@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Image extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-image';
+	public $type = 'kirki-classic-image';
 
 	/**
 	 * The control class-name.
@@ -33,7 +33,7 @@ class Image extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Image';
+	protected $control_class = '\KirkiClassic\Control\Image';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -53,8 +53,8 @@ class Image extends Field {
 	 * @return void
 	 */
 	protected function init( $args ) {
-		add_filter( 'kirki_output_item_args', [ $this, 'output_item_args' ], 10, 4 );
-		add_filter( 'kirki_output_control_classnames', [ $this, 'output_control_classnames' ] );
+		add_filter( 'kirki_classic_output_item_args', [ $this, 'output_item_args' ], 10, 4 );
+		add_filter( 'kirki_classic_output_control_classnames', [ $this, 'output_control_classnames' ] );
 	}
 
 		/**
@@ -108,13 +108,13 @@ class Image extends Field {
 			$args['button_labels'] = wp_parse_args(
 				$args['button_labels'],
 				[
-					'select'       => esc_html__( 'Select image', 'kirki' ),
-					'change'       => esc_html__( 'Change image', 'kirki' ),
-					'default'      => esc_html__( 'Default', 'kirki' ),
-					'remove'       => esc_html__( 'Remove', 'kirki' ),
-					'placeholder'  => esc_html__( 'No image selected', 'kirki' ),
-					'frame_title'  => esc_html__( 'Select image', 'kirki' ),
-					'frame_button' => esc_html__( 'Choose image', 'kirki' ),
+					'select'       => esc_html__( 'Select image', 'kirki-classic' ),
+					'change'       => esc_html__( 'Change image', 'kirki-classic' ),
+					'default'      => esc_html__( 'Default', 'kirki-classic' ),
+					'remove'       => esc_html__( 'Remove', 'kirki-classic' ),
+					'placeholder'  => esc_html__( 'No image selected', 'kirki-classic' ),
+					'frame_title'  => esc_html__( 'Select image', 'kirki-classic' ),
+					'frame_button' => esc_html__( 'Choose image', 'kirki-classic' ),
 				]
 			);
 
@@ -124,7 +124,7 @@ class Image extends Field {
 			$args['choices']['labels']  = wp_parse_args( $args['choices']['labels'], $args['button_labels'] );
 
 			// Set the control-type.
-			$args['type'] = 'kirki-image';
+			$args['type'] = 'kirki-classic-image';
 		}
 		return $args;
 	}
@@ -160,7 +160,7 @@ class Image extends Field {
 	 * @return array
 	 */
 	public function output_control_classnames( $classnames ) {
-		$classnames['kirki-image'] = '\Kirki\Field\CSS\Image';
+		$classnames['kirki-classic-image'] = '\KirkiClassic\Field\CSS\Image';
 		return $classnames;
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Handles selective refreshes for Kirki fields.
+ * Handles selective refreshes for KirkiClassic fields.
  *
  * @package kirki-framework/module-selective-refresh
  * @author Themeum
@@ -9,7 +9,7 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
 /**
  * Handle selective refreshes introduced in WordPress 4.5.
@@ -32,7 +32,7 @@ class Selective_Refresh {
 	 * @access public
 	 */
 	public function __construct() {
-		add_filter( 'kirki_field_add_setting_args', [ $this, 'filter_setting_args' ], 10, 2 );
+		add_filter( 'kirki_classic_field_add_setting_args', [ $this, 'filter_setting_args' ], 10, 2 );
 	}
 
 	/**

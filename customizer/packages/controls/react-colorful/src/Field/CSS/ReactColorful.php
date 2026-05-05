@@ -2,15 +2,15 @@
 /**
  * Handle CSS output for control-react-colorful.
  *
- * @package Kirki
+ * @package KirkiClassic
  * @subpackage Controls
  * @license MIT
  * @since 4.0.0
  */
 
-namespace Kirki\Field\CSS;
+namespace KirkiClassic\Field\CSS;
 
-use Kirki\Module\CSS\Output;
+use KirkiClassic\Module\CSS\Output;
 
 /**
  * Output overrides.

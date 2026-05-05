@@ -1,6 +1,6 @@
 <?php
 /**
- * Override field methods when used with the Kirki API.
+ * Override field methods when used with the KirkiClassic API.
  *
  * @package   kirki-framework/control-custom
  * @copyright Copyright (c) 2023, Themeum
@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Custom extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-custom';
+	public $type = 'kirki-classic-custom';
 
 	/**
 	 * The control class-name.
@@ -35,7 +35,7 @@ class Custom extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Custom';
+	protected $control_class = '\KirkiClassic\Control\Custom';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -77,7 +77,7 @@ class Custom extends Field {
 	public function filter_control_args( $args, $wp_customize ) {
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-custom';
+			$args['type'] = 'kirki-classic-custom';
 		}
 		return $args;
 	}

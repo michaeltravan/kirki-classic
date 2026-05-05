@@ -1,6 +1,6 @@
 <?php
 /**
- * Automatic field-dependencies scripts calculation for Kirki controls.
+ * Automatic field-dependencies scripts calculation for KirkiClassic controls.
  *
  * @package kirki-framework/module-field-dependencies
  * @author Themeum
@@ -9,9 +9,9 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * Field dependencies.
@@ -46,7 +46,7 @@ class Field_Dependencies {
 	public function __construct() {
 
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'field_dependencies' ] );
-		add_filter( 'kirki_field_add_control_args', [ $this, 'field_add_control_args' ] );
+		add_filter( 'kirki_classic_field_add_control_args', [ $this, 'field_add_control_args' ] );
 
 	}
 
@@ -66,7 +66,7 @@ class Field_Dependencies {
 	 */
 	private function field_add_repeater_controls( $args ) {
 		$type = isset( $args['type'] ) ? $args['type'] : '';
-		if ( in_array( $type, array( 'repeater', 'kirki-repeater' ), true ) ) {
+		if ( in_array( $type, array( 'repeater', 'kirki-classic-repeater' ), true ) ) {
     		$this->repeater_controls[$args['settings']] = '__return_true';
 		}
 
@@ -137,8 +137,8 @@ class Field_Dependencies {
 	 */
 	public function field_dependencies() {
 
-		wp_localize_script( 'kirki-customizer', 'kirkiControlDependencies', $this->dependencies );
-		wp_localize_script( 'kirki-customizer', 'kirkiRepeaterControlsAvailable', $this->repeater_controls );
+		wp_localize_script( 'kirki-classic-customizer', 'kirkiControlDependencies', $this->dependencies );
+		wp_localize_script( 'kirki-classic-customizer', 'kirkiRepeaterControlsAvailable', $this->repeater_controls );
 
 	}
 }

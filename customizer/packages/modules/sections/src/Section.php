@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
 /**
  * Section.
@@ -40,10 +40,10 @@ class Section {
 	 * @var array
 	 */
 	private $section_types = [
-		'kirki-expanded' => '\Kirki\Section_Types\Expanded',
-		'kirki-nested'   => '\Kirki\Section_Types\Nested',
-		'kirki-link'     => '\Kirki\Section_Types\Link',
-		'kirki-outer'    => '\Kirki\Section_Types\Outer',
+		'kirki-classic-expanded' => '\KirkiClassic\Section_Types\Expanded',
+		'kirki-classic-nested'   => '\KirkiClassic\Section_Types\Nested',
+		'kirki-classic-link'     => '\KirkiClassic\Section_Types\Link',
+		'kirki-classic-outer'    => '\KirkiClassic\Section_Types\Outer',
 	];
 
 	/**
@@ -58,9 +58,9 @@ class Section {
 		$this->id   = $id;
 		$this->args = $args;
 
-		$this->section_types = apply_filters( 'kirki_section_types', $this->section_types );
+		$this->section_types = apply_filters( 'kirki_classic_section_types', $this->section_types );
 
-		do_action( 'kirki_section_init', $id, $args );
+		do_action( 'kirki_classic_section_init', $id, $args );
 
 		add_action( 'customize_register', [ $this, 'register_section_types' ] );
 
@@ -97,7 +97,7 @@ class Section {
 		// Figure out the type of this section.
 		$this->args['type'] = isset( $this->args['type'] ) ? $this->args['type'] : 'default';
 		if ( isset( $this->args['section'] ) && ! empty( $this->args['section'] ) ) {
-			$this->args['type'] = 'kirki-nested';
+			$this->args['type'] = 'kirki-classic-nested';
 
 			// We need to check if the parent section is nested inside a panel.
 			$parent_section = $wp_customize->get_section( $this->args['section'] );
@@ -105,7 +105,7 @@ class Section {
 				$this->args['panel'] = $parent_section->panel;
 			}
 		}
-		$this->args['type'] = false === strpos( $this->args['type'], 'kirki-' ) ? 'kirki-' . $this->args['type'] : $this->args['type'];
+		$this->args['type'] = false === strpos( $this->args['type'], 'kirki-classic-' ) ? 'kirki-classic-' . $this->args['type'] : $this->args['type'];
 
 		// Get the class we'll be using to create this section.
 		$section_classname = '\WP_Customize_Section';
@@ -113,7 +113,7 @@ class Section {
 			$section_classname = $this->section_types[ $this->args['type'] ];
 		}
 
-		if ( isset( $this->args['type'] ) && 'kirki-outer' === $this->args['type'] ) {
+		if ( isset( $this->args['type'] ) && 'kirki-classic-outer' === $this->args['type'] ) {
 			$this->args['type'] = 'outer';
 			$section_classname  = 'WP_Customize_Section'; // ? Bagus: we should be using `\` (backslash) right? Lookk at above.
 		}
@@ -123,12 +123,12 @@ class Section {
 			new $section_classname(
 				$wp_customize,
 				$this->id,
-				apply_filters( 'kirki_section_args', $this->args, $this->id )
+				apply_filters( 'kirki_classic_section_args', $this->args, $this->id )
 			)
 		);
 
 		// Run an action after the section has been added.
-		do_action( 'kirki_section_added', $this->id, $this->args );
+		do_action( 'kirki_classic_section_added', $this->id, $this->args );
 	}
 
 	/**
@@ -171,7 +171,7 @@ class Section {
 	 * @return void
 	 */
 	public function outer_sections_css() {
-		if ( isset( $this->args['type'] ) && ( 'outer' === $this->args['type'] || 'kirki-outer' === $this->args['type'] ) ) {
+		if ( isset( $this->args['type'] ) && ( 'outer' === $this->args['type'] || 'kirki-classic-outer' === $this->args['type'] ) ) {
 			echo '<style>#customize-theme-controls li#accordion-section-' . esc_html( $this->id ) . ',li#sub-accordion-section-' . esc_html( $this->id ) . '{display:list-item!important;}</style>';
 		}
 	}

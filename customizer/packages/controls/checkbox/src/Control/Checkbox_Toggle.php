@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +29,6 @@ class Checkbox_Toggle extends Checkbox_Switch {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-toggle';
+	public $type = 'kirki-classic-toggle';
 
 }

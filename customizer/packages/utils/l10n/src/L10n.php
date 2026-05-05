@@ -11,7 +11,7 @@
  * @since     1.0
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
 /**
  * Handles translations
@@ -51,17 +51,17 @@ class L10n {
 	 *
 	 * @access public
 	 * @since 1.0
-	 * @param string $textdomain     The textdomain we want to use. Defaults to "kirki".
+	 * @param string $textdomain     The textdomain we want to use. Defaults to "kirki-classic".
 	 * @param string $languages_path The path to languages files.
 	 */
-	public function __construct( $textdomain = 'kirki', $languages_path = '' ) {
+	public function __construct( $textdomain = 'kirki-classic', $languages_path = '' ) {
 
 		$this->textdomain     = $textdomain;
 		$this->languages_path = $languages_path;
 		// This will only work if we're inside a plugin.
 		add_action( 'init', [ $this, 'load_textdomain' ] );
 
-		// If we got this far, then Kirki is embedded in a plugin.
+		// If we got this far, then KirkiClassic is embedded in a plugin.
 		// We want the theme's textdomain to handle translations.
 		add_filter( 'override_load_textdomain', [ $this, 'override_load_textdomain' ], 5, 3 );
 	}

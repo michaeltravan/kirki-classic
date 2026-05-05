@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Radio extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-radio';
+	public $type = 'kirki-classic-radio';
 
 	/**
 	 * The control class-name.
@@ -35,7 +35,7 @@ class Radio extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Radio';
+	protected $control_class = '\KirkiClassic\Control\Radio';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -84,7 +84,7 @@ class Radio extends Field {
 	public function filter_control_args( $args, $wp_customize ) {
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-radio';
+			$args['type'] = 'kirki-classic-radio';
 		}
 		return $args;
 	}

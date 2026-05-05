@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Code extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-code';
+	public $type = 'kirki-classic-code';
 
 	/**
 	 * The control class-name.
@@ -33,7 +33,7 @@ class Code extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Code';
+	protected $control_class = '\KirkiClassic\Control\Code';
 
 	/**
 	 * Filter arguments before creating the setting.
@@ -80,7 +80,7 @@ class Code extends Field {
 			$args['type'] = 'code_editor';
 
 			$args['input_attrs'] = [
-				'aria-describedby' => 'kirki-code editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4',
+				'aria-describedby' => 'kirki-classic-code editor-keyboard-trap-help-1 editor-keyboard-trap-help-2 editor-keyboard-trap-help-3 editor-keyboard-trap-help-4',
 			];
 			if ( ! isset( $args['choices']['language'] ) ) {
 				return;

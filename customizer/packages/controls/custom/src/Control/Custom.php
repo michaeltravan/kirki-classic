@@ -11,9 +11,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
+use KirkiClassic\Control\Base;
 
 /**
  * The "custom" control allows you to add any raw HTML.
@@ -29,7 +29,7 @@ class Custom extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-custom';
+	public $type = 'kirki-classic-custom';
 
 	/**
 	 * An Underscore (JS) template for this control's content (but not its container).

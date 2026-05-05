@@ -6,10 +6,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
-use Kirki\Field\Checkbox_Toggle;
+use KirkiClassic\Field;
+use KirkiClassic\Field\Checkbox_Toggle;
 
 /**
  * Field overrides.
@@ -24,6 +24,6 @@ class HeadlineToggle extends Checkbox_Toggle {
 	 * @since 1.0
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\HeadlineToggle';
+	protected $control_class = '\KirkiClassic\Control\HeadlineToggle';
 
 }

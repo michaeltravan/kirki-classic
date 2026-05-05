@@ -8,7 +8,7 @@
  * @since   1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
 /**
  * Slider control.
@@ -24,6 +24,6 @@ class Padding extends Margin {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-padding';
+	public $type = 'kirki-classic-padding';
 
 }

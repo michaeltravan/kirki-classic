@@ -29,7 +29,7 @@ KirkiDatePicker.prototype = {
 		
 		// Create picker element
 		this.picker = document.createElement('div');
-		this.picker.className = 'kirki-datepicker-popup';
+		this.picker.className = 'kirki-classic-datepicker-popup';
 		this.picker.style.display = 'none';
 		document.body.appendChild(this.picker);
 		
@@ -144,13 +144,13 @@ KirkiDatePicker.prototype = {
 		if (positionAbove) {
 			// Position above the input
 			this.picker.style.top = (rect.top + scrollTop - pickerHeight - gap) + 'px';
-			this.picker.classList.add('kirki-datepicker-above');
-			this.picker.classList.remove('kirki-datepicker-below');
+			this.picker.classList.add('kirki-classic-datepicker-above');
+			this.picker.classList.remove('kirki-classic-datepicker-below');
 		} else {
 			// Position below the input (default)
 			this.picker.style.top = (rect.bottom + scrollTop + gap) + 'px';
-			this.picker.classList.add('kirki-datepicker-below');
-			this.picker.classList.remove('kirki-datepicker-above');
+			this.picker.classList.add('kirki-classic-datepicker-below');
+			this.picker.classList.remove('kirki-classic-datepicker-above');
 		}
 		
 		// Horizontal positioning - keep left aligned, but adjust if it would go off-screen
@@ -182,13 +182,13 @@ KirkiDatePicker.prototype = {
 		// Day names
 		var dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 		
-		var html = '<div class="kirki-datepicker-header">';
-		html += '<button type="button" class="kirki-datepicker-prev" aria-label="Previous month"></button>';
-		html += '<div class="kirki-datepicker-title">' + monthNames[month] + ' ' + year + '</div>';
-		html += '<button type="button" class="kirki-datepicker-next" aria-label="Next month"></button>';
+		var html = '<div class="kirki-classic-datepicker-header">';
+		html += '<button type="button" class="kirki-classic-datepicker-prev" aria-label="Previous month"></button>';
+		html += '<div class="kirki-classic-datepicker-title">' + monthNames[month] + ' ' + year + '</div>';
+		html += '<button type="button" class="kirki-classic-datepicker-next" aria-label="Next month"></button>';
 		html += '</div>';
 		
-		html += '<table class="kirki-datepicker-calendar">';
+		html += '<table class="kirki-classic-datepicker-calendar">';
 		html += '<thead><tr>';
 		for (var i = 0; i < dayNames.length; i++) {
 			html += '<th>' + dayNames[i] + '</th>';
@@ -211,11 +211,11 @@ KirkiDatePicker.prototype = {
 			var isSelected = this.selectedDate && 
 				date.getTime() === new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth(), this.selectedDate.getDate()).getTime();
 			
-			var cellClass = 'kirki-datepicker-day';
-			if (isToday) cellClass += ' kirki-datepicker-today';
-			if (isSelected) cellClass += ' kirki-datepicker-selected';
+			var cellClass = 'kirki-classic-datepicker-day';
+			if (isToday) cellClass += ' kirki-classic-datepicker-today';
+			if (isSelected) cellClass += ' kirki-classic-datepicker-selected';
 			
-			html += '<td class="' + (isToday ? 'kirki-datepicker-today' : '') + '">';
+			html += '<td class="' + (isToday ? 'kirki-classic-datepicker-today' : '') + '">';
 			html += '<a href="#" class="' + cellClass + '" data-day="' + day + '" data-month="' + month + '" data-year="' + year + '">' + day + '</a>';
 			html += '</td>';
 			
@@ -230,9 +230,9 @@ KirkiDatePicker.prototype = {
 		this.picker.innerHTML = html;
 		
 		// Attach event listeners
-		var prevBtn = this.picker.querySelector('.kirki-datepicker-prev');
-		var nextBtn = this.picker.querySelector('.kirki-datepicker-next');
-		var dayLinks = this.picker.querySelectorAll('.kirki-datepicker-day');
+		var prevBtn = this.picker.querySelector('.kirki-classic-datepicker-prev');
+		var nextBtn = this.picker.querySelector('.kirki-classic-datepicker-next');
+		var dayLinks = this.picker.querySelectorAll('.kirki-classic-datepicker-day');
 		
 		prevBtn.addEventListener('click', function(e) {
 			e.preventDefault();
@@ -287,7 +287,7 @@ KirkiDatePicker.prototype = {
 	}
 };
 
-wp.customize.controlConstructor['kirki-date'] = wp.customize.kirkiDynamicControl.extend({
+wp.customize.controlConstructor['kirki-classic-date'] = wp.customize.kirkiDynamicControl.extend({
 
 	initKirkiControl: function (control) {
 		control = control || this;

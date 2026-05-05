@@ -7,10 +7,10 @@
  * @package kirki-input-slider
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * Input slider control.
@@ -26,7 +26,7 @@ class InputSlider extends Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-input-slider';
+	public $type = 'kirki-classic-input-slider';
 
 	/**
 	 * The control version.

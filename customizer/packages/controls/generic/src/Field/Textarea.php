@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -22,7 +22,7 @@ class Textarea extends Generic {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-textarea';
+	public $type = 'kirki-classic-textarea';
 
 	/**
 	 * Filter arguments before creating the control.
@@ -38,7 +38,7 @@ class Textarea extends Generic {
 			$args = parent::filter_control_args( $args, $wp_customize );
 
 			// Set the control-type.
-			$args['type'] = 'kirki-generic';
+			$args['type'] = 'kirki-classic-generic';
 
 			// Choices.
 			$args['choices']            = isset( $args['choices'] ) ? $args['choices'] : [];

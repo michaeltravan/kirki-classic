@@ -6,7 +6,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -22,7 +22,7 @@ class Checkbox_Toggle extends Checkbox {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-toggle';
+	public $type = 'kirki-classic-toggle';
 
 	/**
 	 * The control class-name.
@@ -31,7 +31,7 @@ class Checkbox_Toggle extends Checkbox {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Checkbox_Toggle';
+	protected $control_class = '\KirkiClassic\Control\Checkbox_Toggle';
 
 	/**
 	 * Filter arguments before creating the control.
@@ -46,7 +46,7 @@ class Checkbox_Toggle extends Checkbox {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-toggle';
+			$args['type'] = 'kirki-classic-toggle';
 		}
 
 		return $args;

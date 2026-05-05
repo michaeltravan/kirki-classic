@@ -2,7 +2,7 @@
 /**
  * Manage fonts downloading.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since       3.1.0
  */
 
-namespace Kirki\Module\Webfonts;
+namespace KirkiClassic\Module\Webfonts;
 
 /**
  * Fonts-downloading manager.
@@ -65,7 +65,7 @@ class Downloader {
 	 */
 	protected function get_local_files_from_css( $css ) {
 		$font_files = $this->get_files_from_css( $css );
-		$stored     = get_option( 'kirki_downloaded_font_files', array() );
+		$stored     = get_option( 'kirki_classic_downloaded_font_files', array() );
 		$change     = false; // If in the end this is true, we need to update the cache option.
 
 		// If the fonts folder don't exist, create it.
@@ -122,7 +122,7 @@ class Downloader {
 		}
 
 		if ( $change ) {
-			update_option( 'kirki_downloaded_font_files', $stored );
+			update_option( 'kirki_classic_downloaded_font_files', $stored );
 		}
 
 		return $stored;
@@ -143,7 +143,7 @@ class Downloader {
 
 		// Try to retrieved cached response from the gfonts API.
 		$contents         = false;
-		$cached_responses = get_transient( 'kirki_remote_url_contents' );
+		$cached_responses = get_transient( 'kirki_classic_remote_url_contents' );
 		$cached_responses = ( $cached_responses && is_array( $cached_responses ) ) ? $cached_responses : array();
 		if ( isset( $cached_responses[ md5( $url . $user_agent ) ] ) ) {
 			return $cached_responses[ md5( $url . $user_agent ) ];
@@ -157,7 +157,7 @@ class Downloader {
 		// so we want to be able to get the latest version weekly.
 		if ( $contents ) {
 			$cached_responses[ md5( $url . $user_agent ) ] = $contents;
-			set_transient( 'kirki_remote_url_contents', $cached_responses, WEEK_IN_SECONDS );
+			set_transient( 'kirki_classic_remote_url_contents', $cached_responses, WEEK_IN_SECONDS );
 		}
 
 		return $contents;

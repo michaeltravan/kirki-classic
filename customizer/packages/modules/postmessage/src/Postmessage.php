@@ -1,6 +1,6 @@
 <?php
 /**
- * Automatic postMessage scripts calculation for Kirki controls.
+ * Automatic postMessage scripts calculation for KirkiClassic controls.
  *
  * @package kirki-framework/module-postmessage
  * @author Themeum
@@ -9,9 +9,9 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * Adds styles to the customizer.
@@ -37,7 +37,7 @@ class Postmessage
 	public function __construct()
 	{
 		add_action('customize_preview_init', [$this, 'postmessage'], 20);
-		add_action('kirki_field_add_setting_args', [$this, 'field_add_setting_args']);
+		add_action('kirki_classic_field_add_setting_args', [$this, 'field_add_setting_args']);
 	}
 
 	/**
@@ -69,7 +69,7 @@ class Postmessage
 				// Convert to array of arrays if needed.
 				if (isset($args['output']['element'])) {
 					/* translators: The field ID where the error occurs. */
-					_doing_it_wrong(__METHOD__, sprintf(esc_html__('"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki'), esc_html($args['settings'])), '3.0.10');
+					_doing_it_wrong(__METHOD__, sprintf(esc_html__('"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki-classic'), esc_html($args['settings'])), '3.0.10');
 
 					$args['output'] = array($args['output']);
 				}
@@ -103,8 +103,8 @@ class Postmessage
 		$fields = $this->fields;
 
 		// Compatibility with v3 API.
-		if (class_exists('\Kirki\Compatibility\Kirki')) {
-			$fields = array_merge(\Kirki\Compatibility\Kirki::$fields, $fields);
+		if (class_exists('\KirkiClassic\Compatibility\KirkiClassic')) {
+			$fields = array_merge(\KirkiClassic\Compatibility\KirkiClassic::$fields, $fields);
 		}
 
 		$data = [];
@@ -115,12 +115,12 @@ class Postmessage
 			}
 		}
 
-		wp_localize_script('kirki-customizer', 'kirkiPostMessageFields', $data);
+		wp_localize_script('kirki-classic-customizer', 'kirkiPostMessageFields', $data);
 
-		$extras = apply_filters('kirki_postmessage_script', false);
+		$extras = apply_filters('kirki_classic_postmessage_script', false);
 
 		if ($extras) {
-			wp_add_inline_script('kirki-customizer', $extras, 'after');
+			wp_add_inline_script('kirki-classic-customizer', $extras, 'after');
 		}
 
 	}

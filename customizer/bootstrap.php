@@ -12,6 +12,6 @@
  * @since 4.0
  */
 
-new \Kirki\Compatibility\Aliases();
-new \Kirki\Compatibility\Deprecated();
-new \Kirki\Data\Option();
+new \KirkiClassic\Compatibility\Aliases();
+new \KirkiClassic\Compatibility\Deprecated();
+new \KirkiClassic\Data\Option();

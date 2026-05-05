@@ -2,14 +2,14 @@
 /**
  * Creates a new panel.
  *
- * @package    Kirki
+ * @package    KirkiClassic
  * @subpackage Custom Sections Module
  * @copyright  Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since      1.0
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
 /**
  * Panel.
@@ -42,7 +42,7 @@ class Panel {
 	 */
 	private $panel_types = [
 		'default'      => 'WP_Customize_Panel',
-		'kirki-nested' => '\Kirki\Panel_Types\Nested',
+		'kirki-classic-nested' => '\KirkiClassic\Panel_Types\Nested',
 	];
 
 	/**
@@ -57,7 +57,7 @@ class Panel {
 		$this->id   = $id;
 		$this->args = $args;
 
-		$this->panel_types = apply_filters( 'kirki_panel_types', $this->panel_types );
+		$this->panel_types = apply_filters( 'kirki_classic_panel_types', $this->panel_types );
 
 		if ( $this->args ) {
 			add_action( 'customize_register', [ $this, 'add_panel' ] );
@@ -77,10 +77,10 @@ class Panel {
 		// Figure out the type of this panel.
 		$this->args['type'] = isset( $this->args['type'] ) ? $this->args['type'] : 'default';
 		if ( isset( $this->args['panel'] ) && ! empty( $this->args['panel'] ) ) {
-			$this->args['type'] = 'kirki-nested';
+			$this->args['type'] = 'kirki-classic-nested';
 		}
-		$this->args['type'] = false === strpos( $this->args['type'], 'kirki-' ) ? 'kirki-' . $this->args['type'] : $this->args['type'];
-		$this->args['type'] = 'kirki-default' === $this->args['type'] ? 'default' : $this->args['type'];
+		$this->args['type'] = false === strpos( $this->args['type'], 'kirki-classic-' ) ? 'kirki-classic-' . $this->args['type'] : $this->args['type'];
+		$this->args['type'] = 'kirki-classic-default' === $this->args['type'] ? 'default' : $this->args['type'];
 
 		// Get the class we'll be using to create this panel.
 		$panel_classname = $this->panel_types[ $this->args['type'] ];
@@ -93,12 +93,12 @@ class Panel {
 			new $panel_classname(
 				$wp_customize,
 				$this->id,
-				apply_filters( 'kirki_panel_args', $this->args, $this->id )
+				apply_filters( 'kirki_classic_panel_args', $this->args, $this->id )
 			)
 		);
 
 		// Run an action after the panel has been added.
-		do_action( 'kirki_panel_added', $this->id, $this->args );
+		do_action( 'kirki_classic_panel_added', $this->id, $this->args );
 	}
 
 	/**

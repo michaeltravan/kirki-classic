@@ -185,23 +185,23 @@
   width: 48%;
 }
 
-.kirki-image-attachment {
+.kirki-classic-image-attachment {
   margin: 0;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.kirki-image-attachment img {
+.kirki-classic-image-attachment img {
   display: inline-block;
 }
 
-.kirki-file-attachment {
+.kirki-classic-file-attachment {
   margin: 0;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.kirki-file-attachment .file {
+.kirki-classic-file-attachment .file {
   display: block;
   padding: 10px 5px;
   border: 1px dotted #c3c3c3;
@@ -232,7 +232,7 @@
 }
 
 // Smooth transitions for slide animations
-.kirki-image-attachment,
-.kirki-file-attachment {
+.kirki-classic-image-attachment,
+.kirki-classic-file-attachment {
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }

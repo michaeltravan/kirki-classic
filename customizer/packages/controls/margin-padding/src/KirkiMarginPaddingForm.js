@@ -88,7 +88,7 @@ const KirkiMarginPaddingForm = (props) => {
   };
 
   // Preparing for the template.
-  const fieldId = `kirki-control-input-${props.type}-top`;
+  const fieldId = `kirki-classic-control-input-${props.type}-top`;
   const unitRef = useRef(null);
 
   const makeMappable = () => {
@@ -104,10 +104,10 @@ const KirkiMarginPaddingForm = (props) => {
   };
 
   return (
-    <div className="kirki-control-form" tabIndex="1">
+    <div className="kirki-classic-control-form" tabIndex="1">
       {(props.label || props.description) && (
         <>
-          <label className="kirki-control-label" htmlFor={fieldId}>
+          <label className="kirki-classic-control-label" htmlFor={fieldId}>
             {props.label && (
               <span className="customize-control-title">{props.label}</span>
             )}
@@ -129,21 +129,21 @@ const KirkiMarginPaddingForm = (props) => {
 
       <button
         type="button"
-        className="kirki-control-reset"
+        className="kirki-classic-control-reset"
         onClick={handleReset}
       >
         <i className="dashicons dashicons-image-rotate"></i>
       </button>
 
-      <div className="kirki-control-cols">
-        <div className="kirki-control-left-col">
-          <div class="kirki-control-fields">
+      <div className="kirki-classic-control-cols">
+        <div className="kirki-classic-control-left-col">
+          <div class="kirki-classic-control-fields">
             {makeMappable(inputValues).map((item) => {
-              const className = `kirki-control-input kirki-control-input-${item.position}`;
-              const id = `kirki-control-input-${props.type}-${item.position}`;
+              const className = `kirki-classic-control-input kirki-classic-control-input-${item.position}`;
+              const id = `kirki-classic-control-input-${props.type}-${item.position}`;
 
               return (
-                <div class="kirki-control-field">
+                <div class="kirki-classic-control-field">
                   <input
                     id={id}
                     type="number"
@@ -151,7 +151,7 @@ const KirkiMarginPaddingForm = (props) => {
                     className={className}
                     onChange={(e) => handleChange(e, item.position)}
                   />
-                  <label class="kirki-control-sublabel" htmlFor={id}>
+                  <label class="kirki-classic-control-sublabel" htmlFor={id}>
                     {item.position}
                   </label>
                 </div>
@@ -159,8 +159,8 @@ const KirkiMarginPaddingForm = (props) => {
             })}
           </div>
         </div>
-        <div className="kirki-control-right-col">
-          <span ref={unitRef} className="kirki-control-unit">
+        <div className="kirki-classic-control-right-col">
+          <span ref={unitRef} className="kirki-classic-control-unit">
             {valueUnit}
           </span>
         </div>

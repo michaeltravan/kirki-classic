@@ -1,6 +1,6 @@
 // Range slider control.
 .customize-control-kirki-slider {
-  .kirki-control-label {
+  .kirki-classic-control-label {
     position: relative;
     display: block;
   }
@@ -9,18 +9,18 @@
     padding-right: 30px;
   }
 
-  .kirki-control-form {
+  .kirki-classic-control-form {
     position: relative;
     margin-bottom: 12px;
 
     &:hover {
-      .kirki-control-reset {
+      .kirki-classic-control-reset {
         opacity: 1;
       }
     }
   }
 
-  .kirki-control-reset {
+  .kirki-classic-control-reset {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,12 +45,12 @@
     }
   }
 
-  .kirki-control-reset:hover i {
+  .kirki-classic-control-reset:hover i {
     color: #f00;
     transform: rotate(-45deg);
   }
 
-  .kirki-control-reset i {
+  .kirki-classic-control-reset i {
     font-size: 12px;
     width: auto;
     height: auto;
@@ -58,23 +58,23 @@
     transition: transform 0.3s;
   }
 
-  .kirki-control-cols {
+  .kirki-classic-control-cols {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .kirki-control-left-col {
+  .kirki-classic-control-left-col {
     width: 90%;
     padding-right: 13px;
   }
 
-  .kirki-control-right-col {
+  .kirki-classic-control-right-col {
     width: 10%;
     text-align: right;
   }
 
-  .kirki-control-input {
+  .kirki-classic-control-input {
     font-size: 12px;
     text-align: center;
     background-color: #f7f7f7;
@@ -83,7 +83,7 @@
     z-index: 2;
   }
 
-  .kirki-control-slider {
+  .kirki-classic-control-slider {
     position: relative;
     top: -1px;
     padding: 0;
@@ -96,7 +96,7 @@
     -webkit-appearance: none;
   }
 
-  .kirki-control-slider::-webkit-slider-thumb {
+  .kirki-classic-control-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 16px;
@@ -112,16 +112,16 @@
       box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
-  .kirki-control-slider::-webkit-slider-thumb:hover,
-  .kirki-control-slider::-webkit-slider-thumb:focus {
+  .kirki-classic-control-slider::-webkit-slider-thumb:hover,
+  .kirki-classic-control-slider::-webkit-slider-thumb:focus {
     background-color: #e7e7e7;
   }
 
-  .kirki-control-slider:active::-webkit-slider-thumb {
+  .kirki-classic-control-slider:active::-webkit-slider-thumb {
     background-color: #e7e7e7;
   }
 
-  .kirki-control-slider::-moz-range-thumb {
+  .kirki-classic-control-slider::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border: 0;
@@ -136,8 +136,8 @@
       box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
-  .kirki-control-slider::-moz-range-thumb:hover,
-  .kirki-control-slider::-moz-range-thumb:focus {
+  .kirki-classic-control-slider::-moz-range-thumb:hover,
+  .kirki-classic-control-slider::-moz-range-thumb:focus {
     background-color: #e7e7e7;
   }
 

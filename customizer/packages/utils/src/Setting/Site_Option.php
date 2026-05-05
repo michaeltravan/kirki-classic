@@ -2,12 +2,12 @@
 /**
  * WordPress Customize Setting classes
  *
- * @package Kirki
+ * @package KirkiClassic
  * @subpackage Modules
  * @since 3.0.0
  */
 
-namespace Kirki\Util\Setting;
+namespace KirkiClassic\Util\Setting;
 
 /**
  * Handles saving and sanitizing of user-meta.

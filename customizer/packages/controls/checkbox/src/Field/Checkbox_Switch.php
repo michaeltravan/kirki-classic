@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Checkbox_Switch extends Checkbox {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-switch';
+	public $type = 'kirki-classic-switch';
 
 	/**
 	 * The control class-name.
@@ -33,7 +33,7 @@ class Checkbox_Switch extends Checkbox {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Checkbox_Switch';
+	protected $control_class = '\KirkiClassic\Control\Checkbox_Switch';
 
 	/**
 	 * Filter arguments before creating the control.
@@ -48,7 +48,7 @@ class Checkbox_Switch extends Checkbox {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-switch';
+			$args['type'] = 'kirki-classic-switch';
 		}
 
 		return $args;

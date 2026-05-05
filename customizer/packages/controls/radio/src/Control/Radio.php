@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,7 +29,7 @@ class Radio extends Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-radio';
+	public $type = 'kirki-classic-radio';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.

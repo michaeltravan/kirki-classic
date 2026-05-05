@@ -2,7 +2,7 @@
 /**
  * Helper methods
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since       1.0
  */
 
-namespace Kirki\Util;
+namespace KirkiClassic\Util;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -153,10 +153,10 @@ class Helper {
 			return 0;
 		}
 
-		$attachment = wp_cache_get( 'kirki_image_id_' . md5( $url ), null );
+		$attachment = wp_cache_get( 'kirki_classic_image_id_' . md5( $url ), null );
 		if ( false === $attachment ) {
 			$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid = %s;", $url ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
-			wp_cache_add( 'kirki_image_id_' . md5( $url ), $attachment, null );
+			wp_cache_add( 'kirki_classic_image_id_' . md5( $url ), $attachment, null );
 		}
 
 		if ( ! empty( $attachment ) ) {
@@ -318,7 +318,7 @@ class Helper {
 	 * @return array
 	 */
 	public static function get_material_design_colors( $context = 'primary' ) {
-		return \Kirki\Util\MaterialColors::get_colors( $context );
+		return \KirkiClassic\Util\MaterialColors::get_colors( $context );
 	}
 
 	/**
@@ -329,8 +329,8 @@ class Helper {
 	 * @return array
 	 */
 	public static function get_dashicons() {
-		if ( class_exists( '\Kirki\Util\Dashicons' ) ) {
-			return \Kirki\Util\Dashicons::get_icons();
+		if ( class_exists( '\KirkiClassic\Util\Dashicons' ) ) {
+			return \KirkiClassic\Util\Dashicons::get_icons();
 		}
 		return [];
 	}

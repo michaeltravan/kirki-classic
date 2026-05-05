@@ -2,7 +2,7 @@
 /**
  * Handles the CSS Output of fields.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Modules
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,12 +10,12 @@
  * @since       3.0.0
  */
 
-namespace Kirki\Module;
+namespace KirkiClassic\Module;
 
-use Kirki\Compatibility\Kirki;
-use Kirki\Util\Helper;
-use Kirki\Compatibility\Values;
-use Kirki\Module\CSS\Generator;
+use KirkiClassic\Compatibility\KirkiClassic;
+use KirkiClassic\Util\Helper;
+use KirkiClassic\Compatibility\Values;
+use KirkiClassic\Module\CSS\Generator;
 
 /**
  * The Module object.
@@ -60,7 +60,7 @@ class CSS
 	 *
 	 * @var string
 	 */
-	private static $css_handle = 'kirki-styles';
+	private static $css_handle = 'kirki-classic-styles';
 
 	/**
 	 * The default id for kirki's inline style tag.
@@ -71,7 +71,7 @@ class CSS
 	 *
 	 * @var string
 	 */
-	private static $inline_styles_id = 'kirki-inline-styles';
+	private static $inline_styles_id = 'kirki-classic-inline-styles';
 
 	/**
 	 * Constructor
@@ -81,7 +81,7 @@ class CSS
 	public function __construct()
 	{
 
-		add_action('kirki_field_init', array($this, 'field_init'), 10, 2);
+		add_action('kirki_classic_field_init', array($this, 'field_init'), 10, 2);
 		add_action('init', array($this, 'init'));
 
 	}
@@ -94,12 +94,12 @@ class CSS
 	public function init()
 	{
 
-		new \Kirki\Module\Webfonts();
+		new \KirkiClassic\Module\Webfonts();
 
 		add_action('wp', array($this, 'print_styles_action'));
 
-		if (!apply_filters('kirki_output_inline_styles', true)) {
-			$config = apply_filters('kirki_config', array());
+		if (!apply_filters('kirki_classic_output_inline_styles', true)) {
+			$config = apply_filters('kirki_classic_config', array());
 			$priority = 999;
 
 			if (isset($config['styles_priority'])) {
@@ -133,7 +133,7 @@ class CSS
 
 		if (!is_array($args['output'])) {
 			/* translators: The field ID where the error occurs. */
-			_doing_it_wrong(__METHOD__, sprintf(esc_html__('"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki'), esc_html($args['settings'])), '3.0.10');
+			_doing_it_wrong(__METHOD__, sprintf(esc_html__('"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki-classic'), esc_html($args['settings'])), '3.0.10');
 			$args['output'] = array(
 				array(
 					'element' => $args['output'],
@@ -144,7 +144,7 @@ class CSS
 		// Convert to array of arrays if needed.
 		if (isset($args['output']['element'])) {
 			/* translators: The field ID where the error occurs. */
-			_doing_it_wrong(__METHOD__, sprintf(esc_html__('"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki'), esc_html($args['settings'])), '3.0.10');
+			_doing_it_wrong(__METHOD__, sprintf(esc_html__('"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki-classic'), esc_html($args['settings'])), '3.0.10');
 			$args['output'] = array($args['output']);
 		}
 
@@ -198,7 +198,7 @@ class CSS
 
 		$should_print = true;
 
-		if (defined('KIRKI_NO_OUTPUT') && true === KIRKI_NO_OUTPUT) {
+		if (defined('KIRKI_CLASSIC_NO_OUTPUT') && true === KIRKI_CLASSIC_NO_OUTPUT) {
 			$should_print = false;
 		}
 
@@ -207,7 +207,7 @@ class CSS
 		$inline_styles = ob_get_clean();
 
 		/**
-		 * If KIRKI_NO_OUTPUT constant is defined (and is true), but typography field is defined, then print it.
+		 * If KIRKI_CLASSIC_NO_OUTPUT constant is defined (and is true), but typography field is defined, then print it.
 		 * Otherwise, the typography field might be broken (missing font-family) if the font-face is not outputted.
 		 */
 		if (!$should_print && false !== stripos($inline_styles, '@font-face')) {
@@ -218,7 +218,7 @@ class CSS
 			return;
 		}
 
-		$inline_styles_id = apply_filters('kirki_inline_styles_id', self::$inline_styles_id);
+		$inline_styles_id = apply_filters('kirki_classic_inline_styles_id', self::$inline_styles_id);
 
 		echo '<style id="' . esc_attr($inline_styles_id) . '">';
 		echo $inline_styles;
@@ -237,7 +237,7 @@ class CSS
 	{
 
 		$args = array(
-			'action' => apply_filters('kirki_styles_action_handle', self::$css_handle),
+			'action' => apply_filters('kirki_classic_styles_action_handle', self::$css_handle),
 		);
 
 		if (is_admin()) {
@@ -289,7 +289,7 @@ class CSS
 		 */
 
 		// phpcs:ignore WordPress.Security.NonceVerification
-		if (empty($_GET['action']) || apply_filters('kirki_styles_action_handle', self::$css_handle) !== $_GET['action']) {
+		if (empty($_GET['action']) || apply_filters('kirki_classic_styles_action_handle', self::$css_handle) !== $_GET['action']) {
 			return;
 		}
 
@@ -309,10 +309,10 @@ class CSS
 	{
 
 		// Go through all configs.
-		$configs = Kirki::$config;
+		$configs = KirkiClassic::$config;
 
 		foreach ($configs as $config_id => $args) {
-			if (defined('KIRKI_NO_OUTPUT') && true === KIRKI_NO_OUTPUT) {
+			if (defined('KIRKI_CLASSIC_NO_OUTPUT') && true === KIRKI_CLASSIC_NO_OUTPUT) {
 				continue;
 			}
 
@@ -321,7 +321,7 @@ class CSS
 			}
 
 			$styles = self::loop_controls($config_id);
-			$styles = apply_filters("kirki_{$config_id}_dynamic_css", $styles);
+			$styles = apply_filters("kirki_classic_{$config_id}_dynamic_css", $styles);
 
 			if (!empty($styles)) {
 				/**
@@ -341,7 +341,7 @@ class CSS
 			}
 		}
 
-		do_action('kirki_dynamic_css');
+		do_action('kirki_classic_dynamic_css');
 
 	}
 
@@ -362,8 +362,8 @@ class CSS
 		$fields = self::get_fields_by_config($config_id);
 
 		// Compatibility with v3 API.
-		if (class_exists('\Kirki\Compatibility\Kirki')) {
-			$fields = array_merge(\Kirki\Compatibility\Kirki::$fields, $fields);
+		if (class_exists('\KirkiClassic\Compatibility\KirkiClassic')) {
+			$fields = array_merge(\KirkiClassic\Compatibility\KirkiClassic::$fields, $fields);
 		}
 
 		$css = array();
@@ -376,11 +376,11 @@ class CSS
 		foreach ($fields as $field) {
 
 			// Only process fields that belong to $config_id.
-			if (isset($field['kirki_config']) && $config_id !== $field['kirki_config']) {
+			if (isset($field['kirki_classic_config']) && $config_id !== $field['kirki_classic_config']) {
 				continue;
 			}
 
-			if (true === apply_filters("kirki_{$config_id}_css_skip_hidden", true)) {
+			if (true === apply_filters("kirki_classic_{$config_id}_css_skip_hidden", true)) {
 
 				// Only continue if field dependencies are met.
 				if ((isset($field['required']) && !empty($field['required'])) || (isset($field['active_callback']) && !empty($field['active_callback']))) {
@@ -430,7 +430,7 @@ class CSS
 			}
 		}
 
-		$css = apply_filters("kirki_{$config_id}_styles", $css);
+		$css = apply_filters("kirki_classic_{$config_id}_styles", $css);
 
 		if (is_array($css)) {
 			return Generator::styles_parse(Generator::add_prefixes($css));
@@ -454,10 +454,10 @@ class CSS
 
 		foreach (self::$fields as $field) {
 			if (
-				(isset($field['kirki_config']) && $config_id === $field['kirki_config']) ||
+				(isset($field['kirki_classic_config']) && $config_id === $field['kirki_classic_config']) ||
 				(
 					('global' === $config_id || !$config_id) &&
-					(!isset($field['kirki_config']) || 'global' === $field['kirki_config'] || !$field['kirki_config'])
+					(!isset($field['kirki_classic_config']) || 'global' === $field['kirki_classic_config'] || !$field['kirki_classic_config'])
 				)
 			) {
 				$fields[] = $field;

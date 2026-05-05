@@ -8,11 +8,11 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki;
-use Kirki\Field;
-use Kirki\URL;
+use KirkiClassic;
+use KirkiClassic\Field;
+use KirkiClassic\URL;
 
 /**
  * Field overrides.
@@ -28,7 +28,7 @@ class Dimensions extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-dimensions';
+	public $type = 'kirki-classic-dimensions';
 
 	/**
 	 * Extra logic for the field.
@@ -42,45 +42,45 @@ class Dimensions extends Field {
 
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'customize_preview_init', array( $this, 'enqueue_customize_preview_scripts' ) );
-		add_filter( 'kirki_output_control_classnames', array( $this, 'output_control_classnames' ) );
+		add_filter( 'kirki_classic_output_control_classnames', array( $this, 'output_control_classnames' ) );
 
 		$args['required'] = isset( $args['required'] ) ? (array) $args['required'] : array();
 
 		$labels = array(
-			'left-top'       => esc_html__( 'Left Top', 'kirki' ),
-			'left-center'    => esc_html__( 'Left Center', 'kirki' ),
-			'left-bottom'    => esc_html__( 'Left Bottom', 'kirki' ),
-			'right-top'      => esc_html__( 'Right Top', 'kirki' ),
-			'right-center'   => esc_html__( 'Right Center', 'kirki' ),
-			'right-bottom'   => esc_html__( 'Right Bottom', 'kirki' ),
-			'center-top'     => esc_html__( 'Center Top', 'kirki' ),
-			'center-center'  => esc_html__( 'Center Center', 'kirki' ),
-			'center-bottom'  => esc_html__( 'Center Bottom', 'kirki' ),
-			'font-size'      => esc_html__( 'Font Size', 'kirki' ),
-			'font-weight'    => esc_html__( 'Font Weight', 'kirki' ),
-			'line-height'    => esc_html__( 'Line Height', 'kirki' ),
-			'font-style'     => esc_html__( 'Font Style', 'kirki' ),
-			'letter-spacing' => esc_html__( 'Letter Spacing', 'kirki' ),
-			'word-spacing'   => esc_html__( 'Word Spacing', 'kirki' ),
-			'top'            => esc_html__( 'Top', 'kirki' ),
-			'bottom'         => esc_html__( 'Bottom', 'kirki' ),
-			'left'           => esc_html__( 'Left', 'kirki' ),
-			'right'          => esc_html__( 'Right', 'kirki' ),
-			'center'         => esc_html__( 'Center', 'kirki' ),
-			'size'           => esc_html__( 'Size', 'kirki' ),
-			'spacing'        => esc_html__( 'Spacing', 'kirki' ),
-			'width'          => esc_html__( 'Width', 'kirki' ),
-			'height'         => esc_html__( 'Height', 'kirki' ),
-			'invalid-value'  => esc_html__( 'Invalid Value', 'kirki' ),
+			'left-top'       => esc_html__( 'Left Top', 'kirki-classic' ),
+			'left-center'    => esc_html__( 'Left Center', 'kirki-classic' ),
+			'left-bottom'    => esc_html__( 'Left Bottom', 'kirki-classic' ),
+			'right-top'      => esc_html__( 'Right Top', 'kirki-classic' ),
+			'right-center'   => esc_html__( 'Right Center', 'kirki-classic' ),
+			'right-bottom'   => esc_html__( 'Right Bottom', 'kirki-classic' ),
+			'center-top'     => esc_html__( 'Center Top', 'kirki-classic' ),
+			'center-center'  => esc_html__( 'Center Center', 'kirki-classic' ),
+			'center-bottom'  => esc_html__( 'Center Bottom', 'kirki-classic' ),
+			'font-size'      => esc_html__( 'Font Size', 'kirki-classic' ),
+			'font-weight'    => esc_html__( 'Font Weight', 'kirki-classic' ),
+			'line-height'    => esc_html__( 'Line Height', 'kirki-classic' ),
+			'font-style'     => esc_html__( 'Font Style', 'kirki-classic' ),
+			'letter-spacing' => esc_html__( 'Letter Spacing', 'kirki-classic' ),
+			'word-spacing'   => esc_html__( 'Word Spacing', 'kirki-classic' ),
+			'top'            => esc_html__( 'Top', 'kirki-classic' ),
+			'bottom'         => esc_html__( 'Bottom', 'kirki-classic' ),
+			'left'           => esc_html__( 'Left', 'kirki-classic' ),
+			'right'          => esc_html__( 'Right', 'kirki-classic' ),
+			'center'         => esc_html__( 'Center', 'kirki-classic' ),
+			'size'           => esc_html__( 'Size', 'kirki-classic' ),
+			'spacing'        => esc_html__( 'Spacing', 'kirki-classic' ),
+			'width'          => esc_html__( 'Width', 'kirki-classic' ),
+			'height'         => esc_html__( 'Height', 'kirki-classic' ),
+			'invalid-value'  => esc_html__( 'Invalid Value', 'kirki-classic' ),
 		);
 
 		/**
 		 * Add a hidden field, the label & description.
 		 */
-		new \Kirki\Field\Generic(
+		new \KirkiClassic\Field\Generic(
 			wp_parse_args(
 				array(
-					'type'              => 'kirki-generic',
+					'type'              => 'kirki-classic-generic',
 					'default'           => '',
 					'wrapper_opts'      => array(
 						'gap' => 'small',
@@ -88,7 +88,7 @@ class Dimensions extends Field {
 					'sanitize_callback' => isset( $args['sanitize_callback'] ) ? $args['sanitize_callback'] : array( __CLASS__, 'sanitize' ),
 					'choices'           => array(
 						'type'        => 'hidden',
-						'parent_type' => 'kirki-dimensions',
+						'parent_type' => 'kirki-classic-dimensions',
 					),
 				),
 				$args
@@ -109,7 +109,7 @@ class Dimensions extends Field {
 
 		$break_indexes = array();
 
-		// The 'kirki-group-break' only supports 12 group items inside a group.
+		// The 'kirki-classic-group-break' only supports 12 group items inside a group.
 		if ( 2 === $total_items ) {
 			$width = 50;
 		} elseif ( 3 === $total_items ) {
@@ -141,7 +141,7 @@ class Dimensions extends Field {
 			$label = isset( $args['choices']['labels'][ $choice ] ) ? $args['choices']['labels'][ $choice ] : $label;
 
 			$wrapper_attrs = array(
-				'data-kirki-parent-control-type'    => 'kirki-dimensions',
+				'data-kirki-parent-control-type'    => 'kirki-classic-dimensions',
 				'data-kirki-parent-control-setting' => $args['settings'],
 				'class'                             => '{default_class} kirki-group-item kirki-w' . $width,
 			);
@@ -158,10 +158,10 @@ class Dimensions extends Field {
 				$wrapper_attrs['class'] .= ' kirki-group-end';
 			}
 
-			new \Kirki\Field\Dimension(
+			new \KirkiClassic\Field\Dimension(
 				wp_parse_args(
 					array(
-						'type'           => 'kirki-dimension',
+						'type'           => 'kirki-classic-dimension',
 						'settings'       => $args['settings'] . '[' . $choice . ']',
 						'parent_setting' => $args['settings'],
 						'label'          => $label,
@@ -258,7 +258,7 @@ class Dimensions extends Field {
 	 */
 	public function output_control_classnames( $classnames ) {
 
-		$classnames['kirki-dimensions'] = '\Kirki\Field\CSS\Dimensions';
+		$classnames['kirki-classic-dimensions'] = '\KirkiClassic\Field\CSS\Dimensions';
 		return $classnames;
 
 	}

@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\URL;
-use Kirki\Field;
+use KirkiClassic\URL;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -27,7 +27,7 @@ class ReactColorful extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-react-colorful';
+	public $type = 'kirki-classic-react-colorful';
 
 	/**
 	 * The control class-name.
@@ -36,7 +36,7 @@ class ReactColorful extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\ReactColorful';
+	protected $control_class = '\KirkiClassic\Control\ReactColorful';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -58,7 +58,7 @@ class ReactColorful extends Field {
 	protected function init( $args ) {
 
 		add_action( 'customize_preview_init', [ $this, 'enqueue_customize_preview_scripts' ] );
-		add_filter( 'kirki_output_control_classnames', [ $this, 'output_control_classnames' ] );
+		add_filter( 'kirki_classic_output_control_classnames', [ $this, 'output_control_classnames' ] );
 
 	}
 
@@ -117,7 +117,7 @@ class ReactColorful extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-react-colorful';
+			$args['type'] = 'kirki-classic-react-colorful';
 		}
 
 		return $args;
@@ -288,7 +288,7 @@ class ReactColorful extends Field {
 	 */
 	public function output_control_classnames( $control_classes ) {
 
-		$control_classes['kirki-react-colorful'] = '\Kirki\Field\CSS\ReactColorful';
+		$control_classes['kirki-classic-react-colorful'] = '\KirkiClassic\Field\CSS\ReactColorful';
 
 		return $control_classes;
 

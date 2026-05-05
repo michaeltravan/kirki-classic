@@ -19,7 +19,7 @@
     line-height: 1.3;
   }
 
-  .kirki-tooltip-wrapper {
+  .kirki-classic-tooltip-wrapper {
     .tooltip-trigger {
       top: -4px;
       left: 2px;
@@ -45,7 +45,7 @@
   background-color: #fff;
 
   &.customize-control-kirki-switch {
-    .kirki-toggle {
+    .kirki-classic-toggle {
       align-items: center;
     }
   }
@@ -55,8 +55,8 @@
     font-size: 14px;
   }
 
-  .kirki-toggle {
-    .kirki-control-form {
+  .kirki-classic-toggle {
+    .kirki-classic-control-form {
       top: 2px;
     }
   }

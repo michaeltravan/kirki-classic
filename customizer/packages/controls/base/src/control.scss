@@ -18,47 +18,47 @@
   max-width: 299px;
 }
 
-.kirki-w100 {
+.kirki-classic-w100 {
   width: 100%;
 }
 
-.kirki-w50 {
+.kirki-classic-w50 {
   width: 50%;
 }
 
-.kirki-w45 {
+.kirki-classic-w45 {
   width: 45%;
 }
 
-.kirki-w40 {
+.kirki-classic-w40 {
   width: 40%;
 }
 
-.kirki-w33 {
+.kirki-classic-w33 {
   width: 33.3333%;
 }
 
-.kirki-w30 {
+.kirki-classic-w30 {
   width: 30%;
 }
 
-.kirki-w25 {
+.kirki-classic-w25 {
   width: 25%;
 }
 
-.kirki-w20 {
+.kirki-classic-w20 {
   width: 20%;
 }
 
-.kirki-w15 {
+.kirki-classic-w15 {
   width: 15%;
 }
 
-.kirki-w10 {
+.kirki-classic-w10 {
   width: 10%;
 }
 
-.kirki-w5 {
+.kirki-classic-w5 {
   width: 5%;
 }
 
@@ -85,28 +85,28 @@
   box-sizing: border-box;
 }
 
-.customize-control-kirki.kirki-group-item {
+.customize-control-kirki.kirki-classic-group-item {
   clear: none; // Override WordPress.
 }
 
-.kirki-group-item {
+.kirki-classic-group-item {
   float: left;
   clear: none;
   padding-left: 3px;
   padding-right: 3px;
 
-  &.kirki-group-start {
+  &.kirki-classic-group-start {
     padding-left: 0;
     padding-right: 3px;
   }
 
-  &.kirki-group-break,
-  &.kirki-group-end {
+  &.kirki-classic-group-break,
+  &.kirki-classic-group-end {
     padding-left: 3px;
     padding-right: 0;
   }
 
-  &.kirki-group-end {
+  &.kirki-classic-group-end {
     &::after {
       content: "";
       display: block;
@@ -120,12 +120,12 @@
 .customize-control-kirki {
   position: relative;
 
-  .kirki-control-label,
+  .kirki-classic-control-label,
   label.customize-control-title {
     display: block;
   }
 
-  .kirki-control-form {
+  .kirki-classic-control-form {
     position: relative;
 
     textarea {

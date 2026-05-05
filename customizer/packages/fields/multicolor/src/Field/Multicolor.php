@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Multicolor extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-multicolor';
+	public $type = 'kirki-classic-multicolor';
 
 	/**
 	 * Extra logic for the field.
@@ -38,11 +38,11 @@ class Multicolor extends Field {
 	 */
 	public function init( $args ) {
 
-		add_filter( 'kirki_output_control_classnames', [ $this, 'output_control_classnames' ] );
+		add_filter( 'kirki_classic_output_control_classnames', [ $this, 'output_control_classnames' ] );
 
 		$parent_control_args = wp_parse_args(
 			[
-				'type'              => 'kirki-generic',
+				'type'              => 'kirki-classic-generic',
 				'default'           => '',
 				'wrapper_opts'      => [
 					'gap' => 'small',
@@ -50,7 +50,7 @@ class Multicolor extends Field {
 				'input_attrs'       => '',
 				'choices'           => [
 					'type'        => 'hidden',
-					'parent_type' => 'kirki-multicolor',
+					'parent_type' => 'kirki-classic-multicolor',
 				],
 				'sanitize_callback' => [ __CLASS__, 'sanitize' ],
 			],
@@ -60,7 +60,7 @@ class Multicolor extends Field {
 		/**
 		 * Add a hidden field, the label & description.
 		 */
-		new \Kirki\Field\Generic( $parent_control_args );
+		new \KirkiClassic\Field\Generic( $parent_control_args );
 
 		$total_colors = count( $args['choices'] );
 		$loop_index   = 0;
@@ -93,7 +93,7 @@ class Multicolor extends Field {
 					'description'    => '',
 					'default'        => $this->filter_preferred_choice_setting( 'default', $choice, $args ),
 					'wrapper_attrs'  => [
-						'data-kirki-parent-control-type' => 'kirki-multicolor',
+						'data-kirki-parent-control-type' => 'kirki-classic-multicolor',
 						'class'                          => $classnames,
 					],
 					'input_attrs'    => $this->filter_preferred_choice_setting( 'input_attrs', $choice, $args ),
@@ -124,7 +124,7 @@ class Multicolor extends Field {
 				}
 			}
 
-			new \Kirki\Field\ReactColorful( $control_args );
+			new \KirkiClassic\Field\ReactColorful( $control_args );
 		}
 	}
 
@@ -217,7 +217,7 @@ class Multicolor extends Field {
 	public static function sanitize( $value ) {
 
 		foreach ( $value as $key => $subvalue ) {
-			$value[ $key ] = \Kirki\Field\Color::sanitize( $subvalue );
+			$value[ $key ] = \KirkiClassic\Field\Color::sanitize( $subvalue );
 		}
 
 		return $value;
@@ -253,7 +253,7 @@ class Multicolor extends Field {
 	 * @return array
 	 */
 	public function output_control_classnames( $classnames ) {
-		$classnames['kirki-multicolor'] = '\Kirki\Field\CSS\Multicolor';
+		$classnames['kirki-classic-multicolor'] = '\KirkiClassic\Field\CSS\Multicolor';
 		return $classnames;
 	}
 }

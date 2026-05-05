@@ -2,14 +2,14 @@
 /**
  * Processes configurations.
  *
- * @package   Kirki
+ * @package   KirkiClassic
  * @category  Compatibility
  * @author    Themeum
  * @copyright Copyright (c) 2023, Themeum
  * @license   https://opensource.org/licenses/MIT
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 /**
  * The Config object
@@ -74,7 +74,7 @@ final class Config {
 	protected $compiler = [];
 
 	/**
-	 * Set to true if you want to completely disable any Kirki-generated CSS.
+	 * Set to true if you want to completely disable any KirkiClassic-generated CSS.
 	 *
 	 * @access protected
 	 * @var bool
@@ -86,8 +86,8 @@ final class Config {
 	 * Use the get_instance() static method to get the instance you need.
 	 *
 	 * @access private
-	 * @param string $config_id @see Kirki\Compatibility\Config::get_instance().
-	 * @param array  $args      @see Kirki\Compatibility\Config::get_instance().
+	 * @param string $config_id @see KirkiClassic\Compatibility\Config::get_instance().
+	 * @param array  $args      @see KirkiClassic\Compatibility\Config::get_instance().
 	 */
 	private function __construct( $config_id = 'global', $args = [] ) {
 
@@ -96,8 +96,8 @@ final class Config {
 		// Skip what we don't need in this context.
 		unset( $defaults['config_final'] );
 		unset( $defaults['instances'] );
-		// Apply any kirki_config global filters.
-		$defaults = apply_filters( 'kirki_config', $defaults );
+		// Apply any kirki_classic_config global filters.
+		$defaults = apply_filters( 'kirki_classic_config', $defaults );
 		// Merge our args with the defaults.
 		$args = wp_parse_args( $args, $defaults );
 
@@ -138,7 +138,7 @@ final class Config {
 	 *                                        from fields using this configuration.
 	 * }
 	 *
-	 * @return Kirki\Compatibility\Config
+	 * @return KirkiClassic\Compatibility\Config
 	 */
 	public static function get_instance( $id = 'global', $args = [] ) {
 		if ( empty( $id ) ) {

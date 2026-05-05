@@ -1,8 +1,8 @@
 <?php
 /**
- * Backwards-compatibility for Kirki filters.
+ * Backwards-compatibility for KirkiClassic filters.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 /**
  * Please do not use this class directly.

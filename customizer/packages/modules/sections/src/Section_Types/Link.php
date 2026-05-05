@@ -9,7 +9,7 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Section_Types;
+namespace KirkiClassic\Section_Types;
 
 /**
  * Link Section.
@@ -23,7 +23,7 @@ class Link extends \WP_Customize_Section {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public $type = 'kirki-link';
+	public $type = 'kirki-classic-link';
 
 	/**
 	 * Button Text

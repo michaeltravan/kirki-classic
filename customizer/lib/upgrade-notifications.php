@@ -2,7 +2,7 @@
 /**
  * Adds upgrade notifications.
  *
- * @package Kirki
+ * @package KirkiClassic
  * @category Core
  * @author Themeum
  * @copyright Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since 3.0.0
  */
 
-if ( ! function_exists( 'kirki_show_upgrade_notification' ) ) :
+if ( ! function_exists( 'kirki_classic_show_upgrade_notification' ) ) :
 	/**
 	 * Fires at the end of the update message container in each
 	 * row of the plugins list table.
@@ -21,13 +21,13 @@ if ( ! function_exists( 'kirki_show_upgrade_notification' ) ) :
 	 * @param array $plugin_data An array of plugin metadata.
 	 * @param object $response    An object of metadata about the available plugin update.
 	 */
-	function kirki_show_upgrade_notification( $plugin_data, $response ) {
+	function kirki_classic_show_upgrade_notification( $plugin_data, $response ) {
 
 		// Check "upgrade_notice".
 		if ( isset( $response->upgrade_notice ) && strlen( trim( $response->upgrade_notice ) ) > 0 ) : ?>
 			<style>.kirki-upgrade-notification {background-color:#d54e21;padding:10px;color:#f9f9f9;margin-top:10px;margin-bottom:10px;}.kirki-upgrade-notification + p {display:none;}</style>
-			<div class="kirki-upgrade-notification">
-				<strong><?php esc_html_e( 'Important Upgrade Notice:', 'kirki' ); ?></strong>
+			<div class="kirki-classic-upgrade-notification">
+				<strong><?php esc_html_e( 'Important Upgrade Notice:', 'kirki-classic' ); ?></strong>
 				<?php $upgrade_notice = wp_strip_all_tags( $response->upgrade_notice ); ?>
 				<?php echo esc_html( $upgrade_notice ); ?>
 			</div>
@@ -36,5 +36,5 @@ if ( ! function_exists( 'kirki_show_upgrade_notification' ) ) :
 	}
 endif;
 
-$plugin_file = defined( 'KIRKI_PLUGIN_FILE' ) ? KIRKI_PLUGIN_FILE : __FILE__;
-add_action( 'in_plugin_update_message-' . plugin_basename( $plugin_file ), 'kirki_show_upgrade_notification', 10, 2 );
+$plugin_file = defined( 'KIRKI_CLASSIC_PLUGIN_FILE' ) ? KIRKI_CLASSIC_PLUGIN_FILE : __FILE__;
+add_action( 'in_plugin_update_message-' . plugin_basename( $plugin_file ), 'kirki_classic_show_upgrade_notification', 10, 2 );

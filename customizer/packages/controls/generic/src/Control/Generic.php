@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * A generic and pretty abstract control.
@@ -27,7 +27,7 @@ class Generic extends Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-generic';
+	public $type = 'kirki-classic-generic';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -68,7 +68,7 @@ class Generic extends Base {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 		</label>
-		<div class="kirki-control-form">
+		<div class="kirki-classic-control-form">
 			<# element = ( data.choices.element ) ? data.choices.element : 'input'; #>
 
 			<# if ( 'textarea' === element ) { #>

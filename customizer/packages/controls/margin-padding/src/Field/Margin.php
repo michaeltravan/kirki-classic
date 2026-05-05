@@ -6,10 +6,10 @@
  * @since   1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
-use Kirki\URL;
+use KirkiClassic\Field;
+use KirkiClassic\URL;
 
 /**
  * Field overrides.
@@ -25,7 +25,7 @@ class Margin extends Field {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-margin';
+	public $type = 'kirki-classic-margin';
 
 	/**
 	 * The control class-name.
@@ -34,7 +34,7 @@ class Margin extends Field {
 	 * @access protected
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Margin';
+	protected $control_class = '\KirkiClassic\Control\Margin';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -56,7 +56,7 @@ class Margin extends Field {
 	protected function init( $args ) {
 
 		add_action( 'customize_preview_init', [ $this, 'enqueue_customize_preview_scripts' ] );
-		add_filter( 'kirki_output_control_classnames', [ $this, 'output_control_classnames' ] );
+		add_filter( 'kirki_classic_output_control_classnames', [ $this, 'output_control_classnames' ] );
 
 	}
 
@@ -117,7 +117,7 @@ class Margin extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-margin';
+			$args['type'] = 'kirki-classic-margin';
 		}
 
 		return $args;
@@ -146,10 +146,10 @@ class Margin extends Field {
 	 */
 	public function output_control_classnames( $control_classes ) {
 
-		$class_name = str_ireplace( 'kirki-', '', $this->type );
+		$class_name = str_ireplace( 'kirki-classic-', '', $this->type );
 		$class_name = ucfirst( $class_name );
 
-		$control_classes[ $this->type ] = '\Kirki\Field\CSS\\' . $class_name;
+		$control_classes[ $this->type ] = '\KirkiClassic\Field\CSS\\' . $class_name;
 
 		return $control_classes;
 

@@ -3,4 +3,4 @@ import KirkiInputSliderControl from './KirkiInputSliderControl';
 
 
 // Register control type with Customizer.
-wp.customize.controlConstructor['kirki-input-slider'] = KirkiInputSliderControl;
+wp.customize.controlConstructor['kirki-classic-input-slider'] = KirkiInputSliderControl;

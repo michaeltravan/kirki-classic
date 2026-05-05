@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Radio_Buttonset extends Radio {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-radio-buttonset';
+	public $type = 'kirki-classic-radio-buttonset';
 
 	/**
 	 * The control class-name.
@@ -33,7 +33,7 @@ class Radio_Buttonset extends Radio {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Radio_Buttonset';
+	protected $control_class = '\KirkiClassic\Control\Radio_Buttonset';
 
 	/**
 	 * Filter arguments before creating the control.
@@ -47,7 +47,7 @@ class Radio_Buttonset extends Radio {
 	public function filter_control_args( $args, $wp_customize ) {
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-radio-buttonset';
+			$args['type'] = 'kirki-classic-radio-buttonset';
 		}
 		return $args;
 	}

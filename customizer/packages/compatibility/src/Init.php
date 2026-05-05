@@ -1,8 +1,8 @@
 <?php
 /**
- * Initializes Kirki
+ * Initializes KirkiClassic
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,10 +10,10 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 /**
- * Initialize Kirki
+ * Initialize KirkiClassic
  */
 class Init {
 
@@ -41,7 +41,7 @@ class Init {
 	 */
 	public function __construct() {
 		add_action( 'wp_loaded', [ $this, 'add_to_customizer' ], 1 );
-		add_filter( 'kirki_control_types', [ $this, 'default_control_types' ] );
+		add_filter( 'kirki_classic_control_types', [ $this, 'default_control_types' ] );
 
 		add_action( 'customize_register', [ $this, 'remove_controls' ], 99999 );
 
@@ -53,7 +53,7 @@ class Init {
 	}
 
 	/**
-	 * Add the default Kirki control types.
+	 * Add the default KirkiClassic control types.
 	 *
 	 * @access public
 	 * @since 3.0.0
@@ -62,34 +62,34 @@ class Init {
 	 */
 	public function default_control_types( $control_types = [] ) {
 		$this->control_types = [
-			'kirki-composite'       => '\Kirki\Control\Composite',
-			'checkbox'              => '\Kirki\Control\Checkbox',
-			'kirki-color'           => '\Kirki\Control\ReactColorful',
-			'kirki-color-palette'   => '\Kirki\Control\Color_Palette',
-			'kirki-custom'          => '\Kirki\Control\Custom',
-			'kirki-date'            => '\Kirki\Control\Date',
-			'kirki-dashicons'       => '\Kirki\Control\Dashicons',
-			'kirki-dimension'       => '\Kirki\Control\Dimension',
-			'kirki-dimensions'      => '\Kirki\Control\Dimensions',
-			'kirki-editor'          => '\Kirki\Control\Editor',
-			'kirki-image'           => '\Kirki\Control\Image',
-			'kirki-multicolor'      => '\Kirki\Control\Multicolor',
-			'kirki-multicheck'      => '\Kirki\Control\Multicheck',
-			'kirki-number'          => '\Kirki\Control\Number',
-			'kirki-radio'           => '\Kirki\Control\Radio',
-			'kirki-radio-buttonset' => '\Kirki\Control\Radio_Buttonset',
-			'kirki-radio-image'     => '\Kirki\Control\Radio_Image',
-			'repeater'              => '\Kirki\Control\Repeater',
-			'kirki-select'          => '\Kirki\Control\Select',
-			'kirki-slider'          => '\Kirki\Control\Slider',
-			'kirki-sortable'        => '\Kirki\Control\Sortable',
-			'kirki-spacing'         => '\Kirki\Control\Dimensions',
-			'kirki-switch'          => '\Kirki\Control\Checkbox_Switch',
-			'kirki-generic'         => '\Kirki\Control\Generic',
-			'kirki-toggle'          => '\Kirki\Control\Checkbox_Toggle',
-			'image'                 => '\Kirki\Control\Image',
-			'cropped_image'         => '\Kirki\Control\Cropped_Image',
-			'upload'                => '\Kirki\Control\Upload',
+			'kirki-classic-composite'       => '\KirkiClassic\Control\Composite',
+			'checkbox'              => '\KirkiClassic\Control\Checkbox',
+			'kirki-classic-color'           => '\KirkiClassic\Control\ReactColorful',
+			'kirki-classic-color-palette'   => '\KirkiClassic\Control\Color_Palette',
+			'kirki-classic-custom'          => '\KirkiClassic\Control\Custom',
+			'kirki-classic-date'            => '\KirkiClassic\Control\Date',
+			'kirki-classic-dashicons'       => '\KirkiClassic\Control\Dashicons',
+			'kirki-classic-dimension'       => '\KirkiClassic\Control\Dimension',
+			'kirki-classic-dimensions'      => '\KirkiClassic\Control\Dimensions',
+			'kirki-classic-editor'          => '\KirkiClassic\Control\Editor',
+			'kirki-classic-image'           => '\KirkiClassic\Control\Image',
+			'kirki-classic-multicolor'      => '\KirkiClassic\Control\Multicolor',
+			'kirki-classic-multicheck'      => '\KirkiClassic\Control\Multicheck',
+			'kirki-classic-number'          => '\KirkiClassic\Control\Number',
+			'kirki-classic-radio'           => '\KirkiClassic\Control\Radio',
+			'kirki-classic-radio-buttonset' => '\KirkiClassic\Control\Radio_Buttonset',
+			'kirki-classic-radio-image'     => '\KirkiClassic\Control\Radio_Image',
+			'repeater'              => '\KirkiClassic\Control\Repeater',
+			'kirki-classic-select'          => '\KirkiClassic\Control\Select',
+			'kirki-classic-slider'          => '\KirkiClassic\Control\Slider',
+			'kirki-classic-sortable'        => '\KirkiClassic\Control\Sortable',
+			'kirki-classic-spacing'         => '\KirkiClassic\Control\Dimensions',
+			'kirki-classic-switch'          => '\KirkiClassic\Control\Checkbox_Switch',
+			'kirki-classic-generic'         => '\KirkiClassic\Control\Generic',
+			'kirki-classic-toggle'          => '\KirkiClassic\Control\Checkbox_Toggle',
+			'image'                 => '\KirkiClassic\Control\Image',
+			'cropped_image'         => '\KirkiClassic\Control\Cropped_Image',
+			'upload'                => '\KirkiClassic\Control\Upload',
 		];
 		return array_merge( $this->control_types, $control_types );
 	}
@@ -120,9 +120,9 @@ class Init {
 		}
 
 		$skip_control_types = apply_filters(
-			'kirki_control_types_exclude',
+			'kirki_classic_control_types_exclude',
 			[
-				'\Kirki\Control\Repeater',
+				'\KirkiClassic\Control\Repeater',
 				'\WP_Customize_Control',
 			]
 		);
@@ -142,10 +142,10 @@ class Init {
 	public function add_fields() {
 		global $wp_customize;
 
-		foreach ( Kirki::$fields as $args ) {
+		foreach ( KirkiClassic::$fields as $args ) {
 
 			// Create the settings.
-			new \Kirki\Compatibility\Settings( $args );
+			new \KirkiClassic\Compatibility\Settings( $args );
 
 			// Check if we're on the customizer.
 			// If we are, then we will create the controls, add the scripts needed for the customizer
@@ -160,26 +160,26 @@ class Init {
 	}
 
 	/**
-	 * Process fields added using the 'kirki_fields' and 'kirki_controls' filter.
+	 * Process fields added using the 'kirki_classic_fields' and 'kirki_classic_controls' filter.
 	 * These filters are no longer used, this is simply for backwards-compatibility.
 	 *
 	 * @access private
 	 * @since 2.0.0
 	 */
 	private function fields_from_filters() {
-		$fields = apply_filters( 'kirki_controls', [] );
-		$fields = apply_filters( 'kirki_fields', $fields );
+		$fields = apply_filters( 'kirki_classic_controls', [] );
+		$fields = apply_filters( 'kirki_classic_fields', $fields );
 
 		if ( ! empty( $fields ) ) {
 			foreach ( $fields as $field ) {
-				$field['kirki_config'] = 'global';
-				Kirki::add_field( 'global', $field );
+				$field['kirki_classic_config'] = 'global';
+				KirkiClassic::add_field( 'global', $field );
 			}
 		}
 	}
 
 	/**
-	 * Alias for the is_plugin static method in the Kirki\Util\Util class.
+	 * Alias for the is_plugin static method in the KirkiClassic\Util\Util class.
 	 * This is here for backwards-compatibility purposes.
 	 *
 	 * @static
@@ -192,7 +192,7 @@ class Init {
 	}
 
 	/**
-	 * Alias for the get_variables static method in the Kirki\Util\Util class.
+	 * Alias for the get_variables static method in the KirkiClassic\Util\Util class.
 	 * This is here for backwards-compatibility purposes.
 	 *
 	 * @static
@@ -203,9 +203,9 @@ class Init {
 	public static function get_variables() {
 
 		// Log error for developers.
-		_doing_it_wrong( __METHOD__, esc_html__( 'We detected you\'re using Kirki\Compatibility\Init::get_variables(). Please use \Kirki\Util\Util::get_variables() instead.', 'kirki' ), '3.0.10' );
+		_doing_it_wrong( __METHOD__, esc_html__( 'We detected you\'re using KirkiClassic\Compatibility\Init::get_variables(). Please use \KirkiClassic\Util\Util::get_variables() instead.', 'kirki-classic' ), '3.0.10' );
 
-		// ! This will be failed, because Util class is under Kirki\Util namespace.
+		// ! This will be failed, because Util class is under KirkiClassic\Util namespace.
 		return Util::get_variables();
 	}
 
@@ -217,7 +217,7 @@ class Init {
 	 * @return void
 	 */
 	public function remove_controls( $wp_customize ) {
-		foreach ( Kirki::$controls_to_remove as $control ) {
+		foreach ( KirkiClassic::$controls_to_remove as $control ) {
 			$wp_customize->remove_control( $control );
 		}
 	}
@@ -247,18 +247,18 @@ class Init {
 		}
 
 		// No need for a nag if user has dismissed it.
-		$dismissed = get_user_meta( get_current_user_id(), 'kirki_fa_nag_dismissed', true );
+		$dismissed = get_user_meta( get_current_user_id(), 'kirki_classic_fa_nag_dismissed', true );
 		if ( true === $dismissed || 1 === $dismissed || '1' === $dismissed ) {
 			return;
 		}
 		?>
 		<div class="notice notice-info is-dismissible">
 			<p>
-				<?php esc_html_e( 'Your theme uses a Font Awesome field for icons. To avoid issues with missing icons on your frontend we recommend you install the official Font Awesome plugin.', 'kirki' ); ?>
+				<?php esc_html_e( 'Your theme uses a Font Awesome field for icons. To avoid issues with missing icons on your frontend we recommend you install the official Font Awesome plugin.', 'kirki-classic' ); ?>
 			</p>
 			<p>
-				<a class="button button-primary" href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=font-awesome&TB_iframe=true&width=600&height=550' ) ); ?>"><?php esc_html_e( 'Install Plugin', 'kirki' ); ?></a>
-				<a class="button button-secondary" href="<?php echo esc_url( wp_nonce_url( admin_url( '?dismiss-nag=font-awesome-kirki' ), 'kirki-dismiss-nag', 'nonce' ) ); ?>"><?php esc_html_e( 'Don\'t show this again', 'kirki' ); ?></a>
+				<a class="button button-primary" href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=font-awesome&TB_iframe=true&width=600&height=550' ) ); ?>"><?php esc_html_e( 'Install Plugin', 'kirki-classic' ); ?></a>
+				<a class="button button-secondary" href="<?php echo esc_url( wp_nonce_url( admin_url( '?dismiss-nag=font-awesome-kirki' ), 'kirki-classic-dismiss-nag', 'nonce' ) ); ?>"><?php esc_html_e( 'Don\'t show this again', 'kirki-classic' ); ?></a>
 			</p>
 		</div>
 		<?php
@@ -272,9 +272,9 @@ class Init {
 	 * @return void
 	 */
 	public function dismiss_nag() {
-		if ( isset( $_GET['nonce'] ) && wp_verify_nonce( $_GET['nonce'], 'kirki-dismiss-nag' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		if ( isset( $_GET['nonce'] ) && wp_verify_nonce( $_GET['nonce'], 'kirki-classic-dismiss-nag' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 			if ( get_current_user_id() && isset( $_GET['dismiss-nag'] ) && 'font-awesome-kirki' === $_GET['dismiss-nag'] ) {
-				update_user_meta( get_current_user_id(), 'kirki_fa_nag_dismissed', true );
+				update_user_meta( get_current_user_id(), 'kirki_classic_fa_nag_dismissed', true );
 			}
 		}
 	}
@@ -296,10 +296,10 @@ class Init {
 		}
 
 		// Check if the field is fontawesome.
-		if ( isset( $args['type'] ) && in_array( $args['type'], [ 'fontawesome', 'kirki-fontawesome' ], true ) ) {
+		if ( isset( $args['type'] ) && in_array( $args['type'], [ 'fontawesome', 'kirki-classic-fontawesome' ], true ) ) {
 
 			// Skip check if theme has disabled FA enqueueing via a filter.
-			if ( ! apply_filters( 'kirki_load_fontawesome', true ) ) {
+			if ( ! apply_filters( 'kirki_classic_load_fontawesome', true ) ) {
 				return;
 			}
 

@@ -3,7 +3,7 @@
  * Additional sanitization methods for controls.
  * These are used in the field's 'sanitize_callback' argument.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -11,9 +11,9 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
-use Kirki\Field\Checkbox;
+use KirkiClassic\Field\Checkbox;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,11 +31,11 @@ class Sanitize_Values {
 	 * Sanitization callback for 'checkbox' type controls.
 	 * This callback sanitizes `$value` as a boolean value, either TRUE or FALSE.
 	 *
-	 * Deprecated. Use \Kirki\Field\Checkbox::sanitize() instead.
+	 * Deprecated. Use \KirkiClassic\Field\Checkbox::sanitize() instead.
 	 *
 	 * @static
 	 * @access public
-	 * @see \Kirki\Field\Checkbox::sanitize()
+	 * @see \KirkiClassic\Field\Checkbox::sanitize()
 	 * @param bool|string $value Whether the checkbox is checked.
 	 * @return bool Whether the checkbox is checked.
 	 */

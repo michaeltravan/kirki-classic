@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Section_Types;
+namespace KirkiClassic\Section_Types;
 
 /**
  * Outer Section.
@@ -22,5 +22,5 @@ class Outer extends \WP_Customize_Section {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public $type = 'kirki-outer';
+	public $type = 'kirki-classic-outer';
 }

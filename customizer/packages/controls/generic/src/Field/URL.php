@@ -8,7 +8,7 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class URL extends Text {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-url';
+	public $type = 'kirki-classic-url';
 
 	/**
 	 * Filter arguments before creating the setting.

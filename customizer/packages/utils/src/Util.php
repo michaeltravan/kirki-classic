@@ -1,8 +1,8 @@
 <?php
 /**
- * A utility class for Kirki.
+ * A utility class for KirkiClassic.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since       3.0.9
  */
 
-namespace Kirki\Util;
+namespace KirkiClassic\Util;
 
 /**
  * Utility class.
@@ -35,11 +35,11 @@ class Util {
 	 */
 	public function __construct() {
 		add_filter( 'http_request_args', [ $this, 'http_request' ], 10, 2 );
-		add_action( 'kirki_field_init', [ $this, 'field_init_variables' ], 10, 2 );
+		add_action( 'kirki_classic_field_init', [ $this, 'field_init_variables' ], 10, 2 );
 	}
 
 	/**
-	 * Determine if Kirki is installed as a plugin.
+	 * Determine if KirkiClassic is installed as a plugin.
 	 *
 	 * @static
 	 * @access public
@@ -56,13 +56,13 @@ class Util {
 		$plugins = get_plugins();
 		$_plugin = '';
 		foreach ( $plugins as $plugin => $args ) {
-			if ( ! $is_plugin && isset( $args['Name'] ) && ( 'Kirki' === $args['Name'] || 'Kirki Toolkit' === $args['Name'] ) ) {
+			if ( ! $is_plugin && isset( $args['Name'] ) && ( 'KirkiClassic' === $args['Name'] || 'KirkiClassic Toolkit' === $args['Name'] ) ) {
 				$is_plugin = true;
 				$_plugin   = $plugin;
 			}
 		}
 
-		// No need to proceed any further if Kirki wasn't found in the list of plugins.
+		// No need to proceed any further if KirkiClassic wasn't found in the list of plugins.
 		if ( ! $is_plugin ) {
 			return false;
 		}
@@ -106,12 +106,12 @@ class Util {
 		$fields    = self::$variables_fields;
 
 		/**
-		 * Compatibility with Kirki v3.x API.
-		 * If the Kirki class exists, check for fields inside it
+		 * Compatibility with KirkiClassic v3.x API.
+		 * If the KirkiClassic class exists, check for fields inside it
 		 * and add them to our fields array.
 		 */
-		if ( class_exists( '\Kirki\Compatibility\Kirki' ) ) {
-			$fields = array_merge( \Kirki\Compatibility\Kirki::$fields, $fields );
+		if ( class_exists( '\KirkiClassic\Compatibility\KirkiClassic' ) ) {
+			$fields = array_merge( \KirkiClassic\Compatibility\KirkiClassic::$fields, $fields );
 		}
 
 		// Loop through all fields.
@@ -124,7 +124,7 @@ class Util {
 
 			$option_type = ( isset( $field['option_type'] ) ) ? $field['option_type'] : 'theme_mod';
 			$default     = ( isset( $field['default'] ) ) ? $field['default'] : '';
-			$value       = apply_filters( 'kirki_get_value', get_theme_mod( $field['settings'], $default ), $field['settings'], $default, $option_type );
+			$value       = apply_filters( 'kirki_classic_get_value', get_theme_mod( $field['settings'], $default ), $field['settings'], $default, $option_type );
 
 			// Loop through the array of variables.
 			foreach ( $field['variables'] as $field_variable ) {
@@ -148,8 +148,8 @@ class Util {
 			}
 		}
 
-		// Pass the variables through a filter ('kirki_variable') and return the array of variables.
-		return apply_filters( 'kirki_variable', $variables );
+		// Pass the variables through a filter ('kirki_classic_variable') and return the array of variables.
+		return apply_filters( 'kirki_classic_variable', $variables );
 	}
 
 	/**
@@ -184,13 +184,13 @@ class Util {
 		}
 		$exists = false;
 		foreach ( $plugins['plugins'] as $plugin ) {
-			if ( isset( $plugin['Name'] ) && 'Kirki Toolkit' === $plugin['Name'] ) {
+			if ( isset( $plugin['Name'] ) && 'KirkiClassic Toolkit' === $plugin['Name'] ) {
 				$exists = true;
 			}
 		}
 		// Inject data.
-		if ( ! $exists && defined( 'KIRKI_PLUGIN_FILE' ) ) {
-			$plugins['plugins']['kirki/kirki.php'] = get_plugin_data( KIRKI_PLUGIN_FILE );
+		if ( ! $exists && defined( 'KIRKI_CLASSIC_PLUGIN_FILE' ) ) {
+			$plugins['plugins']['kirki-classic/kirki-classic.php'] = get_plugin_data( KIRKI_CLASSIC_PLUGIN_FILE );
 		}
 		$request['body']['plugins'] = wp_json_encode( $plugins );
 		return $request;

@@ -56,7 +56,7 @@ var kirkiDependencies = {
    */
   getSettingLink: function (controlID) {
     var control = document.querySelector(
-      '[data-kirki-setting="' + controlID + '"]'
+      '[data-kirki-classic-setting="' + controlID + '"]'
     );
     var setting = controlID;
 

@@ -1,7 +1,7 @@
 $date-hover-color: #eee;
 $date-active-color: #2271b1;
 
-.kirki-datepicker-popup {
+.kirki-classic-datepicker-popup {
   padding-bottom: 10px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -11,15 +11,15 @@ $date-active-color: #2271b1;
   overflow: hidden;
   max-width: 275px;
 
-  &.kirki-datepicker-below {
+  &.kirki-classic-datepicker-below {
     margin-top: 0;
   }
 
-  &.kirki-datepicker-above {
+  &.kirki-classic-datepicker-above {
     margin-bottom: 0;
   }
 
-  .kirki-datepicker-header {
+  .kirki-classic-datepicker-header {
     padding: 10px;
     background-color: $date-hover-color;
     position: relative;
@@ -27,8 +27,8 @@ $date-active-color: #2271b1;
     align-items: center;
     justify-content: center;
 
-    .kirki-datepicker-next,
-    .kirki-datepicker-prev {
+    .kirki-classic-datepicker-next,
+    .kirki-classic-datepicker-prev {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,7 +56,7 @@ $date-active-color: #2271b1;
       }
     }
 
-    .kirki-datepicker-prev {
+    .kirki-classic-datepicker-prev {
       left: 10px;
 
       &:before {
@@ -65,7 +65,7 @@ $date-active-color: #2271b1;
       }
     }
 
-    .kirki-datepicker-next {
+    .kirki-classic-datepicker-next {
       right: 10px;
 
       &:after {
@@ -74,7 +74,7 @@ $date-active-color: #2271b1;
       }
     }
 
-    .kirki-datepicker-title {
+    .kirki-classic-datepicker-title {
       display: flex;
       width: 100%;
       align-items: center;
@@ -85,7 +85,7 @@ $date-active-color: #2271b1;
     }
   }
 
-  .kirki-datepicker-calendar {
+  .kirki-classic-datepicker-calendar {
     border-collapse: collapse;
     padding-bottom: 20px;
     width: 100%;
@@ -117,12 +117,12 @@ $date-active-color: #2271b1;
         color: #333;
       }
 
-      .kirki-datepicker-today {
-        .kirki-datepicker-day {
+      .kirki-classic-datepicker-today {
+        .kirki-classic-datepicker-day {
           background-color: $date-hover-color;
         }
 
-        .kirki-datepicker-selected {
+        .kirki-classic-datepicker-selected {
           background-color: $date-active-color;
 
           &:hover,
@@ -133,7 +133,7 @@ $date-active-color: #2271b1;
         }
       }
 
-      .kirki-datepicker-day {
+      .kirki-classic-datepicker-day {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -154,7 +154,7 @@ $date-active-color: #2271b1;
         }
       }
 
-      .kirki-datepicker-selected {
+      .kirki-classic-datepicker-selected {
         background-color: $date-active-color;
         color: #fff;
 

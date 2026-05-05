@@ -11,10 +11,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,7 +35,7 @@ class Multicheck extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-multicheck';
+	public $type = 'kirki-classic-multicheck';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.

@@ -10,7 +10,7 @@
  * @since 1.0.0
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
 /**
  * Manages the way Google Fonts are enqueued.
@@ -44,8 +44,8 @@ final class GoogleFonts {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		add_action( 'wp_ajax_kirki_fonts_google_all_get', [ $this, 'print_googlefonts_json' ] );
-		add_action( 'wp_ajax_nopriv_kirki_fonts_google_all_get', [ $this, 'print_googlefonts_json' ] );
+		add_action( 'wp_ajax_kirki_classic_fonts_google_all_get', [ $this, 'print_googlefonts_json' ] );
+		add_action( 'wp_ajax_nopriv_kirki_classic_fonts_google_all_get', [ $this, 'print_googlefonts_json' ] );
 	}
 
 	/**
@@ -96,7 +96,7 @@ final class GoogleFonts {
 	public function get_google_fonts() {
 
 		// Get fonts from cache.
-		self::$google_fonts = get_site_transient( 'kirki_googlefonts_cache' );
+		self::$google_fonts = get_site_transient( 'kirki_classic_googlefonts_cache' );
 
 		// If cache is populated, return cached fonts array.
 		if ( self::$google_fonts ) {
@@ -117,12 +117,12 @@ final class GoogleFonts {
 			}
 		}
 
-		// Apply the 'kirki_fonts_google_fonts' filter.
-		self::$google_fonts = apply_filters( 'kirki_fonts_google_fonts', self::$google_fonts );
+		// Apply the 'kirki_classic_fonts_google_fonts' filter.
+		self::$google_fonts = apply_filters( 'kirki_classic_fonts_google_fonts', self::$google_fonts );
 
 		// Save the array in cache.
-		$cache_time = apply_filters( 'kirki_googlefonts_transient_time', HOUR_IN_SECONDS );
-		set_site_transient( 'kirki_googlefonts_cache', self::$google_fonts, $cache_time );
+		$cache_time = apply_filters( 'kirki_classic_googlefonts_transient_time', HOUR_IN_SECONDS );
+		set_site_transient( 'kirki_classic_googlefonts_cache', self::$google_fonts, $cache_time );
 
 		return self::$google_fonts;
 	}
@@ -137,7 +137,7 @@ final class GoogleFonts {
 	public function get_google_font_names() {
 
 		// Get fonts from cache.
-		self::$google_font_names = get_site_transient( 'kirki_googlefont_names_cache' );
+		self::$google_font_names = get_site_transient( 'kirki_classic_googlefont_names_cache' );
 
 		// If cache is populated, return cached fonts array.
 		if ( self::$google_font_names ) {
@@ -147,12 +147,12 @@ final class GoogleFonts {
 		// If we got this far, cache was empty so we need to get from JSON.
 		self::$google_font_names = $this->get_names_array();
 
-		// Apply the 'kirki_fonts_google_font_names' filter.
-		self::$google_font_names = apply_filters( 'kirki_fonts_google_font_names', self::$google_font_names );
+		// Apply the 'kirki_classic_fonts_google_font_names' filter.
+		self::$google_font_names = apply_filters( 'kirki_classic_fonts_google_font_names', self::$google_font_names );
 
 		// Save the array in cache.
-		$cache_time = apply_filters( 'kirki_googlefont_names_transient_time', HOUR_IN_SECONDS );
-		set_site_transient( 'kirki_googlefont_names_cache', self::$google_font_names, $cache_time );
+		$cache_time = apply_filters( 'kirki_classic_googlefont_names_transient_time', HOUR_IN_SECONDS );
+		set_site_transient( 'kirki_classic_googlefont_names_cache', self::$google_font_names, $cache_time );
 
 		return self::$google_font_names;
 	}
@@ -166,7 +166,7 @@ final class GoogleFonts {
 	 * @return array
 	 */
 	public function get_google_fonts_by_args( $args = [] ) {
-		$cache_name = 'kirki_googlefonts_' . md5( wp_json_encode( $args ) );
+		$cache_name = 'kirki_classic_googlefonts_' . md5( wp_json_encode( $args ) );
 		$cache      = get_site_transient( $cache_name );
 		if ( $cache ) {
 			return $cache;

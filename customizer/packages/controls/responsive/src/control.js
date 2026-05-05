@@ -5,7 +5,7 @@ const api = wp.customize;
 const setupDevices = () => {
   // Get all controls which are responsive-able (not the device control it self).
   const childControls = document.querySelectorAll(
-    "[data-kirki-parent-responsive-id]"
+    "[data-kirki-classic-parent-responsive-id]"
   );
   if (!childControls.length) return;
 
@@ -26,7 +26,7 @@ const setupDevices = () => {
      * Example of grouped controls: field-dimensions, field-typography, field-multicolor.
      */
     const groupedControls = document.querySelectorAll(
-      '[data-kirki-parent-control-setting="' + setting + '"]'
+      '[data-kirki-classic-parent-control-setting="' + setting + '"]'
     );
 
     // Check if childControl is a field that groups other controls.
@@ -42,12 +42,12 @@ const setupDevices = () => {
   // Move the device icons next to the control's title.
   responsiveIds.forEach(function (responsiveId) {
     const deviceButtons = document.querySelector(
-      "#customize-control-" + responsiveId + " .kirki-device-buttons"
+      "#customize-control-" + responsiveId + " .kirki-classic-device-buttons"
     );
 
     if (!deviceButtons) return;
 
-    deviceButtons.setAttribute("data-kirki-devices-for", responsiveId);
+    deviceButtons.setAttribute("data-kirki-classic-devices-for", responsiveId);
 
     const titleElement = document.querySelector(
       "#customize-control-" + responsiveId + " .customize-control-title"
@@ -67,13 +67,13 @@ const setupPreview = () => {
   }
 
   function setupDeviceClicks() {
-    const deviceButtons = document.querySelectorAll(".kirki-device-button");
+    const deviceButtons = document.querySelectorAll(".kirki-classic-device-button");
     if (!deviceButtons.length) return;
 
     // Loop through Kirki device buttons and assign the click event.
     [].slice.call(deviceButtons).forEach(function (deviceButton) {
       deviceButton.addEventListener("click", function (e) {
-        var device = this.getAttribute("data-kirki-device");
+        var device = this.getAttribute("data-kirki-classic-device");
 
         // Trigger WordPress device event.
         api.previewedDevice.set(device);
@@ -98,14 +98,14 @@ const setupPreview = () => {
    */
   function switchDevice(device) {
     // Remove active class from all device buttons.
-    const allDeviceButtons = document.querySelectorAll(".kirki-device-button");
+    const allDeviceButtons = document.querySelectorAll(".kirki-classic-device-button");
     [].slice.call(allDeviceButtons).forEach(function (button) {
       button.classList.remove("is-active");
     });
 
     // Add active class to the selected device button.
     const activeDeviceButton = document.querySelector(
-      ".kirki-device-button-" + device
+      ".kirki-classic-device-button-" + device
     );
     if (activeDeviceButton) {
       activeDeviceButton.classList.add("is-active");
@@ -113,18 +113,18 @@ const setupPreview = () => {
 
     // Hide all device preview items.
     const allPreviewItems = document.querySelectorAll(
-      "[data-kirki-device-preview]"
+      "[data-kirki-classic-device-preview]"
     );
     [].slice.call(allPreviewItems).forEach(function (item) {
-      item.classList.add("kirki-responsive-item-hidden");
+      item.classList.add("kirki-classic-responsive-item-hidden");
     });
 
     // Show items for the selected device.
     const devicePreviewItems = document.querySelectorAll(
-      '[data-kirki-device-preview="' + device + '"]'
+      '[data-kirki-classic-device-preview="' + device + '"]'
     );
     [].slice.call(devicePreviewItems).forEach(function (item) {
-      item.classList.remove("kirki-responsive-item-hidden");
+      item.classList.remove("kirki-classic-responsive-item-hidden");
     });
   }
 

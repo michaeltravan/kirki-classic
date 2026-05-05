@@ -3,13 +3,13 @@
  * Override field methods.
  *
  * @package kirki-framework/control-slider
- * @license MIT (https://oss.ninja/mit?organization=Kirki%20Framework)
+ * @license MIT (https://oss.ninja/mit?organization=KirkiClassic%20Framework)
  * @since   1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -25,7 +25,7 @@ class Color_Palette extends Field {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-color-palette';
+	public $type = 'kirki-classic-color-palette';
 
 	/**
 	 * The control class-name.
@@ -34,7 +34,7 @@ class Color_Palette extends Field {
 	 * @access protected
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Color_Palette';
+	protected $control_class = '\KirkiClassic\Control\Color_Palette';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -80,7 +80,7 @@ class Color_Palette extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-color-palette';
+			$args['type'] = 'kirki-classic-color-palette';
 		}
 
 		return $args;

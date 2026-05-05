@@ -1,14 +1,14 @@
 <?php
 /**
- * Init the Kirki responsive package.
+ * Init the KirkiClassic responsive package.
  *
  * @package kirki-responsive
  * @since 1.0.0
  */
 
-namespace Kirki\Responsive;
+namespace KirkiClassic\Responsive;
 
-use Kirki\Field\Responsive;
+use KirkiClassic\Field\Responsive;
 
 /**
  * Manage the responsive package.
@@ -21,9 +21,9 @@ class Init {
 	 * @var array
 	 */
 	private $horizontal_types = [
-		'kirki-checkbox',
-		'kirki-toggle',
-		'kirki-react-colorful',
+		'kirki-classic-checkbox',
+		'kirki-classic-toggle',
+		'kirki-classic-react-colorful',
 	];
 
 	/**
@@ -32,16 +32,16 @@ class Init {
 	public function __construct() {
 
 		add_action( 'customize_register', [ $this, 'register_control_type' ] );
-		add_filter( 'kirki_control_types', [ $this, 'control_type' ] );
+		add_filter( 'kirki_classic_control_types', [ $this, 'control_type' ] );
 
-		add_filter( 'kirki_field_exclude_init', array( $this, 'exclude_init' ), 99999, 4 );
-		add_action( 'kirki_field_custom_init', [ $this, 'field_init' ], 99999, 3 );
+		add_filter( 'kirki_classic_field_exclude_init', array( $this, 'exclude_init' ), 99999, 4 );
+		add_action( 'kirki_classic_field_custom_init', [ $this, 'field_init' ], 99999, 3 );
 
 		/**
-		 * We use 8 as the priority because we want this to run before "kirki_get_value" method
+		 * We use 8 as the priority because we want this to run before "kirki_classic_get_value" method
 		 * in wp-content/plugins/kirki-dev/packages/kirki-framework/data-option/src/Option.php file.
 		 */
-		add_filter( 'kirki_get_value', [ $this, 'kirki_get_value' ], 8, 4 );
+		add_filter( 'kirki_classic_get_value', [ $this, 'kirki_classic_get_value' ], 8, 4 );
 
 	}
 
@@ -52,7 +52,7 @@ class Init {
 	 */
 	public function register_control_type( $wp_customize ) {
 
-		$wp_customize->register_control_type( '\Kirki\Control\Responsive' );
+		$wp_customize->register_control_type( '\KirkiClassic\Control\Responsive' );
 
 	}
 
@@ -63,7 +63,7 @@ class Init {
 	 */
 	public function control_type( $control_types ) {
 
-		$control_types['kirki-responsive'] = 'Kirki\Control\Responsive';
+		$control_types['kirki-classic-responsive'] = 'KirkiClassic\Control\Responsive';
 
 		return $control_types;
 
@@ -171,7 +171,7 @@ class Init {
 	 * @since 1.0.0
 	 *
 	 * @param Object $field The field object.
-	 * @param array  $args The Kirki field args.
+	 * @param array  $args The KirkiClassic field args.
 	 * @param string $control_class The control class name if it exists.
 	 */
 	public function field_init( $field, $args, $control_class ) {
@@ -191,7 +191,7 @@ class Init {
 	 * @since 1.0.0
 	 *
 	 * @param Object $field The field object.
-	 * @param array  $args The Kirki field args.
+	 * @param array  $args The KirkiClassic field args.
 	 * @param string $control_class The control class name if it exists.
 	 */
 	public function register_real_controls( $field, $args, $control_class = '' ) {
@@ -209,7 +209,7 @@ class Init {
 
 		$devices = array_reverse( $devices );
 
-		$devices_control_id = 'kirki_responsive__' . $args['settings'];
+		$devices_control_id = 'kirki_classic_responsive__' . $args['settings'];
 
 		$loop_count = 0;
 
@@ -314,7 +314,7 @@ class Init {
 		}
 
 		$args['settings'] = $id;
-		$args['type']     = 'kirki-responsive';
+		$args['type']     = 'kirki-classic-responsive';
 
 		if ( ! $inside_horizontal_layout ) {
 			if ( ! isset( $args['wrapper_opts'] ) ) {
@@ -344,10 +344,10 @@ class Init {
 	 *
 	 * @return mixed The filtered value.
 	 */
-	public function kirki_get_value( $value = '', $field_name = '', $default = '', $type = 'theme_mod' ) {
+	public function kirki_classic_get_value( $value = '', $field_name = '', $default = '', $type = 'theme_mod' ) {
 
 		/**
-		 * The "option" will be handled by "kirki_get_value" method in
+		 * The "option" will be handled by "kirki_classic_get_value" method in
 		 * wp-content/plugins/kirki-dev/packages/kirki-framework/data-option/src/Option.php file.
 		 */
 		if ( 'option' === $type ) {

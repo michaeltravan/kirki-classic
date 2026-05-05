@@ -2,16 +2,16 @@
 /**
  * Handles CSS output for background-image.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @subpackage  Controls
  * @copyright   Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.0
  */
 
-namespace Kirki\Module\CSS\Property;
+namespace KirkiClassic\Module\CSS\Property;
 
-use Kirki\Module\CSS\Property;
+use KirkiClassic\Module\CSS\Property;
 
 /**
  * Output overrides.

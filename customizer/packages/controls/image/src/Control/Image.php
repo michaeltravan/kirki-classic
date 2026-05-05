@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * Adds the image control.
@@ -27,7 +27,7 @@ class Image extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-image';
+	public $type = 'kirki-classic-image';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -73,14 +73,14 @@ class Image extends Base {
 					<img src="{{ url }}"/>
 				</div>
 			<# } else { #>
-				<div class="placeholder"><?php esc_html_e( 'No image selected', 'kirki' ); ?></div>
+				<div class="placeholder"><?php esc_html_e( 'No image selected', 'kirki-classic' ); ?></div>
 			<# } #>
 			<div class="actions">
-				<button class="button image-upload-remove-button<# if ( '' === url ) { #> hidden <# } #>"><?php esc_html_e( 'Remove', 'kirki' ); ?></button>
+				<button class="button image-upload-remove-button<# if ( '' === url ) { #> hidden <# } #>"><?php esc_html_e( 'Remove', 'kirki-classic' ); ?></button>
 				<# if ( data.default && '' !== data.default ) { #>
-					<button type="button" class="button image-default-button"<# if ( data.default === data.value || ( ! _.isUndefined( data.value.url ) && data.default === data.value.url ) ) { #> style="display:none;"<# } #>><?php esc_html_e( 'Default', 'kirki' ); ?></button>
+					<button type="button" class="button image-default-button"<# if ( data.default === data.value || ( ! _.isUndefined( data.value.url ) && data.default === data.value.url ) ) { #> style="display:none;"<# } #>><?php esc_html_e( 'Default', 'kirki-classic' ); ?></button>
 				<# } #>
-				<button type="button" class="button image-upload-button"><?php esc_html_e( 'Select image', 'kirki' ); ?></button>
+				<button type="button" class="button image-upload-button"><?php esc_html_e( 'Select image', 'kirki-classic' ); ?></button>
 			</div>
 		</div>
 		<?php

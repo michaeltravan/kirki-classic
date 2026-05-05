@@ -1,12 +1,12 @@
 <?php
 /**
- * Kirki upload control.
+ * KirkiClassic upload control.
  *
  * @package kirki-framework/control-upload
  * @since   1.0.1
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

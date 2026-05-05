@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Checkbox extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-checkbox';
+	public $type = 'kirki-classic-checkbox';
 
 	/**
 	 * The control class-name.
@@ -35,7 +35,7 @@ class Checkbox extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Checkbox';
+	protected $control_class = '\KirkiClassic\Control\Checkbox';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -90,7 +90,7 @@ class Checkbox extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-checkbox';
+			$args['type'] = 'kirki-classic-checkbox';
 		}
 
 		return $args;

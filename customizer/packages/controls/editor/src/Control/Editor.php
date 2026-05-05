@@ -10,10 +10,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * A TinyMCE control.
@@ -29,7 +29,7 @@ class Editor extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-editor';
+	public $type = 'kirki-classic-editor';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -77,7 +77,7 @@ class Editor extends Base {
 	 * Class variables for this control class are available in the `data` JS object;
 	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
 	 *
-	 * The actual editor is added from the \Kirki\Field\Editor class.
+	 * The actual editor is added from the \KirkiClassic\Field\Editor class.
 	 * All this template contains is a button that triggers the global editor on/off
 	 * and a hidden textarea element that is used to mirror save the options.
 	 *
@@ -93,7 +93,7 @@ class Editor extends Base {
 			<# if ( data.label ) { #><span class="customize-control-title">{{{ data.label }}}</span><# } #>
 			<# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><# } #>
 		</label>
-		<textarea id="kirki-editor-{{{ data.id.replace( '[', '' ).replace( ']', '' ) }}}" {{{ data.inputAttrs }}} {{{ data.link }}}>{{ data.value }}</textarea>
+		<textarea id="kirki-classic-editor-{{{ data.id.replace( '[', '' ).replace( ']', '' ) }}}" {{{ data.inputAttrs }}} {{{ data.link }}}>{{ data.value }}</textarea>
 		<?php
 	}
 }

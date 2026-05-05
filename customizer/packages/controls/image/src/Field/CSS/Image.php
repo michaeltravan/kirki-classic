@@ -2,16 +2,16 @@
 /**
  * Handles CSS output for image fields.
  *
- * @package    Kirki
+ * @package    KirkiClassic
  * @subpackage Controls
  * @copyright  Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since      3.0.10
  */
 
-namespace Kirki\Field\CSS;
+namespace KirkiClassic\Field\CSS;
 
-use Kirki\Module\CSS\Output;
+use KirkiClassic\Module\CSS\Output;
 
 /**
  * Output overrides.

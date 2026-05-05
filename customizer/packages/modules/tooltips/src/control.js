@@ -29,7 +29,7 @@ function kirkiTooltipAdd( control ) {
 			return;
 		}
 
-		target.classList.add( 'kirki-tooltip-wrapper' );
+		target.classList.add( 'kirki-classic-tooltip-wrapper' );
 
 		// Build the tooltip trigger.
 		const trigger = document.createElement( 'span' );
@@ -112,10 +112,10 @@ function initTooltips() {
 	} );
 
 	// Create and append style element
-	let tooltipStyleEl = document.querySelector( '.kirki-tooltip-inline-styles' );
+	let tooltipStyleEl = document.querySelector( '.kirki-classic-tooltip-inline-styles' );
 	if ( ! tooltipStyleEl ) {
 		tooltipStyleEl = document.createElement( 'style' );
-		tooltipStyleEl.className = 'kirki-tooltip-inline-styles';
+		tooltipStyleEl.className = 'kirki-classic-tooltip-inline-styles';
 		document.head.appendChild( tooltipStyleEl );
 	}
 
@@ -132,7 +132,7 @@ function initTooltips() {
 						sidebarOverlay.offsetHeight
 					) {
 						tooltipStyleEl.textContent =
-							'.kirki-tooltip-wrapper span.tooltip-content {min-width: 258px;}';
+							'.kirki-classic-tooltip-wrapper span.tooltip-content {min-width: 258px;}';
 					} else {
 						tooltipStyleEl.textContent = '';
 					}

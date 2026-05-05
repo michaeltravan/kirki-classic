@@ -1,22 +1,22 @@
 <?php
 /**
- * Backward compatibility for old Kirki Pro namespace.
+ * Backward compatibility for old KirkiClassic Pro namespace.
  *
- * This file provides class aliases for the old \Kirki\Pro\* namespace
+ * This file provides class aliases for the old \KirkiClassic\Pro\* namespace
  * to maintain backward compatibility after removing the Pro namespace.
  *
- * @package Kirki
+ * @package KirkiClassic
  * @since 5.1.1
  */
 
 defined( 'ABSPATH' ) || exit;
 
 // Prevent registering multiple times.
-if ( defined( 'KIRKI_PRO_NAMESPACE_COMPATIBILITY_LOADED' ) ) {
+if ( defined( 'KIRKI_CLASSIC_PRO_NAMESPACE_COMPATIBILITY_LOADED' ) ) {
 	return;
 }
 
-define( 'KIRKI_PRO_NAMESPACE_COMPATIBILITY_LOADED', true );
+define( 'KIRKI_CLASSIC_PRO_NAMESPACE_COMPATIBILITY_LOADED', true );
 
 /**
  * Autoloader for old Pro namespace classes.
@@ -27,12 +27,12 @@ define( 'KIRKI_PRO_NAMESPACE_COMPATIBILITY_LOADED', true );
  */
 spl_autoload_register(
 	function ( $class ) {
-		// Only handle \Kirki\Pro\* classes.
-		if ( 0 !== strpos( $class, 'Kirki\\Pro\\' ) ) {
+		// Only handle \KirkiClassic\Pro\* classes.
+		if ( 0 !== strpos( $class, 'KirkiClassic\\Pro\\' ) ) {
 			return;
 		}
 
-		$new_class = str_replace( 'Kirki\\Pro\\', 'Kirki\\', $class );
+		$new_class = str_replace( 'KirkiClassic\\Pro\\', 'KirkiClassic\\', $class );
 
 		if ( class_exists( $new_class, false ) ) {
 			class_alias( $new_class, $class );
@@ -40,7 +40,7 @@ spl_autoload_register(
 		}
 
 		// Control classes extend WP_Customize_Control, so WordPress Customizer must be loaded first.
-		$is_control_class = ( 0 === strpos( $new_class, 'Kirki\\Control\\' ) );
+		$is_control_class = ( 0 === strpos( $new_class, 'KirkiClassic\\Control\\' ) );
 		
 		// For Control classes, WP_Customize_Control must be available.
 		if ( $is_control_class && ! class_exists( 'WP_Customize_Control', false ) ) {
@@ -55,7 +55,7 @@ spl_autoload_register(
 		}
 
 		// Try to load the new class file manually if autoloader didn't find it.
-		$relative_class = str_replace( 'Kirki\\', '', $new_class );
+		$relative_class = str_replace( 'KirkiClassic\\', '', $new_class );
 		$relative_path  = str_replace( '\\', '/', $relative_class ) . '.php';
 
 		// Check in Field and Control directories.

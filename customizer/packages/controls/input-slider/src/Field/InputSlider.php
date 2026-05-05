@@ -5,9 +5,9 @@
  * @package kirki-input-slider
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -23,7 +23,7 @@ class InputSlider extends Field {
 	 *
 	 * @var string
 	 */
-	public $type = 'kirki-input-slider';
+	public $type = 'kirki-classic-input-slider';
 
 	/**
 	 * The control class-name.
@@ -32,7 +32,7 @@ class InputSlider extends Field {
 	 *
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\InputSlider';
+	protected $control_class = '\KirkiClassic\Control\InputSlider';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -98,7 +98,7 @@ class InputSlider extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-input-slider';
+			$args['type'] = 'kirki-classic-input-slider';
 		}
 
 		return $args;

@@ -83,7 +83,7 @@ const KirkiInputSliderForm = (props) => {
   };
 
   // Preparing for the template.
-  const fieldId = `kirki-control-input-${customizerSetting.id}`;
+  const fieldId = `kirki-classic-control-input-${customizerSetting.id}`;
   const sliderValue = getValueForSlider(props.value);
   const inputValue = getValueForInput(props.value);
 
@@ -91,8 +91,8 @@ const KirkiInputSliderForm = (props) => {
   const valueRef = useRef(null);
 
   return (
-    <div className="kirki-control-form" tabIndex="1">
-      <label className="kirki-control-label" htmlFor={fieldId}>
+    <div className="kirki-classic-control-form" tabIndex="1">
+      <label className="kirki-classic-control-label" htmlFor={fieldId}>
         <span className="customize-control-title">{props.label}</span>
         <span
           className="customize-control-description description"
@@ -107,14 +107,14 @@ const KirkiInputSliderForm = (props) => {
 
       <button
         type="button"
-        className="kirki-control-reset"
+        className="kirki-classic-control-reset"
         onClick={handleReset}
       >
         <i className="dashicons dashicons-image-rotate"></i>
       </button>
 
-      <div className="kirki-control-cols">
-        <div className="kirki-control-left-col">
+      <div className="kirki-classic-control-cols">
+        <div className="kirki-classic-control-left-col">
           <input
             ref={sliderRef}
             type="range"
@@ -123,16 +123,16 @@ const KirkiInputSliderForm = (props) => {
             min={choices.min}
             max={choices.max}
             step={choices.step}
-            className="kirki-control-input-slider kirki-pro-control-input-slider"
+            className="kirki-classic-control-input-slider kirki-classic-pro-control-input-slider"
             onChange={handleSliderChange}
           />
         </div>
-        <div className="kirki-control-right-col">
+        <div className="kirki-classic-control-right-col">
           <input
             ref={valueRef}
             type="text"
             defaultValue={inputValue}
-            className="kirki-control-input"
+            className="kirki-classic-control-input"
             onChange={handleInputChange}
           />
         </div>

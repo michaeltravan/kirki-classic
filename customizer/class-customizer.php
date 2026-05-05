@@ -1,17 +1,17 @@
 <?php
 /**
- * The Kirki Customizer class.
+ * The KirkiClassic Customizer class.
  *
  * @package kirki
  * @since 5.0.0
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
-use Kirki\L10n;
-use Kirki\Compatibility\Modules;
-use Kirki\Compatibility\Framework;
-use Kirki\Compatibility\Kirki;
+use KirkiClassic\L10n;
+use KirkiClassic\Compatibility\Modules;
+use KirkiClassic\Compatibility\Framework;
+use KirkiClassic\Compatibility\KirkiClassic;
 
 /**
  * The Customizer class.
@@ -27,8 +27,8 @@ class Customizer
     public static function init()
     {
 
-        if (!defined('KIRKI_PLUGIN_FILE')) {
-            define('KIRKI_PLUGIN_FILE', dirname(__DIR__) . '/kirki.php');
+        if (!defined('KIRKI_CLASSIC_PLUGIN_FILE')) {
+            define('KIRKI_CLASSIC_PLUGIN_FILE', dirname(__DIR__) . '/kirki-classic.php');
         }
 
         require_once __DIR__ . '/lib/class-aricolor.php';
@@ -36,31 +36,31 @@ class Customizer
         require_once dirname(__DIR__) . '/vendor/autoload.php';
         require_once __DIR__ . '/bootstrap.php';
 
-        if (!defined('KIRKI_VERSION')) {
-            define('KIRKI_VERSION', '5.2.3');
+        if (!defined('KIRKI_CLASSIC_VERSION')) {
+            define('KIRKI_CLASSIC_VERSION', '5.2.3');
         }
 
-        if (!defined('KIRKI_PLUGIN_DIR')) {
-            define('KIRKI_PLUGIN_DIR', dirname(__DIR__));
+        if (!defined('KIRKI_CLASSIC_PLUGIN_DIR')) {
+            define('KIRKI_CLASSIC_PLUGIN_DIR', dirname(__DIR__));
         }
 
-        if (!defined('KIRKI_PLUGIN_URL')) {
-            define('KIRKI_PLUGIN_URL', URL::get_from_path(dirname(__DIR__)));
+        if (!defined('KIRKI_CLASSIC_PLUGIN_URL')) {
+            define('KIRKI_CLASSIC_PLUGIN_URL', URL::get_from_path(dirname(__DIR__)));
         }
 
-        // Start Kirki.
-        global $kirki;
-        $kirki = Framework::get_instance();
+        // Start KirkiClassic.
+        global $kirki_classic;
+        $kirki_classic = Framework::get_instance();
 
         // Instantiate the modules.
-        $kirki->modules = new Modules();
+        $kirki_classic->modules = new Modules();
 
         // Instantiate classes.
-        new Kirki();
-        new L10n('kirki', dirname(__DIR__) . '/languages');
+        new KirkiClassic();
+        new L10n('kirki-classic', dirname(__DIR__) . '/languages');
 
         // Add an empty config for global fields.
-        Kirki::add_config('');
+        KirkiClassic::add_config('');
 
         // Load custom config if exists.
         $custom_config_path = dirname(__DIR__) . '/custom-config.php';
@@ -75,7 +75,7 @@ class Customizer
         require_once __DIR__ . '/packages/index.php';
 
         // Handle tests.
-        if (defined('KIRKI_TEST') && true === constant('KIRKI_TEST') && file_exists(__DIR__ . '/example.php')) {
+        if (defined('KIRKI_CLASSIC_TEST') && true === constant('KIRKI_CLASSIC_TEST') && file_exists(__DIR__ . '/example.php')) {
             include_once __DIR__ . '/example.php';
         }
 
@@ -106,7 +106,7 @@ class Customizer
 
         $file = $is_preview_frame ? 'preview' : 'controls';
 
-        wp_enqueue_style('kirki-customizer', URL::get_from_path(dirname(__DIR__) . "/assets/customizer/{$file}.min.css"), [], KIRKI_VERSION);
-        wp_enqueue_script('kirki-customizer', URL::get_from_path(dirname(__DIR__) . "/assets/customizer/{$file}.min.js"), $deps, KIRKI_VERSION, true);
+        wp_enqueue_style('kirki-classic-customizer', URL::get_from_path(dirname(__DIR__) . "/assets/customizer/{$file}.min.css"), [], KIRKI_CLASSIC_VERSION);
+        wp_enqueue_script('kirki-classic-customizer', URL::get_from_path(dirname(__DIR__) . "/assets/customizer/{$file}.min.js"), $deps, KIRKI_CLASSIC_VERSION, true);
     }
 }

@@ -2,7 +2,7 @@
 /**
  * Creates and validates field parameters.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,9 +10,9 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
-use Kirki\Compatibility\Kirki;
+use KirkiClassic\Compatibility\KirkiClassic;
 
 /**
  * Please do not use this class directly.
@@ -36,13 +36,13 @@ class Field {
 	protected $args = array();
 
 	/**
-	 * The ID of the kirki_config we're using.
+	 * The ID of the kirki_classic_config we're using.
 	 *
-	 * @see Kirki\Compatibility\Config
+	 * @see KirkiClassic\Compatibility\Config
 	 * @access protected
 	 * @var string
 	 */
-	protected $kirki_config = 'global';
+	protected $kirki_classic_config = 'global';
 
 	/**
 	 * The capability required so that users can edit this field.
@@ -116,7 +116,7 @@ class Field {
 	 * @access protected
 	 * @var string
 	 */
-	protected $type = 'kirki-generic';
+	protected $type = 'kirki-classic-generic';
 
 	/**
 	 * Some fields require options to be set.
@@ -244,12 +244,12 @@ class Field {
 	/**
 	 * The class constructor.
 	 * Parses and sanitizes all field arguments.
-	 * Then it adds the field to Kirki::$fields.
+	 * Then it adds the field to KirkiClassic::$fields.
 	 *
 	 * @access public
 	 * @param string $config_id    The ID of the config we want to use.
 	 *                             Defaults to "global".
-	 *                             Configs are handled by the Kirki\Compatibility\Config class.
+	 *                             Configs are handled by the KirkiClassic\Compatibility\Config class.
 	 * @param array  $args         The arguments of the field.
 	 */
 	public function __construct( $config_id = 'global', $args = array() ) {
@@ -260,34 +260,34 @@ class Field {
 		 */
 		if ( is_array( $config_id ) && empty( $args ) ) {
 			$args      = $config_id;
-			$config_id = isset( $args['kirki_config'] ) ? $args['kirki_config'] : 'global';
+			$config_id = isset( $args['kirki_classic_config'] ) ? $args['kirki_classic_config'] : 'global';
 		}
 
 		if ( isset( $args['setting'] ) && ! empty( $args['setting'] ) && ( ! isset( $args['settings'] ) || empty( $args['settings'] ) ) ) {
 			/* translators: %s represents the field ID where the error occurs. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( 'Typo found in field %s - setting instead of settings.', 'kirki' ), esc_html( $args['settings'] ) ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( 'Typo found in field %s - setting instead of settings.', 'kirki-classic' ), esc_html( $args['settings'] ) ), '3.0.10' );
 			$args['settings'] = $args['setting'];
 			unset( $args['setting'] );
 		}
 
-		$args['kirki_config'] = $config_id;
+		$args['kirki_classic_config'] = $config_id;
 
-		$this->kirki_config = $config_id;
+		$this->kirki_classic_config = $config_id;
 
 		if ( '' === $config_id ) {
 			/* translators: %1$s represents the field ID where the error occurs. %2$s is the URL in the documentation site. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( 'Config not defined for field %1$s - See %2$s for details on how to properly add fields.', 'kirki' ), esc_html( $args['settings'] ), 'https://aristath.github.io/kirki/docs/getting-started/fields.html' ), '3.0.10' );
-			$this->kirki_config = 'global';
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( 'Config not defined for field %1$s - See %2$s for details on how to properly add fields.', 'kirki-classic' ), esc_html( $args['settings'] ), 'https://aristath.github.io/kirki/docs/getting-started/fields.html' ), '3.0.10' );
+			$this->kirki_classic_config = 'global';
 		}
 
 		// Get defaults from the class.
 		$defaults = get_class_vars( __CLASS__ );
 
 		// Get the config arguments, and merge them with the defaults.
-		$config_defaults = ( isset( Kirki::$config['global'] ) ) ? Kirki::$config['global'] : array();
+		$config_defaults = ( isset( KirkiClassic::$config['global'] ) ) ? KirkiClassic::$config['global'] : array();
 
-		if ( 'global' !== $this->kirki_config && isset( Kirki::$config[ $this->kirki_config ] ) ) {
-			$config_defaults = Kirki::$config[ $this->kirki_config ];
+		if ( 'global' !== $this->kirki_classic_config && isset( KirkiClassic::$config[ $this->kirki_classic_config ] ) ) {
+			$config_defaults = KirkiClassic::$config[ $this->kirki_classic_config ];
 		}
 
 		$config_defaults = ( is_array( $config_defaults ) ) ? $config_defaults : array();
@@ -310,8 +310,8 @@ class Field {
 
 		$this->set_field();
 
-		// Instantiate the \Kirki\Field to apply hooks.
-		new \Kirki\Field\None( $this->args );
+		// Instantiate the \KirkiClassic\Field to apply hooks.
+		new \KirkiClassic\Field\None( $this->args );
 
 	}
 
@@ -347,7 +347,7 @@ class Field {
 		}
 
 		// Add the field to the static $fields variable properly indexed.
-		Kirki::$fields[ $this->settings ] = $args;
+		KirkiClassic::$fields[ $this->settings ] = $args;
 
 	}
 
@@ -375,7 +375,7 @@ class Field {
 		// Take care of common typos.
 		if ( 'theme_mods' === $this->option_type ) {
 			/* translators: %1$s represents the field ID where the error occurs. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( 'Typo found in field %s - "theme_mods" vs "theme_mod"', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( 'Typo found in field %s - "theme_mods" vs "theme_mod"', 'kirki-classic' ), esc_html( $this->settings ) ), '3.0.10' );
 			$this->option_type = 'theme_mod';
 		}
 	}
@@ -392,7 +392,7 @@ class Field {
 		foreach ( $this->partial_refresh as $id => $args ) {
 			if ( ! is_array( $args ) || ! isset( $args['selector'] ) || ! isset( $args['render_callback'] ) || ! is_callable( $args['render_callback'] ) ) {
 				/* translators: %1$s represents the field ID where the error occurs. */
-				_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"partial_refresh" invalid entry in field %s', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
+				_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"partial_refresh" invalid entry in field %s', 'kirki-classic' ), esc_html( $this->settings ) ), '3.0.10' );
 				unset( $this->partial_refresh[ $id ] );
 				continue;
 			}
@@ -416,7 +416,7 @@ class Field {
 		// if settings is not an array then it will not be set as an array in the end.
 		if ( ! is_array( $this->settings ) ) {
 			$this->settings = array(
-				'kirki_placeholder_setting' => $this->settings,
+				'kirki_classic_placeholder_setting' => $this->settings,
 			);
 		}
 		$settings = array();
@@ -429,8 +429,8 @@ class Field {
 			}
 		}
 		$this->settings = $settings;
-		if ( isset( $this->settings['kirki_placeholder_setting'] ) ) {
-			$this->settings = $this->settings['kirki_placeholder_setting'];
+		if ( isset( $this->settings['kirki_classic_placeholder_setting'] ) ) {
+			$this->settings = $this->settings['kirki_classic_placeholder_setting'];
 		}
 	}
 
@@ -518,7 +518,7 @@ class Field {
 		}
 		if ( ! is_array( $this->output ) ) {
 			/* translators: The field ID where the error occurs. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki-classic' ), esc_html( $this->settings ) ), '3.0.10' );
 			$this->output = array(
 				array(
 					'element' => $this->output,
@@ -529,7 +529,7 @@ class Field {
 		// Convert to array of arrays if needed.
 		if ( isset( $this->output['element'] ) ) {
 			/* translators: The field ID where the error occurs. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki-classic' ), esc_html( $this->settings ) ), '3.0.10' );
 			$this->output = array( $this->output );
 		}
 

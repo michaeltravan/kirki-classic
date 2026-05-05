@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\URL;
-use Kirki\Control\Base;
+use KirkiClassic\URL;
+use KirkiClassic\Control\Base;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +32,7 @@ class Dashicons extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-dashicons';
+	public $type = 'kirki-classic-dashicons';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -62,7 +62,7 @@ class Dashicons extends Base {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['icons'] = \Kirki\Util\Dashicons::get_icons();
+		$this->json['icons'] = \KirkiClassic\Util\Dashicons::get_icons();
 	}
 
 	/**
@@ -91,21 +91,21 @@ class Dashicons extends Base {
 			<# } else { #>
 				<#
 				var dashiconSections = {
-					'admin-menu': '<?php esc_html_e( 'Admin Menu', 'kirki' ); ?>',
-					'welcome-screen': '<?php esc_html_e( 'Welcome Screen', 'kirki' ); ?>',
-					'post-formats': '<?php esc_html_e( 'Post Formats', 'kirki' ); ?>',
-					'media': '<?php esc_html_e( 'Media', 'kirki' ); ?>',
-					'image-editing': '<?php esc_html_e( 'Image Editing', 'kirki' ); ?>',
+					'admin-menu': '<?php esc_html_e( 'Admin Menu', 'kirki-classic' ); ?>',
+					'welcome-screen': '<?php esc_html_e( 'Welcome Screen', 'kirki-classic' ); ?>',
+					'post-formats': '<?php esc_html_e( 'Post Formats', 'kirki-classic' ); ?>',
+					'media': '<?php esc_html_e( 'Media', 'kirki-classic' ); ?>',
+					'image-editing': '<?php esc_html_e( 'Image Editing', 'kirki-classic' ); ?>',
 					'tinymce': 'TinyMCE',
-					'posts': '<?php esc_html_e( 'Posts', 'kirki' ); ?>',
-					'sorting': '<?php esc_html_e( 'Sorting', 'kirki' ); ?>',
-					'social': '<?php esc_html_e( 'Social', 'kirki' ); ?>',
+					'posts': '<?php esc_html_e( 'Posts', 'kirki-classic' ); ?>',
+					'sorting': '<?php esc_html_e( 'Sorting', 'kirki-classic' ); ?>',
+					'social': '<?php esc_html_e( 'Social', 'kirki-classic' ); ?>',
 					'wordpress_org': 'WordPress',
-					'products': '<?php esc_html_e( 'Products', 'kirki' ); ?>',
-					'taxonomies': '<?php esc_html_e( 'Taxonomies', 'kirki' ); ?>',
-					'widgets': '<?php esc_html_e( 'Widgets', 'kirki' ); ?>',
-					'notifications': '<?php esc_html_e( 'Notifications', 'kirki' ); ?>',
-					'misc': '<?php esc_html_e( 'Miscellaneous', 'kirki' ); ?>'
+					'products': '<?php esc_html_e( 'Products', 'kirki-classic' ); ?>',
+					'taxonomies': '<?php esc_html_e( 'Taxonomies', 'kirki-classic' ); ?>',
+					'widgets': '<?php esc_html_e( 'Widgets', 'kirki-classic' ); ?>',
+					'notifications': '<?php esc_html_e( 'Notifications', 'kirki-classic' ); ?>',
+					'misc': '<?php esc_html_e( 'Miscellaneous', 'kirki-classic' ); ?>'
 				};
 				#>
 				<# _.each( dashiconSections, function( sectionLabel, sectionKey ) { #>

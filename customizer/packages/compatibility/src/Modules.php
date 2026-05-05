@@ -2,7 +2,7 @@
 /**
  * Handles modules loading.
  *
- * @package    Kirki
+ * @package    KirkiClassic
  * @category   Modules
  * @author     Themeum
  * @copyright  Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since      3.0.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 /**
  * The Modules class.
@@ -52,7 +52,7 @@ class Modules {
 	}
 
 	/**
-	 * Set the default modules and apply the 'kirki_modules' filter.
+	 * Set the default modules and apply the 'kirki_classic_modules' filter.
 	 * In v3.0.35 this method was renamed from default_modules to setup_default_modules,
 	 * and its visibility changed from private to public to fix https://github.com/aristath/kirki/issues/2023
 	 *
@@ -62,17 +62,17 @@ class Modules {
 	public function setup_default_modules() {
 
 		self::$modules = apply_filters(
-			'kirki_modules',
+			'kirki_classic_modules',
 			[
-				'css'                => '\Kirki\Module\CSS',
-				'tooltips'           => '\Kirki\Module\Tooltips',
-				'postMessage'        => '\Kirki\Module\Postmessage',
-				'selective-refresh'  => '\Kirki\Module\Selective_Refresh',
-				'field-dependencies' => '\Kirki\Module\Field_Dependencies',
-				'webfonts'           => '\Kirki\Module\Webfonts',
-				'preset'             => '\Kirki\Module\Preset',
-				'gutenberg'          => '\Kirki\Module\Editor_Styles',
-				'section-icons'      => '\Kirki\Module\Section_Icons',
+				'css'                => '\KirkiClassic\Module\CSS',
+				'tooltips'           => '\KirkiClassic\Module\Tooltips',
+				'postMessage'        => '\KirkiClassic\Module\Postmessage',
+				'selective-refresh'  => '\KirkiClassic\Module\Selective_Refresh',
+				'field-dependencies' => '\KirkiClassic\Module\Field_Dependencies',
+				'webfonts'           => '\KirkiClassic\Module\Webfonts',
+				'preset'             => '\KirkiClassic\Module\Preset',
+				'gutenberg'          => '\KirkiClassic\Module\Editor_Styles',
+				'section-icons'      => '\KirkiClassic\Module\Section_Icons',
 			]
 		);
 

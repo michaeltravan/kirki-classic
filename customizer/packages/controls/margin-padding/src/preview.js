@@ -10,7 +10,7 @@
    * @return {string} The filtered styles.
    */
   const stylesOutput = (styles, values, output, controlType) => {
-    if ("kirki-margin" !== controlType && "kirki-padding" !== controlType) {
+    if ("kirki-classic-margin" !== controlType && "kirki-classic-padding" !== controlType) {
       return styles;
     }
 
@@ -18,7 +18,7 @@
       return styles;
     }
 
-    const property = controlType.replace("kirki-", "");
+    const property = controlType.replace("kirki-classic-", "");
 
     styles += output.element + "{";
 

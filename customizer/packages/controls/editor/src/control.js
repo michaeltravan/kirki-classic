@@ -1,13 +1,13 @@
 import "./control.scss";
 
 /* global tinyMCE */
-wp.customize.controlConstructor[ 'kirki-editor' ] = wp.customize.kirkiDynamicControl.extend( {
+wp.customize.controlConstructor[ 'kirki-classic-editor' ] = wp.customize.kirkiDynamicControl.extend( {
 	initKirkiControl: function( control ) {
 		var element, editor, id, defaultParams, container;
 		control = control || this;
 		container = control.container[0] || control.container;
 		element = container.querySelector( 'textarea' );
-		id      = 'kirki-editor-' + control.id.replace( '[', '' ).replace( ']', '' );
+		id      = 'kirki-classic-editor-' + control.id.replace( '[', '' ).replace( ']', '' );
 
 		defaultParams = {
 			tinymce: {

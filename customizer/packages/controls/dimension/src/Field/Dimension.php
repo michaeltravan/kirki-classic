@@ -2,15 +2,15 @@
 /**
  * Override field methods
  *
- * @package   Kirki
+ * @package   KirkiClassic
  * @copyright Copyright (c) 2023, Themeum
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -24,7 +24,7 @@ class Dimension extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-dimension';
+	public $type = 'kirki-classic-dimension';
 
 	/**
 	 * The control class-name.
@@ -33,7 +33,7 @@ class Dimension extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Dimension';
+	protected $control_class = '\KirkiClassic\Control\Dimension';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -77,7 +77,7 @@ class Dimension extends Field {
 	public function filter_control_args( $args, $wp_customize ) {
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-dimension';
+			$args['type'] = 'kirki-classic-dimension';
 		}
 		return $args;
 	}

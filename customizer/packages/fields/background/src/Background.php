@@ -8,11 +8,11 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki;
-use Kirki\Field;
-use Kirki\URL;
+use KirkiClassic;
+use KirkiClassic\Field;
+use KirkiClassic\URL;
 
 /**
  * Field overrides.
@@ -28,7 +28,7 @@ class Background extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-background';
+	public $type = 'kirki-classic-background';
 
 	/**
 	 * Extra logic for the field.
@@ -41,21 +41,21 @@ class Background extends Field {
 	public function init( $args ) {
 
 		$args['required']     = isset( $args['required'] ) ? (array) $args['required'] : [];
-		$args['kirki_config'] = isset( $args['kirki_config'] ) ? $args['kirki_config'] : 'global';
+		$args['kirki_classic_config'] = isset( $args['kirki_classic_config'] ) ? $args['kirki_classic_config'] : 'global';
 
 		/**
 		 * Add a hidden field, the label & description.
 		 */
-		new \Kirki\Field\Generic(
+		new \KirkiClassic\Field\Generic(
 			wp_parse_args(
 				[
-					'type'              => 'kirki-generic',
+					'type'              => 'kirki-classic-generic',
 					'default'           => '',
 					'choices'           => [
 						'type'        => 'hidden',
-						'parent_type' => 'kirki-background',
+						'parent_type' => 'kirki-classic-background',
 					],
-					'sanitize_callback' => [ '\Kirki\Field\Background', 'sanitize' ],
+					'sanitize_callback' => [ '\KirkiClassic\Field\Background', 'sanitize' ],
 				],
 				$args
 			)
@@ -64,7 +64,7 @@ class Background extends Field {
 		$args['parent_setting'] = $args['settings'];
 		$args['output']         = [];
 		$args['wrapper_attrs']  = [
-			'data-kirki-parent-control-type' => 'kirki-background',
+			'data-kirki-parent-control-type' => 'kirki-classic-background',
 		];
 
 		if ( isset( $args['transport'] ) && 'auto' === $args['transport'] ) {
@@ -76,12 +76,12 @@ class Background extends Field {
 		/**
 		 * Background Color.
 		 */
-		new \Kirki\Field\Color(
+		new \KirkiClassic\Field\Color(
 			wp_parse_args(
 				[
 					'settings'    => $args['settings'] . '[background-color]',
 					'label'       => '',
-					'description' => esc_html__( 'Background Color', 'kirki' ),
+					'description' => esc_html__( 'Background Color', 'kirki-classic' ),
 					'default'     => $default_bg_color,
 					'section'     => $args['section'],
 					'choices'     => [
@@ -95,12 +95,12 @@ class Background extends Field {
 		/**
 		 * Background Image.
 		 */
-		new \Kirki\Field\Image(
+		new \KirkiClassic\Field\Image(
 			wp_parse_args(
 				[
 					'settings'    => $args['settings'] . '[background-image]',
 					'label'       => '',
-					'description' => esc_html__( 'Background Image', 'kirki' ),
+					'description' => esc_html__( 'Background Image', 'kirki-classic' ),
 					'default'     => isset( $args['default']['background-image'] ) ? $args['default']['background-image'] : '',
 					'section'     => $args['section'],
 				],
@@ -111,19 +111,19 @@ class Background extends Field {
 		/**
 		 * Background Repeat.
 		 */
-		new Kirki\Field\Select(
+		new KirkiClassic\Field\Select(
 			wp_parse_args(
 				[
 					'settings'    => $args['settings'] . '[background-repeat]',
 					'label'       => '',
-					'description' => esc_html__( 'Background Repeat', 'kirki' ),
+					'description' => esc_html__( 'Background Repeat', 'kirki-classic' ),
 					'section'     => $args['section'],
 					'default'     => isset( $args['default']['background-repeat'] ) ? $args['default']['background-repeat'] : '',
 					'choices'     => [
-						'no-repeat' => esc_html__( 'No Repeat', 'kirki' ),
-						'repeat'    => esc_html__( 'Repeat All', 'kirki' ),
-						'repeat-x'  => esc_html__( 'Repeat Horizontally', 'kirki' ),
-						'repeat-y'  => esc_html__( 'Repeat Vertically', 'kirki' ),
+						'no-repeat' => esc_html__( 'No Repeat', 'kirki-classic' ),
+						'repeat'    => esc_html__( 'Repeat All', 'kirki-classic' ),
+						'repeat-x'  => esc_html__( 'Repeat Horizontally', 'kirki-classic' ),
+						'repeat-y'  => esc_html__( 'Repeat Vertically', 'kirki-classic' ),
 					],
 					'required'    => array_merge(
 						$args['required'],
@@ -144,24 +144,24 @@ class Background extends Field {
 		/**
 		 * Background Position.
 		 */
-		new Kirki\Field\Select(
+		new KirkiClassic\Field\Select(
 			wp_parse_args(
 				[
 					'settings'    => $args['settings'] . '[background-position]',
 					'label'       => '',
-					'description' => esc_html__( 'Background Position', 'kirki' ),
+					'description' => esc_html__( 'Background Position', 'kirki-classic' ),
 					'default'     => isset( $args['default']['background-position'] ) ? $args['default']['background-position'] : '',
 					'section'     => $args['section'],
 					'choices'     => [
-						'left top'      => esc_html__( 'Left Top', 'kirki' ),
-						'left center'   => esc_html__( 'Left Center', 'kirki' ),
-						'left bottom'   => esc_html__( 'Left Bottom', 'kirki' ),
-						'center top'    => esc_html__( 'Center Top', 'kirki' ),
-						'center center' => esc_html__( 'Center Center', 'kirki' ),
-						'center bottom' => esc_html__( 'Center Bottom', 'kirki' ),
-						'right top'     => esc_html__( 'Right Top', 'kirki' ),
-						'right center'  => esc_html__( 'Right Center', 'kirki' ),
-						'right bottom'  => esc_html__( 'Right Bottom', 'kirki' ),
+						'left top'      => esc_html__( 'Left Top', 'kirki-classic' ),
+						'left center'   => esc_html__( 'Left Center', 'kirki-classic' ),
+						'left bottom'   => esc_html__( 'Left Bottom', 'kirki-classic' ),
+						'center top'    => esc_html__( 'Center Top', 'kirki-classic' ),
+						'center center' => esc_html__( 'Center Center', 'kirki-classic' ),
+						'center bottom' => esc_html__( 'Center Bottom', 'kirki-classic' ),
+						'right top'     => esc_html__( 'Right Top', 'kirki-classic' ),
+						'right center'  => esc_html__( 'Right Center', 'kirki-classic' ),
+						'right bottom'  => esc_html__( 'Right Bottom', 'kirki-classic' ),
 					],
 					'required'    => array_merge(
 						$args['required'],
@@ -182,18 +182,18 @@ class Background extends Field {
 		/**
 		 * Background size.
 		 */
-		new Kirki\Field\Radio_Buttonset(
+		new KirkiClassic\Field\Radio_Buttonset(
 			wp_parse_args(
 				[
 					'settings'    => $args['settings'] . '[background-size]',
 					'label'       => '',
-					'description' => esc_html__( 'Background Size', 'kirki' ),
+					'description' => esc_html__( 'Background Size', 'kirki-classic' ),
 					'default'     => isset( $args['default']['background-size'] ) ? $args['default']['background-size'] : '',
 					'section'     => $args['section'],
 					'choices'     => [
-						'cover'   => esc_html__( 'Cover', 'kirki' ),
-						'contain' => esc_html__( 'Contain', 'kirki' ),
-						'auto'    => esc_html__( 'Auto', 'kirki' ),
+						'cover'   => esc_html__( 'Cover', 'kirki-classic' ),
+						'contain' => esc_html__( 'Contain', 'kirki-classic' ),
+						'auto'    => esc_html__( 'Auto', 'kirki-classic' ),
 					],
 					'required'    => array_merge(
 						$args['required'],
@@ -214,18 +214,18 @@ class Background extends Field {
 		/**
 		 * Background attachment.
 		 */
-		new Kirki\Field\Radio_Buttonset(
+		new KirkiClassic\Field\Radio_Buttonset(
 			wp_parse_args(
 				[
-					'type'        => 'kirki-radio-buttonset',
+					'type'        => 'kirki-classic-radio-buttonset',
 					'settings'    => $args['settings'] . '[background-attachment]',
-					'description' => esc_html__( 'Background Attachment', 'kirki' ),
+					'description' => esc_html__( 'Background Attachment', 'kirki-classic' ),
 					'label'       => '',
 					'default'     => isset( $args['default']['background-attachment'] ) ? $args['default']['background-attachment'] : '',
 					'section'     => $args['section'],
 					'choices'     => [
-						'scroll' => esc_html__( 'Scroll', 'kirki' ),
-						'fixed'  => esc_html__( 'Fixed', 'kirki' ),
+						'scroll' => esc_html__( 'Scroll', 'kirki-classic' ),
+						'fixed'  => esc_html__( 'Fixed', 'kirki-classic' ),
 					],
 					'required'    => array_merge(
 						$args['required'],
@@ -244,7 +244,7 @@ class Background extends Field {
 		);
 
 		add_action( 'customize_preview_init', [ $this, 'enqueue_scripts' ] );
-		add_filter( 'kirki_output_control_classnames', [ $this, 'output_control_classnames' ] );
+		add_filter( 'kirki_classic_output_control_classnames', [ $this, 'output_control_classnames' ] );
 
 	}
 
@@ -263,7 +263,7 @@ class Background extends Field {
 			return;
 		}
 
-		$this->sanitize_callback = [ '\Kirki\Field\Background', 'sanitize' ];
+		$this->sanitize_callback = [ '\KirkiClassic\Field\Background', 'sanitize' ];
 
 	}
 
@@ -292,7 +292,7 @@ class Background extends Field {
 		];
 
 		if ( isset( $value['background-color'] ) ) {
-			$sanitized_value['background-color'] = \Kirki\Field\Color::sanitize( $value['background-color'] );
+			$sanitized_value['background-color'] = \KirkiClassic\Field\Color::sanitize( $value['background-color'] );
 		}
 
 		if ( isset( $value['background-image'] ) ) {
@@ -458,7 +458,7 @@ class Background extends Field {
 	 */
 	public function output_control_classnames( $classnames ) {
 
-		$classnames['kirki-background'] = '\Kirki\Field\CSS\Background';
+		$classnames['kirki-classic-background'] = '\KirkiClassic\Field\CSS\Background';
 		return $classnames;
 
 	}

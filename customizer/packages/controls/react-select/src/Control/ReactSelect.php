@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * Select control.
@@ -27,7 +27,7 @@ class ReactSelect extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-react-select';
+	public $type = 'kirki-classic-react-select';
 
 	/**
 	 * Placeholder text.
@@ -51,11 +51,11 @@ class ReactSelect extends Base {
 	 *
 	 * *Backwards compatibility note:
 	 *
-	 * Previously (when Kirki used Select2), $multiple is used to:
+	 * Previously (when KirkiClassic used Select2), $multiple is used to:
 	 * - Determine whether the select is multiple or not.
 	 * - Determine the maximum number of selection.
 	 *
-	 * Start from Kirki 4 (when Kirki uses react-select),
+	 * Start from KirkiClassic 4 (when KirkiClassic uses react-select),
 	 * $multiple is used to determine whether the select is multiple or not.
 	 * The maximum selection number is now set in $max_selection.
 	 *
@@ -96,7 +96,7 @@ class ReactSelect extends Base {
 	/**
 	 * Get the URL for the control folder.
 	 *
-	 * This is a static method because there are more controls in the Kirki framework
+	 * This is a static method because there are more controls in the KirkiClassic framework
 	 * that use colorpickers, and they all need to enqueue the same assets.
 	 *
 	 * @static
@@ -134,14 +134,14 @@ class ReactSelect extends Base {
 		// @link https://react-select.com/props
 		$this->json['isClearable'] = $this->clearable;
 		$this->json['isMulti']     = $this->multiple;
-		$this->json['placeholder'] = ( $this->placeholder ) ? $this->placeholder : esc_html__( 'Select...', 'kirki' );
+		$this->json['placeholder'] = ( $this->placeholder ) ? $this->placeholder : esc_html__( 'Select...', 'kirki-classic' );
 
 		// Will be a custom implementation, couldn't find an official prop to set this in react-select.
 		$this->json['maxSelectionNumber'] = $this->max_selection_number;
 
 		$this->json['messages'] = [
 			// translators: %s is the limit of selection number.
-			'maxLimitReached' => sprintf( esc_html__( 'You can only select %s items', 'kirki' ), $this->max_selection_number ),
+			'maxLimitReached' => sprintf( esc_html__( 'You can only select %s items', 'kirki-classic' ), $this->max_selection_number ),
 		];
 
 	}

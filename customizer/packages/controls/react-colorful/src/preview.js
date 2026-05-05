@@ -75,7 +75,7 @@
 	 * @return {string} The filtered styles.
 	 */
 	const stylesOutput = (styles, value, output, controlType) => {
-		if ("kirki-react-colorful" !== controlType) return styles;
+		if ("kirki-classic-react-colorful" !== controlType) return styles;
 		if ("string" === typeof value || "number" === typeof value) return styles;
 
 		const prefix = output.prefix ? output.prefix : "";

@@ -10,9 +10,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\URL;
+use KirkiClassic\URL;
 
 /**
  * A base for controls.
@@ -24,7 +24,7 @@ class Base extends \WP_Customize_Control {
 	/**
 	 * Used to automatically generate all CSS output.
 	 *
-	 * Whitelisting property for use in Kirki modules.
+	 * Whitelisting property for use in KirkiClassic modules.
 	 *
 	 * @access public
 	 * @since 1.0
@@ -44,7 +44,7 @@ class Base extends \WP_Customize_Control {
 	/**
 	 * Option name (if using options).
 	 *
-	 * Whitelisting property for use in Kirki modules.
+	 * Whitelisting property for use in KirkiClassic modules.
 	 *
 	 * @access public
 	 * @since 1.0
@@ -53,18 +53,18 @@ class Base extends \WP_Customize_Control {
 	public $option_name = false;
 
 	/**
-	 * The kirki_config we're using for this control
+	 * The kirki_classic_config we're using for this control
 	 *
-	 * Whitelisting property for use in Kirki modules.
+	 * Whitelisting property for use in KirkiClassic modules.
 	 *
 	 * @access public
 	 * @since 1.0
 	 * @var string
 	 */
-	public $kirki_config = 'global';
+	public $kirki_classic_config = 'global';
 
 	/**
-	 * Whitelisting the "preset" argument for use in Kirki modules.
+	 * Whitelisting the "preset" argument for use in KirkiClassic modules.
 	 *
 	 * @access public
 	 * @since 1.0
@@ -73,7 +73,7 @@ class Base extends \WP_Customize_Control {
 	public $preset = [];
 
 	/**
-	 * Whitelisting the "css_vars" argument for use in Kirki modules.
+	 * Whitelisting the "css_vars" argument for use in KirkiClassic modules.
 	 *
 	 * @access public
 	 * @since 1.0
@@ -117,11 +117,11 @@ class Base extends \WP_Customize_Control {
 	/**
 	 * Backwards compatibility support for `$wrapper_attrs`.
 	 *
-	 * Kirki v3 already has this `$wrapper_atts` property.
+	 * KirkiClassic v3 already has this `$wrapper_atts` property.
 	 * It was not published in the documentation, and more for internal use.
 	 *
 	 * The `WP_Customize_Control` is using `input_attrs` not `input_atts` (see, attrs vs atts).
-	 * So Kirki uses `$wrapper_attrs` for consistency and keep the old `$wrapper_atts` backwards compatibility.
+	 * So KirkiClassic uses `$wrapper_attrs` for consistency and keep the old `$wrapper_atts` backwards compatibility.
 	 *
 	 * This property could be removed in the future.
 	 * Please use `$wrapper_attrs` instead.
@@ -151,7 +151,7 @@ class Base extends \WP_Customize_Control {
 	 * @since 1.0
 	 * @return array
 	 */
-	public function kirki_script_dependencies() {
+	public function kirki_classic_script_dependencies() {
 		return [];
 	}
 
@@ -284,7 +284,7 @@ class Base extends \WP_Customize_Control {
 		}
 
 		// The kirki-config.
-		$this->json['kirkiConfig'] = $this->kirki_config;
+		$this->json['kirkiConfig'] = $this->kirki_classic_config;
 
 		// The option-type.
 		$this->json['kirkiOptionType'] = $this->option_type;

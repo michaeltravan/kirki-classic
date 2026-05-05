@@ -10,10 +10,10 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module\Webfonts;
+namespace KirkiClassic\Module\Webfonts;
 
-use Kirki\Module\Webfonts\Fonts;
-use Kirki\GoogleFonts;
+use KirkiClassic\Module\Webfonts\Fonts;
+use KirkiClassic\GoogleFonts;
 
 /**
  * Manages the way Google Fonts are enqueued.
@@ -77,7 +77,7 @@ final class Google {
 	 * The class constructor.
 	 */
 	private function __construct() {
-		$config = apply_filters( 'kirki_config', [] );
+		$config = apply_filters( 'kirki_classic_config', [] );
 
 		// If we have set $config['disable_google_fonts'] to true then do not proceed any further.
 		if ( isset( $config['disable_google_fonts'] ) && true === $config['disable_google_fonts'] ) {
@@ -85,8 +85,8 @@ final class Google {
 		}
 
 		new GoogleFonts();
-		add_action( 'wp_ajax_kirki_fonts_standard_all_get', [ $this, 'get_standardfonts_json' ] );
-		add_action( 'wp_ajax_nopriv_kirki_fonts_standard_all_get', [ $this, 'get_standardfonts_json' ] );
+		add_action( 'wp_ajax_kirki_classic_fonts_standard_all_get', [ $this, 'get_standardfonts_json' ] );
+		add_action( 'wp_ajax_nopriv_kirki_classic_fonts_standard_all_get', [ $this, 'get_standardfonts_json' ] );
 
 		// Populate the array of google fonts.
 		$this->google_fonts = Fonts::get_google_fonts();
@@ -115,13 +115,13 @@ final class Google {
 	public function generate_google_font( $args ) {
 
 		// Process typography fields.
-		$process = ( ( isset( $args['type'] ) && 'kirki-typography' === $args['type'] ) || ( isset( $args['choices'] ) && isset( $args['choices']['parent_type'] ) && 'kirki-typography' === $args['choices']['parent_type'] ) );
-		if ( apply_filters( 'kirki_generate_google_font', $process, $args ) ) {
+		$process = ( ( isset( $args['type'] ) && 'kirki-classic-typography' === $args['type'] ) || ( isset( $args['choices'] ) && isset( $args['choices']['parent_type'] ) && 'kirki-classic-typography' === $args['choices']['parent_type'] ) );
+		if ( apply_filters( 'kirki_classic_generate_google_font', $process, $args ) ) {
 
 			// Get the value.
 			$option_type = ( isset( $args['option_type'] ) ) ? $args['option_type'] : 'theme_mod';
 			$default     = ( isset( $args['default'] ) ) ? $args['default'] : '';
-			$value       = apply_filters( 'kirki_get_value', get_theme_mod( $args['settings'], $default ), $args['settings'], $default, $option_type );
+			$value       = apply_filters( 'kirki_classic_get_value', get_theme_mod( $args['settings'], $default ), $args['settings'], $default, $option_type );
 
 			// If we don't have a font-family then we can skip this.
 			if ( ! isset( $value['font-family'] ) || in_array( $value['font-family'], $this->hosted_fonts, true ) ) {
@@ -172,7 +172,7 @@ final class Google {
 				// Get the value.
 				$option_type = ( isset( $args['option_type'] ) ) ? $args['option_type'] : 'theme_mod';
 				$default     = ( isset( $args['default'] ) ) ? $args['default'] : '';
-				$value       = apply_filters( 'kirki_get_value', get_theme_mod( $args['settings'], $default ), $args['settings'], $default, $option_type );
+				$value       = apply_filters( 'kirki_classic_get_value', get_theme_mod( $args['settings'], $default ), $args['settings'], $default, $option_type );
 
 				if ( is_string( $value ) ) {
 					if ( 'font-family' === $output['property'] ) {

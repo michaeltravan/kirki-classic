@@ -6,10 +6,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +27,7 @@ class Headline extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-headline';
+	public $type = 'kirki-classic-headline';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -57,7 +57,7 @@ class Headline extends Base {
 	protected function content_template() {
 		?>
 
-		<div class="kirki-control-label">
+		<div class="kirki-classic-control-label">
 			<# if (data.label) { #>
 				<h4 class="customize-control-title">
 					{{{ data.label }}}

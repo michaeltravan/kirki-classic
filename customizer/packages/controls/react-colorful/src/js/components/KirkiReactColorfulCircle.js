@@ -30,14 +30,14 @@ const KirkiReactColorfulCircle = (props) => {
 	};
 
 	return (
-		<div className="kirki-trigger-circle-wrapper">
+		<div className="kirki-classic-trigger-circle-wrapper">
 			<button
 				type="button"
-				className="kirki-trigger-circle"
+				className="kirki-classic-trigger-circle"
 				onClick={props.togglePickerHandler}
 				style={styles.triggerButton}
 			>
-				<div className="kirki-color-preview" style={styles.colorPreview}></div>
+				<div className="kirki-classic-color-preview" style={styles.colorPreview}></div>
 			</button>
 		</div>
 	);

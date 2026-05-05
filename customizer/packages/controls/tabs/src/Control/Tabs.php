@@ -6,10 +6,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +27,7 @@ class Tabs extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-tab';
+	public $type = 'kirki-classic-tab';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -67,8 +67,8 @@ class Tabs extends Base {
 			$loop_index++;
 
 			$tab_menu .= '
-			<li class="kirki-tab-menu-item' . ( 1 === $loop_index ? ' is-active' : '' ) . '" data-kirki-tab-menu-id="' . esc_attr( $tab_id ) . '">
-				<a href="#" class="kirki-tab-link">' . esc_html( $tab_args['label'] ) . '</a>
+			<li class="kirki-classic-tab-menu-item' . ( 1 === $loop_index ? ' is-active' : '' ) . '" data-kirki-tab-menu-id="' . esc_attr( $tab_id ) . '">
+				<a href="#" class="kirki-classic-tab-link">' . esc_html( $tab_args['label'] ) . '</a>
 			</li>
 			';
 		}
@@ -91,8 +91,8 @@ class Tabs extends Base {
 	protected function content_template() {
 		?>
 
-		<div class="kirki-tab" data-kirki-tab-id="{{{ data.section }}}">
-			<ul class="kirki-tab-menu">
+		<div class="kirki-classic-tab" data-kirki-tab-id="{{{ data.section }}}">
+			<ul class="kirki-classic-tab-menu">
 				{{{ data.tabMenu }}}
 			</ul>
 		</div>

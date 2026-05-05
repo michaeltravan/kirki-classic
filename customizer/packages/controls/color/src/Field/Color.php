@@ -1,6 +1,6 @@
 <?php
 /**
- * Object used by the Kirki framework to instantiate the control.
+ * Object used by the KirkiClassic framework to instantiate the control.
  *
  * This is a man-in-the-middle class, nothing but a proxy to set sanitization
  * callbacks and any usother properties we may need.
@@ -11,9 +11,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.

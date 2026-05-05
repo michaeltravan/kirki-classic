@@ -53,3 +53,6 @@ phpcs.xml
 vendor
 
 assets/customizer/*
+
+# Internal project notes
+MEMORY.md

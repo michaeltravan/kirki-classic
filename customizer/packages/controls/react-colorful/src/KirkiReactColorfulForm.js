@@ -185,7 +185,7 @@ const KirkiReactColorfulForm = (props) => {
 	);
 
 	controlLabel = (
-		<label className="kirki-control-label">
+		<label className="kirki-classic-control-label">
 			{props.label ? controlLabel : ""}
 			{props.description ? controlDescription : ""}
 		</label>
@@ -339,8 +339,8 @@ const KirkiReactColorfulForm = (props) => {
 	);
 
 	let formClassName = useHueMode
-		? "kirki-control-form use-hue-mode"
-		: "kirki-control-form";
+		? "kirki-classic-control-form use-hue-mode"
+		: "kirki-classic-control-form";
 
 	formClassName += " has-" + choices.labelStyle + "-label-style";
 
@@ -353,7 +353,7 @@ const KirkiReactColorfulForm = (props) => {
 			<button
 				type="button"
 				ref={resetRef}
-				className="kirki-control-reset"
+				className="kirki-classic-control-reset"
 				onClick={handleReset}
 				style={{ display: isPickerOpen ? "flex" : "none" }}
 			>
@@ -382,7 +382,7 @@ const KirkiReactColorfulForm = (props) => {
 				<>
 					{pickerTrigger}
 					{!isPickerOpen && (
-						<div className="kirki-label-tooltip">{controlHeader}</div>
+						<div className="kirki-classic-label-tooltip">{controlHeader}</div>
 					)}
 				</>
 			);
@@ -400,9 +400,9 @@ const KirkiReactColorfulForm = (props) => {
 		default:
 			pickerHeader = (
 				<>
-					<div className="kirki-control-cols">
-						<div className="kirki-control-left-col">{controlHeader}</div>
-						<div className="kirki-control-right-col">{pickerTrigger}</div>
+					<div className="kirki-classic-control-cols">
+						<div className="kirki-classic-control-left-col">{controlHeader}</div>
+						<div className="kirki-classic-control-right-col">{pickerTrigger}</div>
 					</div>
 				</>
 			);

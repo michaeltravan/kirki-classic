@@ -27,7 +27,7 @@ import "./control.scss";
 			 */
 			function( styles, value, output, controlType ) {
 				var processedValue;
-				if ( 'kirki-dimensions' === controlType ) {
+				if ( 'kirki-classic-dimensions' === controlType ) {
 					styles += output.element + '{';
 					_.each( value, function( val, key ) {
 						if ( output.choice && key !== output.choice ) {

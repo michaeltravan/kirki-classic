@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Data;
+namespace KirkiClassic\Data;
 
 /**
- * Hooks and tweaks to allow Kirki saving Options instead of theme-mods.
+ * Hooks and tweaks to allow KirkiClassic saving Options instead of theme-mods.
  *
  * @since 1.0
  */
@@ -24,9 +24,9 @@ class Option {
 	 * @since 1.0
 	 */
 	public function __construct() {
-		add_filter( 'kirki_field_add_setting_args', [ $this, 'add_setting_args' ], 20, 2 );
-		add_filter( 'kirki_field_add_control_args', [ $this, 'add_control_args' ], 20, 2 );
-		add_filter( 'kirki_get_value', [ $this, 'kirki_get_value' ], 10, 4 );
+		add_filter( 'kirki_classic_field_add_setting_args', [ $this, 'add_setting_args' ], 20, 2 );
+		add_filter( 'kirki_classic_field_add_control_args', [ $this, 'add_control_args' ], 20, 2 );
+		add_filter( 'kirki_classic_get_value', [ $this, 'kirki_classic_get_value' ], 10, 4 );
 	}
 
 	/**
@@ -40,7 +40,7 @@ class Option {
 	 * @param string $type    The option-type (theme_mod, option etc).
 	 * @return mixed          Returns the field value.
 	 */
-	public function kirki_get_value( $value = '', $option = '', $default = '', $type = 'theme_mod' ) {
+	public function kirki_classic_get_value( $value = '', $option = '', $default = '', $type = 'theme_mod' ) {
 
 		if ( 'option' === $type ) {
 

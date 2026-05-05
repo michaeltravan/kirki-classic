@@ -5,14 +5,14 @@
  * Creates a color palette control.
  *
  * @package kirki-framework/control-color-palette
- * @license MIT (https://oss.ninja/mit?organization=Kirki%20Framework)
+ * @license MIT (https://oss.ninja/mit?organization=KirkiClassic%20Framework)
  * @since   1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 /**
  * Color Palette control.
@@ -28,7 +28,7 @@ class Color_Palette extends Base {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-color-palette';
+	public $type = 'kirki-classic-color-palette';
 
 	/**
 	 * The control version.

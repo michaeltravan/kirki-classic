@@ -1,8 +1,8 @@
 <?php
 /**
- * The main Kirki object
+ * The main KirkiClassic object
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -10,7 +10,7 @@
  * @since       1.0
  */
 
-namespace Kirki\Compatibility;
+namespace KirkiClassic\Compatibility;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,7 +36,7 @@ final class Framework {
 	 *
 	 * @static
 	 * @access public
-	 * @return Kirki\Compatibility\Framework
+	 * @return KirkiClassic\Compatibility\Framework
 	 */
 	public static function get_instance() {
 		if ( null === self::$instance ) {

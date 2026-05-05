@@ -2,17 +2,17 @@
 /**
  * Handles CSS output for fields.
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @subpackage  Controls
  * @copyright   Copyright (c) 2023, Themeum
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.0
  */
 
-namespace Kirki\Module\CSS;
+namespace KirkiClassic\Module\CSS;
 
-use Kirki\Compatibility\Values;
-use Kirki\Compatibility\Kirki;
+use KirkiClassic\Compatibility\Values;
+use KirkiClassic\Compatibility\KirkiClassic;
 
 /**
  * Handles field CSS output.
@@ -161,7 +161,7 @@ class Output {
 					default:
 						$replacement = get_theme_mod( $replace );
 						if ( ! $replacement ) {
-							$replacement = Values::get_value( $this->field['kirki_config'], $replace );
+							$replacement = Values::get_value( $this->field['kirki_classic_config'], $replace );
 						}
 				}
 				$replacement = ( false === $replacement ) ? '' : $replacement;
@@ -290,7 +290,7 @@ class Output {
 	 * @return null
 	 */
 	protected function process_output( $output, $value ) {
-		$output = apply_filters( 'kirki_output_item_args', $output, $value, $this->output, $this->field );
+		$output = apply_filters( 'kirki_classic_output_item_args', $output, $value, $this->output, $this->field );
 
 		if ( ! isset( $output['element'] ) || ! isset( $output['property'] ) ) {
 			return;
@@ -335,11 +335,11 @@ class Output {
 	 */
 	protected function process_property_value( $property, $value ) {
 		$properties = apply_filters(
-			'kirki_output_property_classnames',
+			'kirki_classic_output_property_classnames',
 			[
-				'font-family'         => '\Kirki\Module\CSS\Property\Font_Family',
-				'background-image'    => '\Kirki\Module\CSS\Property\Background_Image',
-				'background-position' => '\Kirki\Module\CSS\Property\Background_Position',
+				'font-family'         => '\KirkiClassic\Module\CSS\Property\Font_Family',
+				'background-image'    => '\KirkiClassic\Module\CSS\Property\Background_Image',
+				'background-position' => '\KirkiClassic\Module\CSS\Property\Background_Position',
 			]
 		);
 		if ( array_key_exists( $property, $properties ) ) {

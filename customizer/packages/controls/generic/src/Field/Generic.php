@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Generic extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-generic';
+	public $type = 'kirki-classic-generic';
 
 	/**
 	 * The control class-name.
@@ -35,7 +35,7 @@ class Generic extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Generic';
+	protected $control_class = '\KirkiClassic\Control\Generic';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -85,7 +85,7 @@ class Generic extends Field {
 			$args = parent::filter_control_args( $args, $wp_customize );
 
 			// Set the control-type.
-			$args['type'] = 'kirki-generic';
+			$args['type'] = 'kirki-classic-generic';
 
 			// Choices.
 			$args['choices']            = isset( $args['choices'] ) ? $args['choices'] : [];

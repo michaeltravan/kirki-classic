@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\URL;
-use Kirki\Control\Base;
+use KirkiClassic\URL;
+use KirkiClassic\Control\Base;
 
 /**
  * A simple date control, using vanilla JavaScript.
@@ -27,7 +27,7 @@ class Date extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-date';
+	public $type = 'kirki-classic-date';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.

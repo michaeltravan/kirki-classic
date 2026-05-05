@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field\Select;
+use KirkiClassic\Field\Select;
 
 /**
  * Field overrides.

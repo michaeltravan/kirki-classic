@@ -6,9 +6,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -23,7 +23,7 @@ class Responsive extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-responsive';
+	public $type = 'kirki-classic-responsive';
 
 	/**
 	 * The control class-name.
@@ -31,7 +31,7 @@ class Responsive extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Responsive';
+	protected $control_class = '\KirkiClassic\Control\Responsive';
 
 	/**
 	 * Collection of the connected field names.
@@ -56,7 +56,7 @@ class Responsive extends Field {
 	 */
 	public function __construct( $args ) {
 
-		$field_name = str_ireplace( 'kirki_responsive__', '', $args['settings'] );
+		$field_name = str_ireplace( 'kirki_classic_responsive__', '', $args['settings'] );
 
 		if ( isset( $args['choices'] ) && isset( $args['choices']['devices'] ) && ! empty( $args['choices']['devices'] ) ) {
 			foreach ( $args['choices']['devices'] as $device ) {
@@ -111,7 +111,7 @@ class Responsive extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-responsive';
+			$args['type'] = 'kirki-classic-responsive';
 		}
 
 		return $args;

@@ -6,9 +6,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -23,7 +23,7 @@ class Tabs extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-tab';
+	public $type = 'kirki-classic-tab';
 
 	/**
 	 * The control class-name.
@@ -31,7 +31,7 @@ class Tabs extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Tabs';
+	protected $control_class = '\KirkiClassic\Control\Tabs';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -104,7 +104,7 @@ class Tabs extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-tab';
+			$args['type'] = 'kirki-classic-tab';
 		}
 
 		return $args;

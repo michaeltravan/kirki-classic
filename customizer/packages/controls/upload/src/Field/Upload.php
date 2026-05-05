@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Upload extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-upload';
+	public $type = 'kirki-classic-upload';
 
 	/**
 	 * The control class-name.
@@ -35,7 +35,7 @@ class Upload extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Upload';
+	protected $control_class = '\KirkiClassic\Control\Upload';
 
 	/**
 	 * Filter arguments before creating the setting.

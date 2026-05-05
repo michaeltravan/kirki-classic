@@ -8,7 +8,7 @@
  * @since     0.1
  */
 
-namespace Kirki;
+namespace KirkiClassic;
 
 /**
  * Make it easier to create customizer settings & controls with a single call,
@@ -34,7 +34,7 @@ abstract class Field {
 	 * The control class-name.
 	 *
 	 * Use the full classname, with namespace included.
-	 * Example: '\Kirki\Control\Color'.
+	 * Example: '\KirkiClassic\Control\Color'.
 	 *
 	 * @access protected
 	 * @since 0.1
@@ -73,10 +73,10 @@ abstract class Field {
 		$control_class = property_exists( $this, 'control_class' ) && ! empty( $this->control_class ) ? $this->control_class : '';
 
 		// Allow 3rd parties to do their custom "init" work.
-		do_action( 'kirki_field_custom_init', $this, $args, $control_class );
+		do_action( 'kirki_classic_field_custom_init', $this, $args, $control_class );
 
 		// Allow 3rd parties to early stop the field from being registered.
-		if ( apply_filters( 'kirki_field_exclude_init', false, $this, $args ) ) {
+		if ( apply_filters( 'kirki_classic_field_exclude_init', false, $this, $args ) ) {
 			return;
 		}
 
@@ -90,14 +90,14 @@ abstract class Field {
 		add_action(
 			'wp_loaded',
 			function() {
-				do_action( 'kirki_field_init', $this->args, $this );
+				do_action( 'kirki_classic_field_init', $this->args, $this );
 			}
 		);
 
 		add_action(
 			'wp',
 			function() {
-				do_action( 'kirki_field_wp', $this->args, $this );
+				do_action( 'kirki_classic_field_wp', $this->args, $this );
 			}
 		);
 
@@ -113,20 +113,20 @@ abstract class Field {
 		add_action( 'customize_register', [ $this, 'add_control' ] );
 
 		// Add default filters. Can be overridden in child classes.
-		add_filter( 'kirki_field_add_setting_args', [ $this, 'filter_setting_args' ], 10, 2 );
-		add_filter( 'kirki_field_add_control_args', [ $this, 'filter_control_args' ], 10, 2 );
+		add_filter( 'kirki_classic_field_add_setting_args', [ $this, 'filter_setting_args' ], 10, 2 );
+		add_filter( 'kirki_classic_field_add_control_args', [ $this, 'filter_control_args' ], 10, 2 );
 
-		// Copy $this->args to a variable to be added to Kirki::$all_fields global.
+		// Copy $this->args to a variable to be added to KirkiClassic::$all_fields global.
 		$field_args = $this->args;
 
 		/**
-		 * Kirki::$fields contains only fields which are not extending the new base Field.
-		 * So we collect all fields and add them to Kirki::$all_fields.
+		 * KirkiClassic::$fields contains only fields which are not extending the new base Field.
+		 * So we collect all fields and add them to KirkiClassic::$all_fields.
 		 *
-		 * ! This patch is used by Kirki::get_option which calls Values::get_value method.
+		 * ! This patch is used by KirkiClassic::get_option which calls Values::get_value method.
 		 * Even though this is a patch, this is fine and still a good solution to handle backwards compatibility.
 		 */
-		\Kirki\Compatibility\Kirki::$all_fields[ $field_args['settings'] ] = $field_args;
+		\KirkiClassic\Compatibility\KirkiClassic::$all_fields[ $field_args['settings'] ] = $field_args;
 
 	}
 
@@ -210,7 +210,7 @@ abstract class Field {
 		 * @param WP_Customize_Manager $customizer The customizer instance.
 		 * @return array                           Return the arguments.
 		 */
-		$args = apply_filters( 'kirki_field_add_setting_args', $args, $customizer );
+		$args = apply_filters( 'kirki_classic_field_add_setting_args', $args, $customizer );
 
 		if ( ! isset( $args['settings'] ) || empty( $args['settings'] ) ) {
 			return;
@@ -263,7 +263,7 @@ abstract class Field {
 		 * @param WP_Customize_Manager $wp_customize The customizer instance.
 		 * @return array                             Return the arguments.
 		 */
-		$args = apply_filters( 'kirki_field_add_control_args', $this->args, $wp_customize );
+		$args = apply_filters( 'kirki_classic_field_add_control_args', $this->args, $wp_customize );
 
 		$wp_customize->add_control( new $control_class( $wp_customize, $this->args['settings'], $args ) );
 

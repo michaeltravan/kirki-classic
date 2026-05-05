@@ -6,9 +6,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
+use KirkiClassic\Control\Base;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,7 +26,7 @@ class Divider extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-divider';
+	public $type = 'kirki-classic-divider';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.

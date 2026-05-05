@@ -28,7 +28,7 @@ const getInvalidValueMessage = (() => {
     return cached;
   };
 })();
-wp.customize.controlConstructor['kirki-dimension'] = wp.customize.kirkiDynamicControl.extend( {
+wp.customize.controlConstructor['kirki-classic-dimension'] = wp.customize.kirkiDynamicControl.extend( {
 
 	initKirkiControl: function( control ) {
 		control = control || this;

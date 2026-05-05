@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +32,7 @@ class Dimension extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-dimension';
+	public $type = 'kirki-classic-dimension';
 
 	/**
 	 * The version. Used in scripts & styles for cache-busting.
@@ -56,7 +56,7 @@ class Dimension extends Base {
 	/**
 	 * Get the URL for the control folder.
 	 *
-	 * This is a static method because there are more controls in the Kirki framework
+	 * This is a static method because there are more controls in the KirkiClassic framework
 	 * that use colorpickers, and they all need to enqueue the same assets.
 	 *
 	 * @static
@@ -78,7 +78,7 @@ class Dimension extends Base {
 	 */
 	public function to_json() {
 
-		$input_class = 'kirki-control-input';
+		$input_class = 'kirki-classic-control-input';
 
 		if ( isset( $this->input_attrs['class'] ) ) {
 			$input_class .= ' ' . $this->input_attrs['class'];
@@ -118,21 +118,21 @@ class Dimension extends Base {
 	protected function content_template() {
 		?>
 
-		<div class="kirki-control-form <# if ('bottom' === data.labelPosition) { #>has-label-bottom<# } #>">
+		<div class="kirki-classic-control-form <# if ('bottom' === data.labelPosition) { #>has-label-bottom<# } #>">
 			<# if ( 'top' === data.labelPosition ) { #>
-				<label class="kirki-control-label" for="{{ data.inputId }}">
+				<label class="kirki-classic-control-label" for="{{ data.inputId }}">
 					<# if ( data.label ) { #><span class="customize-control-title">{{{ data.label }}}</span><# } #>
 					<# if ( data.description ) { #><span class="description customize-control-description">{{{ data.description }}}</span><# } #>
 				</label>
 			<# } #>
 
-			<div class="kirki-input-control">
+			<div class="kirki-classic-input-control">
 				<# var val = ( data.value && _.isString( data.value ) ) ? data.value.replace( '%%', '%' ) : ''; #>
 				<input id="{{ data.inputId }}" {{{ data.inputAttrs }}} type="text" value="{{ val }}" class="{{ data.inputClass }}" />
 			</div>
 
 			<# if ( 'bottom' === data.labelPosition ) { #>
-				<label class="kirki-control-label" for="{{ data.inputId }}">
+				<label class="kirki-classic-control-label" for="{{ data.inputId }}">
 					<# if ( data.label ) { #>{{{ data.label }}} <# } #>
 				</label>
 			<# } #>

@@ -8,7 +8,7 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Section_Types;
+namespace KirkiClassic\Section_Types;
 
 /**
  * Nested section.
@@ -31,7 +31,7 @@ class Nested extends \WP_Customize_Section {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public $type = 'kirki-nested';
+	public $type = 'kirki-classic-nested';
 
 	/**
 	 * Gather the parameters passed to client JavaScript via JSON.
@@ -59,10 +59,10 @@ class Nested extends \WP_Customize_Section {
 		$array['active']         = $this->active();
 		$array['instanceNumber'] = $this->instance_number;
 
-		$array['customizeAction'] = esc_html__( 'Customizing', 'kirki' );
+		$array['customizeAction'] = esc_html__( 'Customizing', 'kirki-classic' );
 		if ( $this->panel ) {
 			/* translators: The title. */
-			$array['customizeAction'] = sprintf( esc_html__( 'Customizing &#9656; %s', 'kirki' ), esc_html( $this->manager->get_panel( $this->panel )->title ) );
+			$array['customizeAction'] = sprintf( esc_html__( 'Customizing &#9656; %s', 'kirki-classic' ), esc_html( $this->manager->get_panel( $this->panel )->title ) );
 		}
 		return $array;
 	}

@@ -6,9 +6,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -23,7 +23,7 @@ class Divider extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-divider';
+	public $type = 'kirki-classic-divider';
 
 	/**
 	 * The control class-name.
@@ -31,7 +31,7 @@ class Divider extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Divider';
+	protected $control_class = '\KirkiClassic\Control\Divider';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -81,7 +81,7 @@ class Divider extends Field {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-divider';
+			$args['type'] = 'kirki-classic-divider';
 		}
 
 		return $args;

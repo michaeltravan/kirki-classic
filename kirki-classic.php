@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name: Kirki Customizer Framework
+ * Plugin Name: Kirki Classic Customizer Framework
  * Plugin URI: https://www.themeum.com
  * Description: The Ultimate WordPress Customizer Framework
  * Author: Themeum
  * Author URI: https://www.themeum.com
  * Version: 5.2.3
- * Text Domain: kirki
+ * Text Domain: kirki-classic
  * Requires at least: 5.3
  * Requires PHP: 7.4
  *
- * @package Kirki
+ * @package KirkiClassic
  * @category Core
  * @author Themeum
  * @copyright Copyright (c) 2023, Themeum
@@ -18,15 +18,15 @@
  * @since 1.0
  */
 
-use Kirki\Customizer;
+use KirkiClassic\Customizer;
 
 // Exit if accessed directly.
 if (!defined('ABSPATH')) {
 	exit;
 }
 
-// No need to proceed if Kirki already exists.
-if (class_exists('Kirki')) {
+// No need to proceed if KirkiClassic already exists.
+if (class_exists('KirkiClassic')) {
 	return;
 }
 

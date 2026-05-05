@@ -7,7 +7,7 @@
 				sectionLi = document.querySelector( '#accordion-section-' + section.id );
 
 			// Check if elements exist and if the section is expanded.
-			if ( pane && sectionLi && sectionLi.classList.contains( 'control-section-kirki-expanded' ) ) {
+			if ( pane && sectionLi && sectionLi.classList.contains( 'control-section-kirki-classic-expanded' ) ) {
 
 				// Only move if the pane is not already a child of sectionLi.
 				// This prevents duplication when sections are reflowed.
@@ -41,7 +41,7 @@
  * See https://github.com/justintadlock/trt-customizer-pro
  */
 ( function() {
-	wp.customize.sectionConstructor['kirki-link'] = wp.customize.Section.extend( {
+	wp.customize.sectionConstructor['kirki-classic-link'] = wp.customize.Section.extend( {
 		attachEvents: function() {}, // eslint-disable-line no-empty-function
 		isContextuallyActive: function() {
 			return true;
@@ -65,7 +65,7 @@
 		// Reflow Sections.
 		wp.customize.section.each( function( section ) {
 
-			if ( 'kirki-nested' !== section.params.type || _.isUndefined( section.params.section ) ) {
+			if ( 'kirki-classic-nested' !== section.params.type || _.isUndefined( section.params.section ) ) {
 				return;
 			}
 			sections.push( section );
@@ -99,7 +99,7 @@
 
 			var section = this;
 
-			if ( 'kirki-nested' !== this.params.type || _.isUndefined( this.params.section ) ) {
+			if ( 'kirki-classic-nested' !== this.params.type || _.isUndefined( this.params.section ) ) {
 				_sectionAttachEvents.call( section );
 				return;
 			}
@@ -156,7 +156,7 @@
 			var section = this,
 				parentContainer;
 
-			if ( 'kirki-nested' !== this.params.type || _.isUndefined( this.params.section ) ) {
+			if ( 'kirki-classic-nested' !== this.params.type || _.isUndefined( this.params.section ) ) {
 				_sectionEmbed.call( section );
 				return;
 			}
@@ -178,7 +178,7 @@
 			var section = this,
 				children,
 				activeCount = 0;
-			if ( 'kirki-nested' !== this.params.type ) {
+			if ( 'kirki-classic-nested' !== this.params.type ) {
 				return _sectionIsContextuallyActive.call( this );
 			}
 

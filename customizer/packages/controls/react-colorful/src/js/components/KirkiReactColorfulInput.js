@@ -61,16 +61,16 @@ const KirkiReactColorfulInput = (props) => {
 	};
 
 	return (
-		<div className="kirki-color-input-wrapper">
-			<div className="kirki-color-input-control">
+		<div className="kirki-classic-color-input-wrapper">
+			<div className="kirki-classic-color-input-control">
 				{!props.useHueMode && (
 					<div
-						className="kirki-color-preview-wrapper"
+						className="kirki-classic-color-preview-wrapper"
 						style={styles.colorPreviewWrapper}
 					>
 						<button
 							type="button"
-							className="kirki-color-preview"
+							className="kirki-classic-color-preview"
 							style={styles.colorPreview}
 						></button>
 					</div>
@@ -78,7 +78,7 @@ const KirkiReactColorfulInput = (props) => {
 				<input
 					type="text"
 					value={value}
-					className="kirki-color-input"
+					className="kirki-classic-color-input"
 					spellCheck="false"
 					onChange={handleChange}
 				/>

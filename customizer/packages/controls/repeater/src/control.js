@@ -1037,7 +1037,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
     var targetDiv = this.thisButton ? this.thisButton.closest(".repeater-field-image, .repeater-field-cropped_image") : null;
     if (!targetDiv) return;
 
-    var imageAttachment = querySelector(targetDiv, ".kirki-image-attachment");
+    var imageAttachment = querySelector(targetDiv, ".kirki-classic-image-attachment");
     if (imageAttachment) {
       imageAttachment.innerHTML = '<img src="' + attachment.url + '">';
       imageAttachment.style.display = "none";
@@ -1077,7 +1077,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
     var targetDiv = this.thisButton ? this.thisButton.closest(".repeater-field-upload") : null;
     if (!targetDiv) return;
 
-    var fileAttachment = querySelector(targetDiv, ".kirki-file-attachment");
+    var fileAttachment = querySelector(targetDiv, ".kirki-classic-file-attachment");
     if (fileAttachment) {
       fileAttachment.innerHTML =
         '<span class="file"><span class="dashicons dashicons-media-default"></span> ' +
@@ -1146,7 +1146,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
     if (!targetDiv) return;
 
     var uploadButton = querySelector(targetDiv, ".upload-button");
-    var imageAttachment = querySelector(targetDiv, ".kirki-image-attachment");
+    var imageAttachment = querySelector(targetDiv, ".kirki-classic-image-attachment");
     var placeholder = imageAttachment ? getData(imageAttachment, "placeholder") : "";
 
     if (imageAttachment) {
@@ -1185,7 +1185,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
     if (!targetDiv) return;
 
     var uploadButton = querySelector(targetDiv, ".upload-button");
-    var fileAttachment = querySelector(targetDiv, ".kirki-file-attachment");
+    var fileAttachment = querySelector(targetDiv, ".kirki-classic-file-attachment");
     var placeholder = fileAttachment ? getData(fileAttachment, "placeholder") : "";
 
     if (fileAttachment) {
@@ -1649,7 +1649,7 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
   initColorPicker: function () {
     var control = this;
     // Find all color pickers that haven't been initialized
-    var colorPickers = querySelectorAll(control.container, ".kirki-classic-color-picker");
+    var colorPickers = querySelectorAll(control.container, ".kirki-classic-classic-color-picker");
     
     colorPickers.forEach(function(colorPicker) {
       // Skip if already initialized (has wpColorPicker instance)

@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +32,7 @@ class Checkbox_Switch extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-switch';
+	public $type = 'kirki-classic-switch';
 
 	/**
 	 * The control version.
@@ -63,11 +63,11 @@ class Checkbox_Switch extends Base {
 		// Get the basics from the parent class.
 		parent::to_json();
 
-		$this->json['checkboxType'] = str_ireplace( 'kirki-', '', $this->type );
+		$this->json['checkboxType'] = str_ireplace( 'kirki-classic-', '', $this->type );
 
 		$this->json['defaultChoices'] = [
-			'on'  => __( 'On', 'kirki' ),
-			'off' => __( 'Off', 'kirki' ),
+			'on'  => __( 'On', 'kirki-classic' ),
+			'off' => __( 'Off', 'kirki-classic' ),
 		];
 
 	}
@@ -87,11 +87,11 @@ class Checkbox_Switch extends Base {
 	protected function content_template() {
 		?>
 
-		<div class="kirki-{{ data.checkboxType }}-control kirki-{{ data.checkboxType }}">
+		<div class="kirki-classic-{{ data.checkboxType }}-control kirki-{{ data.checkboxType }}">
 			<# if ( data.label || data.description ) { #>
-				<div class="kirki-control-label">
+				<div class="kirki-classic-control-label">
 					<# if ( data.label ) { #>
-						<label class="customize-control-title" for="kirki_{{ data.checkboxType }}_{{ data.id }}">
+						<label class="customize-control-title" for="kirki_classic_{{ data.checkboxType }}_{{ data.id }}">
 							{{{ data.label }}}
 						</label>
 					<# } #>
@@ -102,9 +102,9 @@ class Checkbox_Switch extends Base {
 					</div>
 			<# } #>
 
-			<div class="kirki-control-form">
-				<input class="screen-reader-text kirki-toggle-switch-input" {{{ data.inputAttrs }}} name="kirki_{{ data.checkboxType }}_{{ data.id }}" id="kirki_{{ data.checkboxType }}_{{ data.id }}" type="checkbox" value="{{ data.value }}" {{{ data.link }}}<# if ( '1' == data.value ) { #> checked<# } #> />
-				<label class="kirki-toggle-switch-label" for="kirki_{{ data.checkboxType }}_{{ data.id }}">
+			<div class="kirki-classic-control-form">
+				<input class="screen-reader-text kirki-toggle-switch-input" {{{ data.inputAttrs }}} name="kirki_classic_{{ data.checkboxType }}_{{ data.id }}" id="kirki_classic_{{ data.checkboxType }}_{{ data.id }}" type="checkbox" value="{{ data.value }}" {{{ data.link }}}<# if ( '1' == data.value ) { #> checked<# } #> />
+				<label class="kirki-classic-toggle-switch-label" for="kirki_classic_{{ data.checkboxType }}_{{ data.id }}">
 					<# if ('switch' === data.checkboxType) { #>
 						<span class="toggle-on">
 							<# data.choices.on = data.choices.on || data.defaultChoices.on #>

@@ -1,7 +1,7 @@
 // Range slider control.
 .customize-control-kirki-margin,
 .customize-control-kirki-padding {
-  .kirki-control-label {
+  .kirki-classic-control-label {
     position: relative;
     display: block;
   }
@@ -10,18 +10,18 @@
     padding-right: 30px;
   }
 
-  .kirki-control-form {
+  .kirki-classic-control-form {
     position: relative;
     margin-bottom: 12px;
 
     &:hover {
-      .kirki-control-reset {
+      .kirki-classic-control-reset {
         opacity: 1;
       }
     }
   }
 
-  .kirki-control-reset {
+  .kirki-classic-control-reset {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,12 +46,12 @@
     }
   }
 
-  .kirki-control-reset:hover i {
+  .kirki-classic-control-reset:hover i {
     color: #f00;
     transform: rotate(-45deg);
   }
 
-  .kirki-control-reset i {
+  .kirki-classic-control-reset i {
     font-size: 12px;
     width: auto;
     height: auto;
@@ -59,31 +59,31 @@
     transition: transform 0.3s;
   }
 
-  .kirki-control-cols {
+  .kirki-classic-control-cols {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .kirki-control-left-col {
+  .kirki-classic-control-left-col {
     width: 91%;
   }
 
-  .kirki-control-right-col {
+  .kirki-classic-control-right-col {
     width: 9%;
     text-align: right;
   }
 
-  .kirki-control-fields {
+  .kirki-classic-control-fields {
     display: flex;
   }
 
-  .kirki-control-field {
+  .kirki-classic-control-field {
     padding-right: 5px;
     width: 25%;
   }
 
-  .kirki-control-input {
+  .kirki-classic-control-input {
     padding-left: 3px;
     padding-right: 3px;
     font-size: 12px;
@@ -99,14 +99,14 @@
     }
   }
 
-  .kirki-control-unit {
+  .kirki-classic-control-unit {
     position: relative;
     top: -10px;
     font-size: 12px;
     font-weight: 600;
   }
 
-  .kirki-control-sublabel {
+  .kirki-classic-control-sublabel {
     display: block;
     font-size: 11px;
     text-align: center;

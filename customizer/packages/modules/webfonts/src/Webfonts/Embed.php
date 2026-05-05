@@ -9,9 +9,9 @@
  * @since 1.0.0
  */
 
-namespace Kirki\Module\Webfonts;
+namespace KirkiClassic\Module\Webfonts;
 
-use Kirki\Module\Webfonts\Helper;
+use KirkiClassic\Module\Webfonts\Helper;
 
 /**
  * Manages the way Google Fonts are enqueued.
@@ -28,7 +28,7 @@ final class Embed {
 	protected $config_id;
 
 	/**
-	 * The \Kirki\Module\Webfonts object.
+	 * The \KirkiClassic\Module\Webfonts object.
 	 *
 	 * @access protected
 	 * @since 1.0.0
@@ -37,7 +37,7 @@ final class Embed {
 	protected $webfonts;
 
 	/**
-	 * The \Kirki\Module\Webfonts\Google object.
+	 * The \KirkiClassic\Module\Webfonts\Google object.
 	 *
 	 * @access protected
 	 * @since 1.0.0
@@ -60,8 +60,8 @@ final class Embed {
 	 * @access public
 	 * @since 1.0.0
 	 * @param string $config_id   The config-ID.
-	 * @param object $webfonts    The \Kirki\Module\Webfonts object.
-	 * @param object $googlefonts The \Kirki\Module\Webfonts\Google object.
+	 * @param object $webfonts    The \KirkiClassic\Module\Webfonts object.
+	 * @param object $googlefonts The \KirkiClassic\Module\Webfonts\Google object.
 	 * @param array  $args        Extra args we want to pass.
 	 */
 	public function __construct( $config_id, $webfonts, $googlefonts, $args = [] ) {
@@ -82,7 +82,7 @@ final class Embed {
 	 */
 	public function init() {
 		$this->populate_fonts();
-		add_action( 'kirki_dynamic_css', [ $this, 'the_css' ] );
+		add_action( 'kirki_classic_dynamic_css', [ $this, 'the_css' ] );
 	}
 
 	/**
@@ -117,7 +117,7 @@ final class Embed {
 		// Go through our fields and populate $this->fonts.
 		$this->webfonts->loop_fields( $this->config_id );
 
-		$this->googlefonts->fonts = apply_filters( 'kirki_enqueue_google_fonts', $this->googlefonts->fonts );
+		$this->googlefonts->fonts = apply_filters( 'kirki_classic_enqueue_google_fonts', $this->googlefonts->fonts );
 
 		// Goes through $this->fonts and adds or removes things as needed.
 		$this->googlefonts->process_fonts();
@@ -148,7 +148,7 @@ final class Embed {
 
 			$family  = str_replace( ' ', '+', trim( $font['family'] ) );
 			$weights = join( ',', $font['weights'] );
-			$subset  = apply_filters( 'kirki_googlefonts_subset', 'cyrillic,cyrillic-ext,devanagari,greek,greek-ext,khmer,latin,latin-ext,vietnamese,hebrew,arabic,bengali,gujarati,tamil,telugu,thai' );
+			$subset  = apply_filters( 'kirki_classic_googlefonts_subset', 'cyrillic,cyrillic-ext,devanagari,greek,greek-ext,khmer,latin,latin-ext,vietnamese,hebrew,arabic,bengali,gujarati,tamil,telugu,thai' );
 			$url     = "https://fonts.googleapis.com/css?family={$family}:{$weights}&subset={$subset}&display=swap";
 
 			$downloader = new Downloader();

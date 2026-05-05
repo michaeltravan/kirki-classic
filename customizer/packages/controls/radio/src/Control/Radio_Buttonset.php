@@ -8,11 +8,11 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\Control\Radio;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\Control\Radio;
+use KirkiClassic\URL;
 
 /**
  * Radio Buttonset control (modified radio)
@@ -28,7 +28,7 @@ class Radio_Buttonset extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-radio-buttonset';
+	public $type = 'kirki-classic-radio-buttonset';
 
 	/**
 	 * Enqueue control related scripts/styles.

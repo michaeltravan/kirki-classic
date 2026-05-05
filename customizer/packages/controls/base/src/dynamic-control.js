@@ -29,7 +29,7 @@
 			args.params = args.params || {};
 
 			if (!args.params.type) {
-				args.params.type = 'kirki-generic';
+				args.params.type = 'kirki-classic-generic';
 			}
 
 			let className;
@@ -184,7 +184,7 @@
 			}
 
 			wp.customize.section(sectionId, function (section) {
-				if ('kirki-expanded' === section.params.type || section.expanded() || wp.customize.settings.autofocus.control === control.id) {
+				if ('kirki-classic-expanded' === section.params.type || section.expanded() || wp.customize.settings.autofocus.control === control.id) {
 					control.actuallyEmbed();
 				} else {
 					section.expanded.bind(function (expanded) {

@@ -3,7 +3,7 @@
  * Generates the styles for the frontend.
  * Handles the 'output' argument of fields
  *
- * @package     Kirki
+ * @package     KirkiClassic
  * @category    Core
  * @author      Themeum
  * @copyright   Copyright (c) 2023, Themeum
@@ -11,9 +11,9 @@
  * @since       1.0
  */
 
-namespace Kirki\Module\CSS;
+namespace KirkiClassic\Module\CSS;
 
-use Kirki\Module\Webfonts\Fonts;
+use KirkiClassic\Module\Webfonts\Fonts;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -144,7 +144,7 @@ final class Generator {
 		self::$field_type = ( isset( $field['choices'] ) && isset( $field['choices']['parent_type'] ) ) ? $field['choices']['parent_type'] : self::$field_type;
 		self::$output     = $field['output'];
 
-		$field['kirki_config'] = isset( $field['kirki_config'] ) ? $field['kirki_config'] : 'global';
+		$field['kirki_classic_config'] = isset( $field['kirki_classic_config'] ) ? $field['kirki_classic_config'] : 'global';
 
 		if ( ! is_array( self::$output ) ) {
 			self::$output = [
@@ -166,16 +166,16 @@ final class Generator {
 			}
 		}
 
-		self::$value = apply_filters( 'kirki_get_value', get_theme_mod( $field['settings'], $default ), $setting_name, $default, $option_type );
+		self::$value = apply_filters( 'kirki_classic_get_value', get_theme_mod( $field['settings'], $default ), $setting_name, $default, $option_type );
 
 		// Find the class that will handle the output for this field.
-		$classname            = '\Kirki\Module\CSS\Output';
-		$field_output_classes = apply_filters( 'kirki_output_control_classnames', [] );
-		$field_output_classes = apply_filters( "kirki_{$field['kirki_config']}_output_control_classnames", $field_output_classes );
+		$classname            = '\KirkiClassic\Module\CSS\Output';
+		$field_output_classes = apply_filters( 'kirki_classic_output_control_classnames', [] );
+		$field_output_classes = apply_filters( "kirki_classic_{$field['kirki_classic_config']}_output_control_classnames", $field_output_classes );
 		if ( array_key_exists( self::$field_type, $field_output_classes ) ) {
 			$classname = $field_output_classes[ self::$field_type ];
 		}
-		$obj = new $classname( $field['kirki_config'], self::$output, self::$value, $field );
+		$obj = new $classname( $field['kirki_classic_config'], self::$output, self::$value, $field );
 		return $obj->get_styles();
 	}
 
@@ -189,8 +189,8 @@ final class Generator {
 	 */
 	public static function styles_parse( $css = [] ) {
 
-		// Pass our styles from the kirki_styles_array filter.
-		$css = apply_filters( 'kirki_styles_array', $css );
+		// Pass our styles from the kirki_classic_styles_array filter.
+		$css = apply_filters( 'kirki_classic_styles_array', $css );
 
 		// Process the array of CSS properties and produce the final CSS.
 		$final_css = '';

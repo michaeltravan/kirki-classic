@@ -8,10 +8,10 @@
  * @since     1.0
  */
 
-namespace Kirki\Control;
+namespace KirkiClassic\Control;
 
-use Kirki\Control\Base;
-use Kirki\URL;
+use KirkiClassic\Control\Base;
+use KirkiClassic\URL;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,7 +32,7 @@ class ReactColorful extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-react-colorful';
+	public $type = 'kirki-classic-react-colorful';
 
 	/**
 	 * The control version.
@@ -156,7 +156,7 @@ class ReactColorful extends Base {
 			'#8224e3',
 		];
 
-		$default_swatches = apply_filters( 'kirki_default_color_swatches', $default_swatches );
+		$default_swatches = apply_filters( 'kirki_classic_default_color_swatches', $default_swatches );
 
 		$defined_swatches = isset( $this->choices['swatches'] ) && ! empty( $this->choices['swatches'] ) ? $this->choices['swatches'] : [];
 
@@ -177,7 +177,7 @@ class ReactColorful extends Base {
 			$swatches = $default_swatches;
 		}
 
-		$swatches = apply_filters( 'kirki_color_swatches', $swatches );
+		$swatches = apply_filters( 'kirki_classic_color_swatches', $swatches );
 
 		return $swatches;
 

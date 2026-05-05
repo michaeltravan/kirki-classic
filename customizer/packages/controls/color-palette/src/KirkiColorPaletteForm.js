@@ -24,8 +24,8 @@ const KirkiColorPaletteForm = (props) => {
 	const size = choices.size + 2; // 2 here is 1px border on each side.
 
 	return (
-		<div className="kirki-control-form" tabIndex="1">
-			<label className="kirki-control-label">
+		<div className="kirki-classic-control-form" tabIndex="1">
+			<label className="kirki-classic-control-label">
 				<span className="customize-control-title">{props.label}</span>
 				<span
 					className="customize-control-description description"
@@ -40,16 +40,16 @@ const KirkiColorPaletteForm = (props) => {
 
 			<button
 				type="button"
-				className="kirki-control-reset"
+				className="kirki-classic-control-reset"
 				onClick={handleReset}
 			>
 				<i className="dashicons dashicons-image-rotate"></i>
 			</button>
 
-			<ul className={"kirki-colors kirki-" + choices.shape + "-colors"}>
+			<ul className={"kirki-classic-colors kirki-classic-" + choices.shape + "-colors"}>
 				{choices.colors.map((color, index) => {
 					const itemClassName =
-						color === selectedItem ? "kirki-color is-selected" : "kirki-color";
+						color === selectedItem ? "kirki-classic-color is-selected" : "kirki-classic-color";
 
 					return (
 						<li

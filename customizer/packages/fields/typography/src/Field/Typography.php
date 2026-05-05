@@ -8,12 +8,12 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Util\Helper;
-use Kirki\Field;
-use Kirki\GoogleFonts;
-use Kirki\Module\Webfonts\Fonts;
+use KirkiClassic\Util\Helper;
+use KirkiClassic\Field;
+use KirkiClassic\GoogleFonts;
+use KirkiClassic\Module\Webfonts\Fonts;
 
 /**
  * Field overrides.
@@ -29,7 +29,7 @@ class Typography extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-typography';
+	public $type = 'kirki-classic-typography';
 
 	/**
 	 * Has the glogal fonts var been added already?
@@ -109,94 +109,94 @@ class Typography extends Field {
 		self::$std_variants = [
 			[
 				'value' => 'regular',
-				'label' => __( 'Regular', 'kirki' ),
+				'label' => __( 'Regular', 'kirki-classic' ),
 			],
 			[
 				'value' => 'italic',
-				'label' => __( 'Italic', 'kirki' ),
+				'label' => __( 'Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '700',
-				'label' => __( '700', 'kirki' ),
+				'label' => __( '700', 'kirki-classic' ),
 			],
 			[
 				'value' => '700italic',
-				'label' => __( '700 Italic', 'kirki' ),
+				'label' => __( '700 Italic', 'kirki-classic' ),
 			],
 		];
 
 		self::$complete_variants = [
 			[
 				'value' => 'regular',
-				'label' => __( 'Regular', 'kirki' ),
+				'label' => __( 'Regular', 'kirki-classic' ),
 			],
 			[
 				'value' => 'italic',
-				'label' => __( 'Italic', 'kirki' ),
+				'label' => __( 'Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '100',
-				'label' => __( '100', 'kirki' ),
+				'label' => __( '100', 'kirki-classic' ),
 			],
 			[
 				'value' => '100italic',
-				'label' => __( '100 Italic', 'kirki' ),
+				'label' => __( '100 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '200',
-				'label' => __( '200', 'kirki' ),
+				'label' => __( '200', 'kirki-classic' ),
 			],
 			[
 				'value' => '200italic',
-				'label' => __( '200 Italic', 'kirki' ),
+				'label' => __( '200 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '300',
-				'label' => __( '300', 'kirki' ),
+				'label' => __( '300', 'kirki-classic' ),
 			],
 			[
 				'value' => '300italic',
-				'label' => __( '300 Italic', 'kirki' ),
+				'label' => __( '300 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '500',
-				'label' => __( '500', 'kirki' ),
+				'label' => __( '500', 'kirki-classic' ),
 			],
 			[
 				'value' => '500italic',
-				'label' => __( '500 Italic', 'kirki' ),
+				'label' => __( '500 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '600',
-				'label' => __( '600', 'kirki' ),
+				'label' => __( '600', 'kirki-classic' ),
 			],
 			[
 				'value' => '600italic',
-				'label' => __( '600 Italic', 'kirki' ),
+				'label' => __( '600 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '700',
-				'label' => __( '700', 'kirki' ),
+				'label' => __( '700', 'kirki-classic' ),
 			],
 			[
 				'value' => '700italic',
-				'label' => __( '700 Italic', 'kirki' ),
+				'label' => __( '700 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '800',
-				'label' => __( '800', 'kirki' ),
+				'label' => __( '800', 'kirki-classic' ),
 			],
 			[
 				'value' => '800italic',
-				'label' => __( '800 Italic', 'kirki' ),
+				'label' => __( '800 Italic', 'kirki-classic' ),
 			],
 			[
 				'value' => '900',
-				'label' => __( '900', 'kirki' ),
+				'label' => __( '900', 'kirki-classic' ),
 			],
 			[
 				'value' => '900italic',
-				'label' => __( '900 Italic', 'kirki' ),
+				'label' => __( '900 Italic', 'kirki-classic' ),
 			],
 		];
 
@@ -208,7 +208,7 @@ class Typography extends Field {
 
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'enqueue_control_scripts' ] );
 		add_action( 'customize_preview_init', [ $this, 'enqueue_preview_scripts' ] );
-		add_filter( 'kirki_output_control_classnames', [ $this, 'output_control_classnames' ] );
+		add_filter( 'kirki_classic_output_control_classnames', [ $this, 'output_control_classnames' ] );
 	}
 
 	/**
@@ -221,14 +221,14 @@ class Typography extends Field {
 	 */
 	private function add_sub_fields( $args ) {
 
-		$args['kirki_config'] = isset( $args['kirki_config'] ) ? $args['kirki_config'] : 'global';
+		$args['kirki_classic_config'] = isset( $args['kirki_classic_config'] ) ? $args['kirki_classic_config'] : 'global';
 
 		$defaults = isset( $args['default'] ) ? $args['default'] : [];
 
 		/**
 		 * Add a hidden field, the label & description.
 		 */
-		new \Kirki\Field\Generic(
+		new \KirkiClassic\Field\Generic(
 			wp_parse_args(
 				[
 					'sanitize_callback' => isset( $args['sanitize_callback'] ) ? $args['sanitize_callback'] : [ __CLASS__, 'sanitize' ],
@@ -238,7 +238,7 @@ class Typography extends Field {
 					'input_attrs'       => '',
 					'choices'           => [
 						'type'        => 'hidden',
-						'parent_type' => 'kirki-typography',
+						'parent_type' => 'kirki-classic-typography',
 					],
 				],
 				$args
@@ -248,7 +248,7 @@ class Typography extends Field {
 		$args['parent_setting'] = $args['settings'];
 		$args['output']         = [];
 		$args['wrapper_attrs']  = [
-			'data-kirki-parent-control-type' => 'kirki-typography',
+			'data-kirki-parent-control-type' => 'kirki-classic-typography',
 		];
 
 		if ( isset( $args['transport'] ) && 'auto' === $args['transport'] ) {
@@ -263,15 +263,15 @@ class Typography extends Field {
 		 */
 		if ( isset( $args['default']['font-family'] ) ) {
 
-			$args['wrapper_attrs']['kirki-typography-subcontrol-type'] = 'font-family';
+			$args['wrapper_attrs']['kirki-classic-typography-subcontrol-type'] = 'font-family';
 
 			/**
 			 * Add font-family control.
 			 */
-			new \Kirki\Field\ReactSelect(
+			new \KirkiClassic\Field\ReactSelect(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Font Family', 'kirki' ),
+						'label'       => esc_html__( 'Font Family', 'kirki-classic' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[font-family]',
 						'default'     => isset( $args['default']['font-family'] ) ? $args['default']['font-family'] : '',
@@ -293,12 +293,12 @@ class Typography extends Field {
 				$font_variant = 400 === $args['default']['font-weight'] || '400' === $args['default']['font-weight'] ? 'regular' : $args['default']['font-weight'];
 			}
 
-			$args['wrapper_attrs']['kirki-typography-subcontrol-type'] = 'font-variant';
+			$args['wrapper_attrs']['kirki-classic-typography-subcontrol-type'] = 'font-variant';
 
-			new \Kirki\Field\ReactSelect(
+			new \KirkiClassic\Field\ReactSelect(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Font Variant', 'kirki' ),
+						'label'       => esc_html__( 'Font Variant', 'kirki-classic' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[variant]',
 						'default'     => $font_variant,
@@ -320,12 +320,12 @@ class Typography extends Field {
 			$group = [
 				'font-size' => [
 					'type'         => 'dimension',
-					'label'        => esc_html__( 'Font Size', 'kirki' ),
+					'label'        => esc_html__( 'Font Size', 'kirki-classic' ),
 					'is_specified' => $font_size_field_specified,
 				],
 				'color'     => [
 					'type'         => 'react-colorful',
-					'label'        => esc_html__( 'Font Color', 'kirki' ),
+					'label'        => esc_html__( 'Font Color', 'kirki-classic' ),
 					'is_specified' => $color_field_specified,
 					'choices'      => [
 						'alpha'       => true,
@@ -344,25 +344,25 @@ class Typography extends Field {
 			$group = [
 				'text-align'     => [
 					'type'         => 'react-select',
-					'label'        => esc_html__( 'Text Align', 'kirki' ),
+					'label'        => esc_html__( 'Text Align', 'kirki-classic' ),
 					'is_specified' => $text_align_field_specified,
 					'choices'      => [
-						'initial' => esc_html__( 'Initial', 'kirki' ),
-						'left'    => esc_html__( 'Left', 'kirki' ),
-						'center'  => esc_html__( 'Center', 'kirki' ),
-						'right'   => esc_html__( 'Right', 'kirki' ),
-						'justify' => esc_html__( 'Justify', 'kirki' ),
+						'initial' => esc_html__( 'Initial', 'kirki-classic' ),
+						'left'    => esc_html__( 'Left', 'kirki-classic' ),
+						'center'  => esc_html__( 'Center', 'kirki-classic' ),
+						'right'   => esc_html__( 'Right', 'kirki-classic' ),
+						'justify' => esc_html__( 'Justify', 'kirki-classic' ),
 					],
 				],
 				'text-transform' => [
 					'type'         => 'react-select',
-					'label'        => esc_html__( 'Text Transform', 'kirki' ),
+					'label'        => esc_html__( 'Text Transform', 'kirki-classic' ),
 					'is_specified' => $text_transform_field_specified,
 					'choices'      => [
-						'none'       => esc_html__( 'None', 'kirki' ),
-						'capitalize' => esc_html__( 'Capitalize', 'kirki' ),
-						'uppercase'  => esc_html__( 'Uppercase', 'kirki' ),
-						'lowercase'  => esc_html__( 'Lowercase', 'kirki' ),
+						'none'       => esc_html__( 'None', 'kirki-classic' ),
+						'capitalize' => esc_html__( 'Capitalize', 'kirki-classic' ),
+						'uppercase'  => esc_html__( 'Uppercase', 'kirki-classic' ),
+						'lowercase'  => esc_html__( 'Lowercase', 'kirki-classic' ),
 					],
 				],
 			];
@@ -376,15 +376,15 @@ class Typography extends Field {
 			$group = [
 				'text-decoration' => [
 					'type'         => 'react-select',
-					'label'        => esc_html__( 'Text Decoration', 'kirki' ),
+					'label'        => esc_html__( 'Text Decoration', 'kirki-classic' ),
 					'is_specified' => $text_decoration_field_specified,
 					'choices'      => [
-						'none'         => esc_html__( 'None', 'kirki' ),
-						'underline'    => esc_html__( 'Underline', 'kirki' ),
-						'line-through' => esc_html__( 'Line Through', 'kirki' ),
-						'overline'     => esc_html__( 'Overline', 'kirki' ),
-						'solid'        => esc_html__( 'Solid', 'kirki' ),
-						'wavy'         => esc_html__( 'Wavy', 'kirki' ),
+						'none'         => esc_html__( 'None', 'kirki-classic' ),
+						'underline'    => esc_html__( 'Underline', 'kirki-classic' ),
+						'line-through' => esc_html__( 'Line Through', 'kirki-classic' ),
+						'overline'     => esc_html__( 'Overline', 'kirki-classic' ),
+						'solid'        => esc_html__( 'Solid', 'kirki-classic' ),
+						'wavy'         => esc_html__( 'Wavy', 'kirki-classic' ),
 					],
 				],
 			];
@@ -399,12 +399,12 @@ class Typography extends Field {
 			$group = [
 				'line-height'    => [
 					'type'         => 'dimension',
-					'label'        => esc_html__( 'Line Height', 'kirki' ),
+					'label'        => esc_html__( 'Line Height', 'kirki-classic' ),
 					'is_specified' => $line_height_field_specified,
 				],
 				'letter-spacing' => [
 					'type'         => 'dimension',
-					'label'        => esc_html__( 'Letter Spacing', 'kirki' ),
+					'label'        => esc_html__( 'Letter Spacing', 'kirki-classic' ),
 					'is_specified' => $letter_spacing_field_specified,
 				],
 			];
@@ -419,12 +419,12 @@ class Typography extends Field {
 			$group = [
 				'margin-top'    => [
 					'type'         => 'dimension',
-					'label'        => esc_html__( 'Margin Top', 'kirki' ),
+					'label'        => esc_html__( 'Margin Top', 'kirki-classic' ),
 					'is_specified' => $margin_top_field_specified,
 				],
 				'margin-bottom' => [
 					'type'         => 'dimension',
-					'label'        => esc_html__( 'Margin Bottom', 'kirki' ),
+					'label'        => esc_html__( 'Margin Bottom', 'kirki-classic' ),
 					'is_specified' => $margin_bottom_field_specified,
 				],
 			];
@@ -461,13 +461,13 @@ class Typography extends Field {
 			if ( $control['is_specified'] ) {
 				$group_count++;
 
-				$group_classname  = 'kirki-group-item';
+				$group_classname  = 'kirki-classic-group-item';
 				$group_classname .= 1 === $group_count ? ' kirki-group-start' : ( $group_count === $total_specified ? ' kirki-group-end' : '' );
 
 				$control_class = str_ireplace( '-', ' ', $control['type'] );
 				$control_class = ucwords( $control_class );
 				$control_class = str_replace( ' ', '', $control_class );
-				$control_class = '\\Kirki\\Field\\' . $control_class;
+				$control_class = '\\KirkiClassic\\Field\\' . $control_class;
 
 				new $control_class(
 					wp_parse_args(
@@ -479,7 +479,7 @@ class Typography extends Field {
 							'wrapper_attrs' => wp_parse_args(
 								[
 									'data-kirki-typography-css-prop' => $css_prop,
-									'kirki-typography-subcontrol-type' => $css_prop,
+									'kirki-classic-typography-subcontrol-type' => $css_prop,
 									'class' => '{default_class} ' . $group_classname . ' kirki-w' . $field_width,
 								],
 								$args['wrapper_attrs']
@@ -555,7 +555,7 @@ class Typography extends Field {
 					break;
 
 				case 'color':
-					$value['color'] = '' === $value['color'] ? '' : \Kirki\Field\ReactColorful::sanitize( $value['color'] );
+					$value['color'] = '' === $value['color'] ? '' : \KirkiClassic\Field\ReactColorful::sanitize( $value['color'] );
 					break;
 
 				default:
@@ -578,7 +578,7 @@ class Typography extends Field {
 
 
 
-		wp_localize_script( 'kirki-customizer', 'kirkiTypographyControls', self::$typography_controls );
+		wp_localize_script( 'kirki-classic-customizer', 'kirkiTypographyControls', self::$typography_controls );
 
 		$args = $this->args;
 
@@ -687,7 +687,7 @@ class Typography extends Field {
 
 		// Scripts inside this block will only be executed once.
 		if ( ! self::$fonts_var_added ) {
-			wp_localize_script( 'kirki-customizer',
+			wp_localize_script( 'kirki-classic-customizer',
 				'kirkiFontVariants',
 				[
 					'standard' => self::$std_variants,
@@ -697,8 +697,8 @@ class Typography extends Field {
 
 			$google = new GoogleFonts();
 
-			wp_localize_script( 'kirki-customizer', 'kirkiGoogleFonts', $google->get_array() );
-			wp_add_inline_script( 'kirki-customizer', 'var kirkiCustomVariants = {};', 'before' );
+			wp_localize_script( 'kirki-classic-customizer', 'kirkiGoogleFonts', $google->get_array() );
+			wp_add_inline_script( 'kirki-classic-customizer', 'var kirkiCustomVariants = {};', 'before' );
 
 			self::$fonts_var_added = true;
 		}
@@ -708,7 +708,7 @@ class Typography extends Field {
 		$custom_variant_key   = str_ireplace( '[', '_', $custom_variant_key );
 		$custom_variant_value = wp_json_encode( Helper::prepare_php_array_for_js( $variants ) );
 
-		wp_add_inline_script( 'kirki-customizer',
+		wp_add_inline_script( 'kirki-classic-customizer',
 			'kirkiCustomVariants["' . $custom_variant_key . '"] = ' . $custom_variant_value . ';',
 			$variants
 		);
@@ -728,7 +728,7 @@ class Typography extends Field {
 		if ( ! self::$preview_var_added ) {
 			$google = new GoogleFonts();
 
-			wp_localize_script( 'kirki-customizer',
+			wp_localize_script( 'kirki-classic-customizer',
 				'kirkiGoogleFontNames',
 				$google->get_google_font_names()
 			);
@@ -778,9 +778,9 @@ class Typography extends Field {
 	 * Populate the font family choices.
 	 *
 	 * It's separated from the `add_sub_field` function to prevent a bug
-	 * when hooking a function into `kirki_fonts_standard_fonts` hook after registering the field.
+	 * when hooking a function into `kirki_classic_fonts_standard_fonts` hook after registering the field.
 	 *
-	 * When a function is hooked to `kirki_fonts_standard_fonts` before registering the field, it will work.
+	 * When a function is hooked to `kirki_classic_fonts_standard_fonts` before registering the field, it will work.
 	 * But if it's hooked after field registration, then the function won't be available.
 	 *
 	 * @access private
@@ -841,9 +841,9 @@ class Typography extends Field {
 		$choices = [];
 
 		$choices['default'] = [
-			esc_html__( 'Defaults', 'kirki' ),
+			esc_html__( 'Defaults', 'kirki-classic' ),
 			[
-				'' => esc_html__( 'Default', 'kirki' ),
+				'' => esc_html__( 'Default', 'kirki-classic' ),
 			],
 		];
 
@@ -868,12 +868,12 @@ class Typography extends Field {
 		}
 
 		$choices['standard'] = [
-			esc_html__( 'Standard Fonts', 'kirki' ),
+			esc_html__( 'Standard Fonts', 'kirki-classic' ),
 			$std_fonts,
 		];
 
 		$choices['google'] = [
-			esc_html__( 'Google Fonts', 'kirki' ),
+			esc_html__( 'Google Fonts', 'kirki-classic' ),
 			array_combine( array_values( $g_fonts ), array_values( $g_fonts ) ),
 		];
 
@@ -891,9 +891,9 @@ class Typography extends Field {
 	 * Get custom variant choices (for custom fonts).
 	 *
 	 * It's separated from the `add_sub_field` function to prevent a bug
-	 * when hooking a function into `kirki_fonts_standard_fonts` hook after registering the field.
+	 * when hooking a function into `kirki_classic_fonts_standard_fonts` hook after registering the field.
 	 *
-	 * When a function is hooked to `kirki_fonts_standard_fonts` before registering the field, it will work.
+	 * When a function is hooked to `kirki_classic_fonts_standard_fonts` before registering the field, it will work.
 	 * But if it's hooked after field registration, then the function won't be available.
 	 *
 	 * @access private
@@ -982,7 +982,7 @@ class Typography extends Field {
 	 */
 	public function output_control_classnames( $classnames ) {
 
-		$classnames['kirki-typography'] = '\Kirki\Field\CSS\Typography';
+		$classnames['kirki-classic-typography'] = '\KirkiClassic\Field\CSS\Typography';
 		return $classnames;
 
 	}

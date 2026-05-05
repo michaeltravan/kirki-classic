@@ -2,7 +2,7 @@ import "./control.scss";
 
 const setupTabs = () => {
   const childControls = document.querySelectorAll(
-    "[data-kirki-parent-tab-id]"
+    "[data-kirki-classic-parent-tab-id]"
   );
   if (!childControls.length) return;
 
@@ -18,7 +18,7 @@ const setupTabs = () => {
 
   const switchTabs = (tabId, tabItemName) => {
     const tabMenuItems = document.querySelectorAll(
-      '[data-kirki-tab-id="' + tabId + '"] .kirki-tab-menu-item'
+      '[data-kirki-classic-tab-id="' + tabId + '"] .kirki-classic-tab-menu-item'
     );
 
     Array.from(tabMenuItems).forEach(function (menuItem) {
@@ -26,9 +26,9 @@ const setupTabs = () => {
     });
 
     const tabMenuItem = document.querySelector(
-      '[data-kirki-tab-id="' +
+      '[data-kirki-classic-tab-id="' +
         tabId +
-        '"] [data-kirki-tab-menu-id="' +
+        '"] [data-kirki-classic-tab-menu-id="' +
         tabItemName +
         '"]'
     );
@@ -36,27 +36,27 @@ const setupTabs = () => {
     if (tabMenuItem) tabMenuItem.classList.add("is-active");
 
     const tabItems = document.querySelectorAll(
-      '[data-kirki-parent-tab-id="' + tabId + '"]'
+      '[data-kirki-classic-parent-tab-id="' + tabId + '"]'
     );
 
     Array.from(tabItems).forEach(function (tabItem) {
       if (tabItem.dataset.kirkiParentTabItem === tabItemName) {
-        tabItem.classList.remove("kirki-tab-item-hidden");
+        tabItem.classList.remove("kirki-classic-tab-item-hidden");
       } else {
-        tabItem.classList.add("kirki-tab-item-hidden");
+        tabItem.classList.add("kirki-classic-tab-item-hidden");
       }
     });
   };
 
   const setupTabClicks = () => {
     document.addEventListener("click", function (e) {
-      const tabLink = e.target.closest(".kirki-tab-menu-item a");
+      const tabLink = e.target.closest(".kirki-classic-tab-menu-item a");
       if (!tabLink) return;
 
       e.preventDefault();
 
-      const tabMenuItem = tabLink.closest(".kirki-tab-menu-item");
-      const tabContainer = tabMenuItem.closest("[data-kirki-tab-id]");
+      const tabMenuItem = tabLink.closest(".kirki-classic-tab-menu-item");
+      const tabContainer = tabMenuItem.closest("[data-kirki-classic-tab-id]");
       const tabId = tabContainer.dataset.kirkiTabId;
       const tabItemName = tabMenuItem.dataset.kirkiTabMenuId;
 
@@ -70,9 +70,9 @@ const setupTabs = () => {
         section.expanded.bind(function (isExpanded) {
           if (isExpanded) {
             const activeTabMenu = document.querySelector(
-              '[data-kirki-tab-id="' +
+              '[data-kirki-classic-tab-id="' +
                 tabId +
-                '"] .kirki-tab-menu-item.is-active'
+                '"] .kirki-classic-tab-menu-item.is-active'
             );
 
             if (activeTabMenu) {

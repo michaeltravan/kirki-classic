@@ -8,9 +8,9 @@
  * @since     1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
-use Kirki\Field;
+use KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -26,7 +26,7 @@ class Sortable extends Field {
 	 * @since 1.0
 	 * @var string
 	 */
-	public $type = 'kirki-sortable';
+	public $type = 'kirki-classic-sortable';
 
 	/**
 	 * The control class-name.
@@ -35,7 +35,7 @@ class Sortable extends Field {
 	 * @since 0.1
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Sortable';
+	protected $control_class = '\KirkiClassic\Control\Sortable';
 
 	/**
 	 * Whether we should register the control class for JS-templating or not.
@@ -79,7 +79,7 @@ class Sortable extends Field {
 	public function filter_control_args( $args, $wp_customize ) {
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-sortable';
+			$args['type'] = 'kirki-classic-sortable';
 		}
 		return $args;
 	}

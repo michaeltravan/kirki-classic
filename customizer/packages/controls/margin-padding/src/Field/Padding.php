@@ -6,7 +6,7 @@
  * @since   1.0
  */
 
-namespace Kirki\Field;
+namespace KirkiClassic\Field;
 
 /**
  * Field overrides.
@@ -22,7 +22,7 @@ class Padding extends Margin {
 	 * @access public
 	 * @var string
 	 */
-	public $type = 'kirki-padding';
+	public $type = 'kirki-classic-padding';
 
 	/**
 	 * The control class-name.
@@ -31,7 +31,7 @@ class Padding extends Margin {
 	 * @access protected
 	 * @var string
 	 */
-	protected $control_class = '\Kirki\Control\Padding';
+	protected $control_class = '\KirkiClassic\Control\Padding';
 
 	/**
 	 * Filter arguments before creating the control.
@@ -45,7 +45,7 @@ class Padding extends Margin {
 
 		if ( $args['settings'] === $this->args['settings'] ) {
 			$args         = parent::filter_control_args( $args, $wp_customize );
-			$args['type'] = 'kirki-padding';
+			$args['type'] = 'kirki-classic-padding';
 		}
 
 		return $args;
