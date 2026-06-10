@@ -40,6 +40,10 @@ class Customizer
             define('KIRKI_CLASSIC_VERSION', '5.2.3');
         }
 
+        if (!defined('KIRKI_VERSION')) {
+            define('KIRKI_VERSION', KIRKI_CLASSIC_VERSION);
+        }
+
         if (!defined('KIRKI_CLASSIC_PLUGIN_DIR')) {
             define('KIRKI_CLASSIC_PLUGIN_DIR', dirname(__DIR__));
         }

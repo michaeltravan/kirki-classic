@@ -55,3 +55,41 @@ if ( ! function_exists( 'KirkiClassic' ) ) {
 		return \KirkiClassic\Compatibility\Framework::get_instance();
 	}
 }
+
+// Original Kirki function shims — forward to the kirki_classic_* equivalents.
+
+if ( ! function_exists( 'kirki_get_option' ) ) {
+	function kirki_get_option( $option = '' ) {
+		return kirki_classic_get_option( $option );
+	}
+}
+
+if ( ! function_exists( 'kirki_sanitize_hex' ) ) {
+	function kirki_sanitize_hex( $color ) {
+		return kirki_classic_sanitize_hex( $color );
+	}
+}
+
+if ( ! function_exists( 'kirki_get_rgb' ) ) {
+	function kirki_get_rgb( $hex, $implode = false ) {
+		return kirki_classic_get_rgb( $hex, $implode );
+	}
+}
+
+if ( ! function_exists( 'kirki_get_rgba' ) ) {
+	function kirki_get_rgba( $hex = '#fff', $opacity = 100 ) {
+		return kirki_classic_get_rgba( $hex, $opacity );
+	}
+}
+
+if ( ! function_exists( 'kirki_get_brightness' ) ) {
+	function kirki_get_brightness( $hex ) {
+		return kirki_classic_get_brightness( $hex );
+	}
+}
+
+if ( ! function_exists( 'Kirki' ) ) {
+	function Kirki() {
+		return \KirkiClassic\Compatibility\Framework::get_instance();
+	}
+}

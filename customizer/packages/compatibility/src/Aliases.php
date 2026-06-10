@@ -28,6 +28,7 @@ class Aliases {
 	 */
 	private $aliases = [
 		'generic'    => [
+			[ 'KirkiClassic\Compatibility\KirkiClassic', 'Kirki' ],
 			[ 'KirkiClassic\Compatibility\KirkiClassic', 'KirkiClassic' ],
 			[ 'KirkiClassic\Compatibility\Config', 'KirkiClassic_Config' ],
 			[ 'KirkiClassic\Compatibility\Control', 'KirkiClassic_Control' ],
@@ -161,7 +162,7 @@ class Aliases {
 	 */
 	public function add_aliases() {
 		foreach ( $this->aliases['generic'] as $item ) {
-			if ( class_exists( $item[0] ) ) {
+			if ( class_exists( $item[0] ) && ! class_exists( $item[1], false ) ) {
 				class_alias( $item[0], $item[1] );
 			}
 		}
@@ -176,7 +177,7 @@ class Aliases {
 	 */
 	public function add_customizer_aliases() {
 		foreach ( $this->aliases['customizer'] as $item ) {
-			if ( class_exists( $item[0] ) ) {
+			if ( class_exists( $item[0] ) && ! class_exists( $item[1], false ) ) {
 				class_alias( $item[0], $item[1] );
 			}
 		}

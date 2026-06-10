@@ -31,7 +31,7 @@ class FontAwesome extends Select {
 			$args = parent::filter_control_args( $args, $wp_customize );
 
 			ob_start();
-			include 'fontawesome.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+			include __DIR__ . '/Field/fontawesome.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 			$font_awesome_json = ob_get_clean();
 
 			$fa_array        = (array) json_decode( $font_awesome_json, true );
