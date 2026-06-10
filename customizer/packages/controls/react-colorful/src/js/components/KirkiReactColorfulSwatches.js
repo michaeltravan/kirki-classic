@@ -9,7 +9,7 @@ const KirkiReactColorfulSwatches = ({ colors, onClick }) => {
 						key={index.toString()}
 						type="button"
 						className="kirki-classic-color-swatch"
-						data-kirki-classic-color={color}
+						data-kirki-color={color}
 						style={{ backgroundColor: color }}
 						onClick={() => onClick(color)}
 					></button>

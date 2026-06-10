@@ -5,7 +5,7 @@ const api = wp.customize;
 const setupDevices = () => {
   // Get all controls which are responsive-able (not the device control it self).
   const childControls = document.querySelectorAll(
-    "[data-kirki-classic-parent-responsive-id]"
+    "[data-kirki-parent-responsive-id]"
   );
   if (!childControls.length) return;
 
@@ -26,7 +26,7 @@ const setupDevices = () => {
      * Example of grouped controls: field-dimensions, field-typography, field-multicolor.
      */
     const groupedControls = document.querySelectorAll(
-      '[data-kirki-classic-parent-control-setting="' + setting + '"]'
+      '[data-kirki-parent-control-setting="' + setting + '"]'
     );
 
     // Check if childControl is a field that groups other controls.
@@ -47,7 +47,7 @@ const setupDevices = () => {
 
     if (!deviceButtons) return;
 
-    deviceButtons.setAttribute("data-kirki-classic-devices-for", responsiveId);
+    deviceButtons.setAttribute("data-kirki-devices-for", responsiveId);
 
     const titleElement = document.querySelector(
       "#customize-control-" + responsiveId + " .customize-control-title"
@@ -73,7 +73,7 @@ const setupPreview = () => {
     // Loop through Kirki device buttons and assign the click event.
     [].slice.call(deviceButtons).forEach(function (deviceButton) {
       deviceButton.addEventListener("click", function (e) {
-        var device = this.getAttribute("data-kirki-classic-device");
+        var device = this.getAttribute("data-kirki-device");
 
         // Trigger WordPress device event.
         api.previewedDevice.set(device);
@@ -113,7 +113,7 @@ const setupPreview = () => {
 
     // Hide all device preview items.
     const allPreviewItems = document.querySelectorAll(
-      "[data-kirki-classic-device-preview]"
+      "[data-kirki-device-preview]"
     );
     [].slice.call(allPreviewItems).forEach(function (item) {
       item.classList.add("kirki-classic-responsive-item-hidden");
@@ -121,7 +121,7 @@ const setupPreview = () => {
 
     // Show items for the selected device.
     const devicePreviewItems = document.querySelectorAll(
-      '[data-kirki-classic-device-preview="' + device + '"]'
+      '[data-kirki-device-preview="' + device + '"]'
     );
     [].slice.call(devicePreviewItems).forEach(function (item) {
       item.classList.remove("kirki-classic-responsive-item-hidden");

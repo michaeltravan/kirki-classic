@@ -8,7 +8,7 @@
  * Author URI:  https://www.themeum.com
  * License:     GPL-3.0
  * License URI: https://oss.ninja/gpl-3.0?organization=KirkiClassic%20Framework&project=control%20tab
- * Text Domain: kirki-tabs
+ * Text Domain: kirki-classic
  * Domain Path: /languages
  *
  * @package kirki-tabs

@@ -73,7 +73,7 @@ class Responsive extends Base {
 			$loop_index++;
 
 			$device_menu .= '
-			<li class="kirki-classic-device-button kirki-device-button-' . $device . ( 1 === $loop_index ? ' is-active' : '' ) . '" data-kirki-device="' . esc_attr( $device ) . '">
+			<li class="kirki-classic-device-button kirki-classic-device-button-' . $device . ( 1 === $loop_index ? ' is-active' : '' ) . '" data-kirki-device="' . esc_attr( $device ) . '">
 				<i class="dashicons ' . esc_html( $device_icons[ $device ] ) . '"></i>
 			</li>
 			';

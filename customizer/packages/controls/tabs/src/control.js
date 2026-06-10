@@ -2,7 +2,7 @@ import "./control.scss";
 
 const setupTabs = () => {
   const childControls = document.querySelectorAll(
-    "[data-kirki-classic-parent-tab-id]"
+    "[data-kirki-parent-tab-id]"
   );
   if (!childControls.length) return;
 
@@ -18,7 +18,7 @@ const setupTabs = () => {
 
   const switchTabs = (tabId, tabItemName) => {
     const tabMenuItems = document.querySelectorAll(
-      '[data-kirki-classic-tab-id="' + tabId + '"] .kirki-classic-tab-menu-item'
+      '[data-kirki-tab-id="' + tabId + '"] .kirki-classic-tab-menu-item'
     );
 
     Array.from(tabMenuItems).forEach(function (menuItem) {
@@ -26,9 +26,9 @@ const setupTabs = () => {
     });
 
     const tabMenuItem = document.querySelector(
-      '[data-kirki-classic-tab-id="' +
+      '[data-kirki-tab-id="' +
         tabId +
-        '"] [data-kirki-classic-tab-menu-id="' +
+        '"] [data-kirki-tab-menu-id="' +
         tabItemName +
         '"]'
     );
@@ -36,7 +36,7 @@ const setupTabs = () => {
     if (tabMenuItem) tabMenuItem.classList.add("is-active");
 
     const tabItems = document.querySelectorAll(
-      '[data-kirki-classic-parent-tab-id="' + tabId + '"]'
+      '[data-kirki-parent-tab-id="' + tabId + '"]'
     );
 
     Array.from(tabItems).forEach(function (tabItem) {
@@ -56,7 +56,7 @@ const setupTabs = () => {
       e.preventDefault();
 
       const tabMenuItem = tabLink.closest(".kirki-classic-tab-menu-item");
-      const tabContainer = tabMenuItem.closest("[data-kirki-classic-tab-id]");
+      const tabContainer = tabMenuItem.closest("[data-kirki-tab-id]");
       const tabId = tabContainer.dataset.kirkiTabId;
       const tabItemName = tabMenuItem.dataset.kirkiTabMenuId;
 
@@ -70,7 +70,7 @@ const setupTabs = () => {
         section.expanded.bind(function (isExpanded) {
           if (isExpanded) {
             const activeTabMenu = document.querySelector(
-              '[data-kirki-classic-tab-id="' +
+              '[data-kirki-tab-id="' +
                 tabId +
                 '"] .kirki-classic-tab-menu-item.is-active'
             );
