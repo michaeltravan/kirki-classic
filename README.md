@@ -1,12 +1,11 @@
-# Kirki Classic #
-**Tags:** customizer, options framework, theme, mods, toolkit
-**Requires at least:** 5.3
-**Tested up to:** 6.8
-**Stable tag:** 5.2.3
-**License:** MIT
-**License URI:** https://opensource.org/licenses/MIT
+# Kirki Classic
+
+[![Download](https://img.shields.io/github/v/release/michaeltravan/kirki-classic?style=for-the-badge&color=0073aa&label=Download&logo=wordpress&logoColor=white)](https://github.com/michaeltravan/kirki-classic/releases/latest/download/kirki-classic.zip)
+[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 A lightweight WordPress Customizer framework for theme developers — forked from Kirki at v5.2.3.
+
+**Requires WordPress:** 5.3+ &nbsp;|&nbsp; **Tested up to:** 6.8 &nbsp;|&nbsp; **PHP:** 7.4+
 
 ## Why this fork? ##
 
