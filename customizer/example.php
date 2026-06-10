@@ -4,8 +4,8 @@
  *
  * @package KirkiClassic
  * @category Core
- * @author Themeum
- * @copyright Copyright (c) 2023, Themeum
+ * @author Michael Travan
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license https://opensource.org/licenses/MIT
  * @since 3.0.12
  */
@@ -33,7 +33,7 @@ KirkiClassic::add_config(
 /**
  * Add a panel.
  *
- * @link https://docs.themeum.com/kirki/getting-started/panels-sections/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/getting-started/panels-sections/
  */
 new \KirkiClassic\Panel(
 	'kirki_classic_demo_panel',
@@ -50,7 +50,7 @@ new \KirkiClassic\Panel(
  * We'll be doing things a bit differently here, just to demonstrate an example.
  * We're going to define 1 section per control-type just to keep things clean and separate.
  *
- * @link https://docs.themeum.com/kirki/getting-started/panels-sections/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/getting-started/panels-sections/
  */
 $sections = [
 	'background'      => [ esc_html__( 'Background', 'kirki-classic' ), '' ],
@@ -105,7 +105,7 @@ new \KirkiClassic\Section(
 		'title'       => esc_html__( 'Test Link Section', 'kirki-classic' ),
 		'type'        => 'link',
 		'button_text' => esc_html__( 'Pro', 'kirki-classic' ),
-		'button_url'  => 'https://www.themeum.com',
+		'button_url'  => 'https://github.com/michaeltravan',
 	]
 );
 
@@ -134,7 +134,7 @@ new \KirkiClassic\Field\Background(
 /**
  * Code control.
  *
- * @link https://docs.themeum.com/kirki/controls/code/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/controls/code/
  */
 new \KirkiClassic\Field\Code(
 	[
@@ -152,7 +152,7 @@ new \KirkiClassic\Field\Code(
 /**
  * Checkbox control.
  *
- * @link https://docs.themeum.com/kirki/controls/checkbox/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/controls/checkbox/
  */
 new \KirkiClassic\Field\Checkbox(
 	[
@@ -167,7 +167,7 @@ new \KirkiClassic\Field\Checkbox(
 /**
  * Color Controls.
  *
- * @link https://docs.themeum.com/kirki/controls/color/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/controls/color/
  */
 KirkiClassic::add_field(
 	'kirki_classic_demo_config',
@@ -481,7 +481,7 @@ new \KirkiClassic\Field\Editor(
 /**
  * Color-Palette Controls.
  *
- * @link https://docs.themeum.com/kirki/controls/color-palette/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/controls/color-palette/
  */
 new \KirkiClassic\Field\Color_Palette(
 	[
@@ -624,7 +624,7 @@ KirkiClassic::add_field(
 /**
  * Dashicons control.
  *
- * @link https://docs.themeum.com/kirki/controls/dashicons/
+ * @link https://github.com/michaeltravan/kirki-classic/wiki/controls/dashicons/
  */
 new \KirkiClassic\Field\Dashicons(
 	[
@@ -1030,13 +1030,13 @@ new \KirkiClassic\Field\Repeater(
 		'default'     => [
 			[
 				'link_text'   => esc_html__( 'Kirki Classic Site', 'kirki-classic' ),
-				'link_url'    => 'https://www.themeum.com',
+				'link_url'    => 'https://github.com/michaeltravan',
 				'link_target' => '_self',
 				'checkbox'    => false,
 			],
 			[
 				'link_text'   => esc_html__( 'Kirki Classic Repository', 'kirki-classic' ),
-				'link_url'    => 'https://github.com/themeum/kirki',
+				'link_url'    => 'https://github.com/michaeltravan/kirki-classic',
 				'link_target' => '_self',
 				'checkbox'    => false,
 			],

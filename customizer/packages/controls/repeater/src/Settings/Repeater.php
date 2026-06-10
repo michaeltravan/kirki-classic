@@ -3,7 +3,7 @@
  * Repeater Customizer Setting.
  *
  * @package   kirki-framework/control-repeater
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */

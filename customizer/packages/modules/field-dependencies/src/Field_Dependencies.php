@@ -3,8 +3,8 @@
  * Automatic field-dependencies scripts calculation for KirkiClassic controls.
  *
  * @package kirki-framework/module-field-dependencies
- * @author Themeum
- * @copyright Copyright (c) 2023, Themeum
+ * @author Michael Travan
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license https://opensource.org/licenses/MIT
  * @since 1.0.0
  */

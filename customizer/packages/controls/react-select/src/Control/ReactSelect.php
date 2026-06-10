@@ -3,7 +3,7 @@
  * Customizer Control: kirki-select.
  *
  * @package   kirki-framework/control-select
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */

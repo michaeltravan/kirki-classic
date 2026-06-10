@@ -3,7 +3,7 @@
  * Customizer Control: sortable.
  *
  * @package   kirki-framework/control-sortable
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */

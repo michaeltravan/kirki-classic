@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Kirki Classic Customizer Framework
- * Plugin URI: https://www.themeum.com
+ * Plugin URI: https://github.com/michaeltravan/kirki-classic
  * Description: The Ultimate WordPress Customizer Framework
- * Author: Themeum
- * Author URI: https://www.themeum.com
+ * Author: Michael Travan
+ * Author URI: https://github.com/michaeltravan
  * Version: 5.2.3
  * Text Domain: kirki-classic
  * Requires at least: 5.3
@@ -12,8 +12,8 @@
  *
  * @package KirkiClassic
  * @category Core
- * @author Themeum
- * @copyright Copyright (c) 2023, Themeum
+ * @author Michael Travan
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license https://opensource.org/licenses/MIT
  * @since 1.0
  */

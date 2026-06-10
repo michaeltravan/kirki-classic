@@ -7,12 +7,12 @@
         "Customizer"
     ],
     "description": "Extending the WordPress customizer",
-    "homepage": "https://www.themeum.com",
+    "homepage": "https://github.com/michaeltravan",
     "license": "MIT",
     "authors": [
         {
             "name": "Kirki Classic Framework",
-            "email": "support@themeum.com"
+            "email": "michael.travan@gmail.com"
         }
     ],
     "config": {

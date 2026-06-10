@@ -3,7 +3,7 @@
  * WordPress Customizer API abstraction.
  *
  * @package   kirki-framework/field
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     0.1
  */

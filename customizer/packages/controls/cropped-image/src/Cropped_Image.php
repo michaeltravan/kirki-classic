@@ -3,7 +3,7 @@
  * Customizer Control: cropped-image.
  *
  * @package   kirki-framework/control-cropped-image
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */

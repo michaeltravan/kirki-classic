@@ -3,8 +3,8 @@
  * Helper methods for material-design colors.
  *
  * @package   kirki-framework/control-palette
- * @author    Themeum
- * @copyright Copyright (c) 2023, Themeum
+ * @author    Michael Travan
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */

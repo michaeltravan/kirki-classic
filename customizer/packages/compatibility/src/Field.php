@@ -4,8 +4,8 @@
  *
  * @package     KirkiClassic
  * @category    Core
- * @author      Themeum
- * @copyright   Copyright (c) 2023, Themeum
+ * @author      Michael Travan
+ * @copyright   Copyright (c) 2023, Michael Travan
  * @license     https://opensource.org/licenses/MIT
  * @since       1.0
  */
@@ -166,7 +166,7 @@ class Field {
 	/**
 	 * Use if you want to automatically generate CSS from this field's value.
 	 *
-	 * @see https://docs.themeum.com/kirki/arguments/output/
+	 * @see https://github.com/michaeltravan/kirki-classic/wiki/arguments/output/
 	 * @access protected
 	 * @var array
 	 */
@@ -177,7 +177,7 @@ class Field {
 	 * Not necessary to use if you use 'transport' => 'auto'
 	 * and have already set an array for the 'output' argument.
 	 *
-	 * @see https://docs.themeum.com/kirki/arguments/js_vars/
+	 * @see https://github.com/michaeltravan/kirki-classic/wiki/arguments/js_vars/
 	 * @access protected
 	 * @var array
 	 */
@@ -186,7 +186,7 @@ class Field {
 	/**
 	 * If you want to use a CSS compiler, then use this to set the variable names.
 	 *
-	 * @see https://docs.themeum.com/kirki/arguments/output/
+	 * @see https://github.com/michaeltravan/kirki-classic/wiki/arguments/output/
 	 * @access protected
 	 * @var array
 	 */

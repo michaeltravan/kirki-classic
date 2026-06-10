@@ -4,8 +4,8 @@
  *
  * @package   KirkiClassic
  * @category  Compatibility
- * @author    Themeum
- * @copyright Copyright (c) 2023, Themeum
+ * @author    Michael Travan
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  */
 

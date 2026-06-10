@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: KirkiClassic Input Slider
- * Plugin URI:  https://www.themeum.com
+ * Plugin URI:  https://github.com/michaeltravan
  * Description: Input slider control for Kirki Classic Customizer Framework.
  * Version:     1.1
- * Author:      Themeum
- * Author URI:  https://www.themeum.com
+ * Author:      Michael Travan
+ * Author URI:  https://github.com/michaeltravan
  * License:     GPL-3.0
  * License URI: https://oss.ninja/gpl-3.0?organization=KirkiClassic%20Framework&project=control%20input%20slider
  * Text Domain: kirki-input-slider

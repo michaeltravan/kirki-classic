@@ -3,7 +3,7 @@
  * Customizer Control: kirki-react-colorful.
  *
  * @package   kirki-framework/control-react-colorful
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license   https://opensource.org/licenses/MIT
  * @since     1.0
  */

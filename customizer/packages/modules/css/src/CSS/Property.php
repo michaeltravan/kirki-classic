@@ -5,7 +5,7 @@
  *
  * @package     KirkiClassic
  * @subpackage  Controls
- * @copyright   Copyright (c) 2023, Themeum
+ * @copyright   Copyright (c) 2023, Michael Travan
  * @license    https://opensource.org/licenses/MIT
  * @since       2.2.0
  */

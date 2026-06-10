@@ -4,7 +4,7 @@
  * Inspired from https://github.com/justintadlock/trt-customizer-pro
  *
  * @package kirki-framework/module-sections
- * @copyright Copyright (c) 2023, Themeum
+ * @copyright Copyright (c) 2023, Michael Travan
  * @license https://opensource.org/licenses/MIT
  * @since 1.0.0
  */

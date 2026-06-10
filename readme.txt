@@ -1,5 +1,5 @@
 === Kirki Customizer Framework ===
-Contributors: themeum
+Contributors: michaeltravan
 Tags: customizer, options framework, theme, toolkit
 Requires at least: 5.3
 Tested up to: 6.9
@@ -12,7 +12,7 @@ The Ultimate Customizer Framework for WordPress Theme Developers
 
 == Description ==
 
-[Kirki](https://github.com/themeum/kirki) is a Customizer toolkit for WordPress. An open-source initiative by [Themeum](https://github.com/themeum) for WordPress theme developers.
+[Kirki](https://github.com/michaeltravan/kirki-classic) is a Customizer toolkit for WordPress. An open-source initiative by [Michael Travan](https://github.com/michaeltravan) for WordPress theme developers.
 
 Kirki allows you to build themes faster and more easily. With over 30 custom controls—ranging from simple sliders to advanced typography controls with Google Fonts integration—and features like automatic CSS generation and `postMessage` support, Kirki makes theme development a breeze.
 
@@ -29,49 +29,49 @@ Kirki allows you to build themes faster and more easily. With over 30 custom con
 * And more!
 
 ### Controls 🎛️ ###
-* [Background Customizer Control](https://docs.themeum.com/kirki/controls/background/)
-* [Code Customizer Control](https://docs.themeum.com/kirki/controls/code/)
-* [Checkbox Customizer Control](https://docs.themeum.com/kirki/controls/checkbox/)
-* [Color Customizer Control](https://docs.themeum.com/kirki/controls/color/)
-* [Color Palette Customizer Control](https://docs.themeum.com/kirki/controls/color-palette/)
-* [Dashicons Customizer Control](https://docs.themeum.com/kirki/controls/dashicons/)
-* [Date Customizer Control](https://docs.themeum.com/kirki/controls/date/)
-* [Dimension Customizer Control](https://docs.themeum.com/kirki/controls/dimension/)
-* [Dimensions Customizer Control](https://docs.themeum.com/kirki/controls/dimensions/)
-* [Dropdown Pages Customizer Control](https://docs.themeum.com/kirki/controls/dropdown-pages/)
-* [Editor Customizer Control](https://docs.themeum.com/kirki/controls/editor/)
-* [Generic Customizer Control](https://docs.themeum.com/kirki/controls/generic/)
-* [Image Customizer Control](https://docs.themeum.com/kirki/controls/image/)
-* [Link Customizer Control](https://docs.themeum.com/kirki/controls/url/)
-* [Multiple Checkbox Customizer Control](https://docs.themeum.com/kirki/controls/multicheck/)
-* [Multicolor Customizer Control](https://docs.themeum.com/kirki/controls/multicolor/)
-* [Number Customizer Control](https://docs.themeum.com/kirki/controls/number/)
-* [Radio Customizer Control](https://docs.themeum.com/kirki/controls/radio/)
-* [Radio Buttonset Customizer Control](https://docs.themeum.com/kirki/controls/radio-buttonset/)
-* [Radio Image Customizer Control](https://docs.themeum.com/kirki/controls/radio-image/)
-* [Repeater Customizer Control](https://docs.themeum.com/kirki/controls/repeater/)
-* [Select Customizer Control](https://docs.themeum.com/kirki/controls/select/)
-* [Slider Customizer Control](https://docs.themeum.com/kirki/controls/slider/)
-* [Sortable Customizer Control](https://docs.themeum.com/kirki/controls/sortable/)
-* [Switch Customizer Control](https://docs.themeum.com/kirki/controls/switch/)
-* [Text Customizer Control](https://docs.themeum.com/kirki/controls/text/)
-* [Textarea Customizer Control](https://docs.themeum.com/kirki/controls/textarea/)
-* [Toggle Customizer Control](https://docs.themeum.com/kirki/controls/toggle/)
-* [Typography Customizer Control](https://docs.themeum.com/kirki/controls/typography/)
-* [Upload Customizer Control](https://docs.themeum.com/kirki/controls/upload/)
-* [Margin & Padding Controls](https://docs.themeum.com/kirki/extensions/margin-padding/)
-* [Headlines & Dividers](https://docs.themeum.com/kirki/extensions/headlines-dividers/)
-* [Responsive Controls](https://docs.themeum.com/kirki/extensions/responsive-controls/)
-* [Input Slider](https://docs.themeum.com/kirki/extensions/input-slider/)
-* [Tabs](https://docs.themeum.com/kirki/extensions/tabs/)
+* [Background Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/background/)
+* [Code Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/code/)
+* [Checkbox Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/checkbox/)
+* [Color Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/color/)
+* [Color Palette Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/color-palette/)
+* [Dashicons Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/dashicons/)
+* [Date Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/date/)
+* [Dimension Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/dimension/)
+* [Dimensions Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/dimensions/)
+* [Dropdown Pages Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/dropdown-pages/)
+* [Editor Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/editor/)
+* [Generic Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/generic/)
+* [Image Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/image/)
+* [Link Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/url/)
+* [Multiple Checkbox Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/multicheck/)
+* [Multicolor Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/multicolor/)
+* [Number Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/number/)
+* [Radio Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/radio/)
+* [Radio Buttonset Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/radio-buttonset/)
+* [Radio Image Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/radio-image/)
+* [Repeater Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/repeater/)
+* [Select Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/select/)
+* [Slider Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/slider/)
+* [Sortable Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/sortable/)
+* [Switch Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/switch/)
+* [Text Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/text/)
+* [Textarea Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/textarea/)
+* [Toggle Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/toggle/)
+* [Typography Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/typography/)
+* [Upload Customizer Control](https://github.com/michaeltravan/kirki-classic/wiki/controls/upload/)
+* [Margin & Padding Controls](https://github.com/michaeltravan/kirki-classic/wiki/extensions/margin-padding/)
+* [Headlines & Dividers](https://github.com/michaeltravan/kirki-classic/wiki/extensions/headlines-dividers/)
+* [Responsive Controls](https://github.com/michaeltravan/kirki-classic/wiki/extensions/responsive-controls/)
+* [Input Slider](https://github.com/michaeltravan/kirki-classic/wiki/extensions/input-slider/)
+* [Tabs](https://github.com/michaeltravan/kirki-classic/wiki/extensions/tabs/)
 
 ### Documentation 📖 ###
-You can find detailed documentation on how to use Kirki on https://www.themeum.com/kirki/
+You can find detailed documentation on how to use Kirki on https://github.com/michaeltravan/kirki-classic
 
 == Installation ==
 Simply install as a normal WordPress plugin and activate.
 
-If you want to integrate Kirki in your theme or plugin, please read the instructions on [our documentation site](https://docs.themeum.com/kirki/getting-started/integration/).
+If you want to integrate Kirki in your theme or plugin, please read the instructions on [our documentation site](https://github.com/michaeltravan/kirki-classic/wiki/getting-started/integration/).
 
 == Changelog ==
 

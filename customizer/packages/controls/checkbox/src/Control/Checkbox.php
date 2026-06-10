@@ -6,7 +6,7 @@
  * Custom controls contains all background-related options.
  *
  * @package    kirki-framework/control-checkbox
- * @copyright  Copyright (c) 2023, Themeum
+ * @copyright  Copyright (c) 2023, Michael Travan
  * @license    https://opensource.org/licenses/MIT
  * @since      1.0
  */

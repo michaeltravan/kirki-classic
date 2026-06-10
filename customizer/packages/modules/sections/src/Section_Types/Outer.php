@@ -3,7 +3,7 @@
  * An outer section.
  *
  * @package kirki-framework/module-sections
- * @copyright Copyright (c) 2019, Themeum
+ * @copyright Copyright (c) 2019, Michael Travan
  * @license https://opensource.org/licenses/MIT
  * @since 1.0.0
  */
