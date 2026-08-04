@@ -85,8 +85,9 @@ final class Google {
 		}
 
 		new GoogleFonts();
+		// Note: deliberately not registered for `nopriv` - only Customizer users
+		// have any use for this, and it should not be servable to anonymous callers.
 		add_action( 'wp_ajax_kirki_classic_fonts_standard_all_get', [ $this, 'get_standardfonts_json' ] );
-		add_action( 'wp_ajax_nopriv_kirki_classic_fonts_standard_all_get', [ $this, 'get_standardfonts_json' ] );
 
 		// Populate the array of google fonts.
 		$this->google_fonts = Fonts::get_google_fonts();
@@ -237,6 +238,10 @@ final class Google {
 	 * @return void
 	 */
 	public function get_standardfonts_json() {
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			wp_die( '', '', [ 'response' => 403 ] );
+		}
+
 		echo wp_json_encode( Fonts::get_standard_fonts() );
 		wp_die();
 	}

@@ -1,15 +1,40 @@
 /* global wp, React, ReactDOM, _ */
 import KirkiSelectForm from "./KirkiSelectForm";
 
-const wpReactRender = ( target, reactNode ) => {
-	if ( target ) {
+const wpReactRender = ( target, reactNode, control ) => {
+	if ( ! target ) {
+		return;
+	}
 
-		// Use React 18 root API when available, otherwise fall back to legacy render.
-		if ( wp.element && typeof wp.element.createRoot === "function" ) {
-			wp.element.createRoot( target ).render( reactNode );
-		} else {
-			wp.element.render( reactNode, target );
+	// React 18+ root API. The root is cached on the control because calling
+	// createRoot() more than once for the same container leaks a root (and warns)
+	// on React 18, and unmountComponentAtNode() is removed in React 19.
+	if ( wp.element && typeof wp.element.createRoot === 'function' ) {
+		if ( control._kirkiRootTarget !== target ) {
+			wpReactUnmount( target, control );
+			control._kirkiRoot = wp.element.createRoot( target );
+			control._kirkiRootTarget = target;
 		}
+
+		control._kirkiRoot.render( reactNode );
+		return;
+	}
+
+	// Legacy React < 18 fallback.
+	wp.element.render( reactNode, target );
+};
+
+const wpReactUnmount = ( target, control ) => {
+	if ( control._kirkiRoot ) {
+		control._kirkiRoot.unmount();
+		control._kirkiRoot = null;
+		control._kirkiRootTarget = null;
+		return;
+	}
+
+	// Legacy React < 18 fallback.
+	if ( target && wp.element && typeof wp.element.unmountComponentAtNode === 'function' ) {
+		wp.element.unmountComponentAtNode( target );
 	}
 };
 
@@ -99,7 +124,7 @@ const KirkiSelectControl = wp.customize.Control.extend({
         maxSelectionNumber={control.params.maxSelectionNumber}
       />
     );
-    wpReactRender(control.container[0], form);
+    wpReactRender(control.container[0], form, control);
   },
 
   /**
@@ -134,7 +159,7 @@ const KirkiSelectControl = wp.customize.Control.extend({
     const control = this;
 
     // Garbage collection: undo mounting that was done in the embed/renderContent method.
-    ReactDOM.unmountComponentAtNode(control.container[0]);
+    wpReactUnmount(control.container[0], control);
 
     // Call destroy method in parent if it exists (as of #31334).
     if (wp.customize.Control.prototype.destroy) {

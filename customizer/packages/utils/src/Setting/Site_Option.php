@@ -27,6 +27,33 @@ class Site_Option extends \WP_Customize_Setting {
 	public $type = 'site_option';
 
 	/**
+	 * Constructor.
+	 *
+	 * Settings of this type are persisted with update_site_option(), which is
+	 * network-wide on multisite. The framework's default field capability is
+	 * `edit_theme_options`, which every single-site administrator on the network
+	 * has - that would let a site administrator write network-scoped options.
+	 * Require the network capability instead whenever the write is actually
+	 * network-wide.
+	 *
+	 * On single-site installs update_site_option() is equivalent to
+	 * update_option(), so the configured capability is left untouched there.
+	 *
+	 * @access public
+	 * @since 5.2.4
+	 * @param \WP_Customize_Manager $manager The WP_Customize_Manager instance.
+	 * @param string                $id      The setting ID.
+	 * @param array                 $args    Setting arguments.
+	 */
+	public function __construct( $manager, $id, $args = [] ) {
+		parent::__construct( $manager, $id, $args );
+
+		if ( is_multisite() ) {
+			$this->capability = 'manage_network_options';
+		}
+	}
+
+	/**
 	 * Get the root value for a setting, especially for multidimensional ones.
 	 *
 	 * @access protected

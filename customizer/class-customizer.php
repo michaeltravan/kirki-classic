@@ -37,7 +37,7 @@ class Customizer
         require_once __DIR__ . '/bootstrap.php';
 
         if (!defined('KIRKI_CLASSIC_VERSION')) {
-            define('KIRKI_CLASSIC_VERSION', '5.2.3');
+            define('KIRKI_CLASSIC_VERSION', '5.2.4');
         }
 
         if (!defined('KIRKI_VERSION')) {

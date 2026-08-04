@@ -84,9 +84,20 @@ final class Async
 		add_action('wp_head', [$this, 'webfont_loader']);
 		add_action('wp_head', [$this, 'webfont_loader_script'], 30);
 
-		// Add these in the dashboard to support editor-styles.
-		add_action('admin_enqueue_scripts', [$this, 'webfont_loader']);
-		add_action('admin_enqueue_scripts', [$this, 'webfont_loader_script'], 30);
+		/**
+		 * Note: no `admin_enqueue_scripts` hooks here.
+		 *
+		 * These previously ran the WebFont Loader in the dashboard "to support
+		 * editor-styles". That cannot work with the iframed block editor (always
+		 * iframed as of WordPress 7.0): WebFont.load() injects its <link> tags into
+		 * the document of the frame it runs in, so running it in the top frame does
+		 * nothing for the editor canvas.
+		 *
+		 * Editor fonts are served instead by the generated stylesheet, which the
+		 * Editor_Styles module enqueues via `enqueue_block_assets` so it lands
+		 * inside the iframe. That stylesheet is produced by a front-end request, so
+		 * the Embed module's @font-face CSS is already part of it.
+		 */
 
 		// add_filter( 'wp_resource_hints', [ $this, 'resource_hints' ], 10, 2 );
 	}

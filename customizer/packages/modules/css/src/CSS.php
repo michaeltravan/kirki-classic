@@ -106,6 +106,7 @@ class CSS
 				$priority = absint($config['styles_priority']);
 			}
 
+			add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'), $priority);
 		} else {
 			add_action('wp_head', array($this, 'print_styles_inline'), 999);
 		}
@@ -244,7 +245,8 @@ class CSS
 			global $current_screen;
 
 			/**
-			 * This `enqueue_styles` method is also hooked into `enqueue_block_editor_assets`.
+			 * This `enqueue_styles` method is also reached via `enqueue_block_assets`
+			 * (see the Editor_Styles module).
 			 * It needs to be excluded from customize control page.
 			 *
 			 * Why not simply excluding all admin area except gutenberg editing interface?
@@ -254,22 +256,24 @@ class CSS
 			 * Example of possibility:
 			 * In the future, Ultimate Dashboard Pro's admin page feature might supports Gutenberg.
 			 */
-			if (is_object($current_screen) && property_exists($current_screen, 'id') && 'customize' === $current_screen->id) {
-				return;
-			}
+			if (is_object($current_screen)) {
+				if (property_exists($current_screen, 'id') && 'customize' === $current_screen->id) {
+					return;
+				}
 
-			if (property_exists($current_screen, 'is_block_editor') && 1 === (int) $current_screen->is_block_editor) {
-				$args['editor'] = '1';
+				if (property_exists($current_screen, 'is_block_editor') && 1 === (int) $current_screen->is_block_editor) {
+					$args['editor'] = '1';
+				}
 			}
 		}
 
 		// Enqueue the dynamic stylesheet.
-		// wp_enqueue_style(
-		// 	self::$css_handle,
-		// 	add_query_arg( $args, home_url() ),
-		// 	array(),
-		// 	'4.0'
-		// );
+		wp_enqueue_style(
+			self::$css_handle,
+			add_query_arg($args, home_url()),
+			array(),
+			KIRKI_CLASSIC_VERSION
+		);
 
 	}
 

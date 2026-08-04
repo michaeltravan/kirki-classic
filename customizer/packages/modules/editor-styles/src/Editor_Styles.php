@@ -104,9 +104,39 @@ class Editor_Styles {
 	 */
 	protected function add_hooks() {
 		if ( ! $this->is_disabled() ) {
-			add_action( 'enqueue_block_editor_assets', [ $this->modules_css, 'enqueue_styles' ], 999 );
+			/**
+			 * `enqueue_block_assets` - not `enqueue_block_editor_assets`.
+			 *
+			 * Since WordPress 6.3 the block editor is iframed, and as of WordPress 7.0
+			 * it is always iframed. `enqueue_block_editor_assets` targets the editor
+			 * *UI* in the top frame, so styles added there never reach the editor
+			 * canvas. `enqueue_block_assets` is enqueued into the iframe as well,
+			 * which is where the generated theme CSS actually needs to apply.
+			 *
+			 * @link https://developer.wordpress.org/block-editor/how-to-guides/enqueueing-assets-in-the-editor/
+			 */
+			add_action( 'enqueue_block_assets', [ $this, 'enqueue_editor_styles' ], 999 );
 			add_action( 'after_setup_theme', [ $this, 'add_theme_support' ], 999 );
 		}
+	}
+
+	/**
+	 * Enqueue the generated stylesheet for the editor canvas.
+	 *
+	 * `enqueue_block_assets` fires on the front end as well as in the editor, but
+	 * the front end is already served by the CSS module's own `wp_enqueue_scripts`
+	 * / `wp_head` output. Only act in the admin so the front end is untouched.
+	 *
+	 * @access public
+	 * @since 5.2.4
+	 * @return void
+	 */
+	public function enqueue_editor_styles() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		$this->modules_css->enqueue_styles();
 	}
 
 	/**

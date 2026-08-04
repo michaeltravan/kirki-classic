@@ -1,9 +1,9 @@
-=== Kirki Customizer Framework ===
+=== Kirki Classic Customizer Framework ===
 Contributors: michaeltravan
 Tags: customizer, options framework, theme, toolkit
 Requires at least: 5.3
-Tested up to: 6.9
-Stable tag: 5.2.3
+Tested up to: 7.0
+Stable tag: 5.2.4
 Requires PHP: 7.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT

@@ -95,10 +95,14 @@ class Helper {
 	public static function init_filesystem() {
 		$credentials = [];
 
-		if ( ! defined( 'FS_METHOD' ) ) {
-			define( 'FS_METHOD', 'direct' );
-		}
-
+		/**
+		 * Note: FS_METHOD is deliberately NOT defined here.
+		 *
+		 * It is a site-wide constant - defining it would override the host's
+		 * configured filesystem transport for every plugin loaded afterwards, and
+		 * force writes to happen as the webserver user. Respect whatever the site
+		 * has configured and let WP_Filesystem() auto-detect when it is unset.
+		 */
 		$method = defined( 'FS_METHOD' ) ? FS_METHOD : false;
 
 		if ( 'ftpext' === $method ) {

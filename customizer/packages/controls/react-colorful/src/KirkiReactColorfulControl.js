@@ -1,5 +1,41 @@
-import ReactDOM from "react-dom";
 import KirkiReactColorfulForm from "./KirkiReactColorfulForm";
+
+const wpReactRender = ( target, reactNode, control ) => {
+	if ( ! target ) {
+		return;
+	}
+
+	// React 18+ root API. The root is cached on the control because calling
+	// createRoot() more than once for the same container leaks a root (and warns)
+	// on React 18, and unmountComponentAtNode() is removed in React 19.
+	if ( wp.element && typeof wp.element.createRoot === 'function' ) {
+		if ( control._kirkiRootTarget !== target ) {
+			wpReactUnmount( target, control );
+			control._kirkiRoot = wp.element.createRoot( target );
+			control._kirkiRootTarget = target;
+		}
+
+		control._kirkiRoot.render( reactNode );
+		return;
+	}
+
+	// Legacy React < 18 fallback.
+	wp.element.render( reactNode, target );
+};
+
+const wpReactUnmount = ( target, control ) => {
+	if ( control._kirkiRoot ) {
+		control._kirkiRoot.unmount();
+		control._kirkiRoot = null;
+		control._kirkiRootTarget = null;
+		return;
+	}
+
+	// Legacy React < 18 fallback.
+	if ( target && wp.element && typeof wp.element.unmountComponentAtNode === 'function' ) {
+		wp.element.unmountComponentAtNode( target );
+	}
+};
 
 /**
  * KirkiReactColorfulControl.
@@ -85,7 +121,7 @@ const KirkiReactColorfulControl = wp.customize.Control.extend({
 			/>
 		);
 
-		ReactDOM.render(form, control.container[0]);
+		wpReactRender(control.container[0], form, control);
 	},
 
 	/**
@@ -138,7 +174,7 @@ const KirkiReactColorfulControl = wp.customize.Control.extend({
 		const control = this;
 
 		// Garbage collection: undo mounting that was done in the embed/renderContent method.
-		ReactDOM.unmountComponentAtNode(control.container[0]);
+		wpReactUnmount(control.container[0], control);
 
 		// Call destroy method in parent if it exists (as of #31334).
 		if (wp.customize.Control.prototype.destroy) {

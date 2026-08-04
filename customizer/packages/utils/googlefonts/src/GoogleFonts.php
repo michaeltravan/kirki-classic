@@ -44,8 +44,10 @@ final class GoogleFonts {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
+		// Note: deliberately not registered for `nopriv`. This response is ~200KB of
+		// static JSON; served unauthenticated and uncached it is a cheap
+		// amplification target, and only Customizer users have any use for it.
 		add_action( 'wp_ajax_kirki_classic_fonts_google_all_get', [ $this, 'print_googlefonts_json' ] );
-		add_action( 'wp_ajax_nopriv_kirki_classic_fonts_google_all_get', [ $this, 'print_googlefonts_json' ] );
 	}
 
 	/**
@@ -56,6 +58,10 @@ final class GoogleFonts {
 	 * @return void
 	 */
 	public function print_googlefonts_json( $die = true ) {
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			wp_die( '', '', [ 'response' => 403 ] );
+		}
+
 		include 'webfonts.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 		if ( function_exists( 'wp_die' ) && $die ) {
 			wp_die();

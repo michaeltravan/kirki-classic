@@ -85,8 +85,14 @@ class Downloader {
 
 			foreach ( $files as $url ) {
 
+				// Never write a file we can't vouch for: the CSS we parse is remote
+				// input, and this writes into a web-served directory.
+				if ( ! $this->is_allowed_font_url( $url ) ) {
+					continue;
+				}
+
 				// Get the filename.
-				$filename  = basename( wp_parse_url( $url, PHP_URL_PATH ) );
+				$filename  = sanitize_file_name( basename( wp_parse_url( $url, PHP_URL_PATH ) ) );
 				$font_path = $folder_path . '/' . $filename;
 
 				if ( file_exists( $font_path ) ) {
@@ -126,6 +132,66 @@ class Downloader {
 		}
 
 		return $stored;
+	}
+
+	/**
+	 * Whether a font URL found in remote CSS is safe to download and store.
+	 *
+	 * The CSS parsed by get_files_from_css() is remote input, and the files are
+	 * written into wp-content/fonts/ which is served by the webserver. Without
+	 * these checks a `url(...)` pointing at an arbitrary host and an arbitrary
+	 * extension would be written verbatim into a web-reachable path.
+	 *
+	 * @access protected
+	 * @since 5.2.4
+	 * @param string $url The font file URL.
+	 * @return bool
+	 */
+	protected function is_allowed_font_url( $url ) {
+
+		if ( ! is_string( $url ) || '' === $url ) {
+			return false;
+		}
+
+		$parts = wp_parse_url( $url );
+
+		if ( empty( $parts['scheme'] ) || empty( $parts['host'] ) || empty( $parts['path'] ) ) {
+			return false;
+		}
+
+		if ( 'https' !== strtolower( $parts['scheme'] ) ) {
+			return false;
+		}
+
+		/**
+		 * Filters the hosts fonts may be downloaded from.
+		 *
+		 * @since 5.2.4
+		 * @param array $hosts Allowed hostnames.
+		 */
+		$allowed_hosts = apply_filters(
+			'kirki_classic_allowed_font_hosts',
+			[ 'fonts.gstatic.com', 'fonts.googleapis.com' ]
+		);
+
+		if ( ! in_array( strtolower( $parts['host'] ), array_map( 'strtolower', $allowed_hosts ), true ) ) {
+			return false;
+		}
+
+		/**
+		 * Filters the file extensions fonts may be downloaded with.
+		 *
+		 * @since 5.2.4
+		 * @param array $extensions Allowed lowercase extensions, without the dot.
+		 */
+		$allowed_extensions = apply_filters(
+			'kirki_classic_allowed_font_extensions',
+			[ 'woff2', 'woff', 'ttf', 'otf', 'eot', 'svg' ]
+		);
+
+		$extension = strtolower( pathinfo( $parts['path'], PATHINFO_EXTENSION ) );
+
+		return in_array( $extension, $allowed_extensions, true );
 	}
 
 	/**

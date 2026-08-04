@@ -5,7 +5,7 @@
  * Description: The Ultimate WordPress Customizer Framework
  * Author: Michael Travan
  * Author URI: https://github.com/michaeltravan
- * Version: 5.2.3
+ * Version: 5.2.4
  * Text Domain: kirki-classic
  * Requires at least: 5.3
  * Requires PHP: 7.4
