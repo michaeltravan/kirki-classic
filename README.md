@@ -1,11 +1,11 @@
 # Kirki Classic
 
-[![Download](https://img.shields.io/github/v/release/michaeltravan/kirki-classic?style=for-the-badge&color=0073aa&label=Download&logo=wordpress&logoColor=white)](https://github.com/michaeltravan/kirki-classic/releases/latest/download/kirki-classic.zip)
+[![Download](https://img.shields.io/github/v/release/michaeltravan/kirki-classic?style=for-the-badge&color=0073aa&label=Download&logo=wordpress&logoColor=white)](https://github.com/michaeltravan/kirki-classic/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 A lightweight WordPress Customizer framework for theme developers — forked from Kirki at v5.2.3.
 
-**Requires WordPress:** 5.3+ &nbsp;|&nbsp; **Tested up to:** 6.8 &nbsp;|&nbsp; **PHP:** 7.4+
+**Requires WordPress:** 5.3+ &nbsp;|&nbsp; **Tested up to:** 7.0 &nbsp;|&nbsp; **PHP:** 7.4+
 
 ## Why this fork? ##
 

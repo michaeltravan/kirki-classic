@@ -50,6 +50,7 @@ build/logs
 .phpcs.xml
 phpcs.xml
 *.zip
+dist
 vendor
 
 assets/customizer/*
