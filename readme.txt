@@ -75,6 +75,16 @@ If you want to integrate Kirki in your theme or plugin, please read the instruct
 
 == Changelog ==
 
+= 5.2.4 - August 04, 2026
+
+Update: Added compatibility with WordPress 7.0.
+Fix: Generated CSS now reaches the block editor canvas. It is enqueued via `enqueue_block_assets` instead of `enqueue_block_editor_assets`, which never applied inside the iframed editor.
+Fix: Editor fonts are now served by the generated stylesheet instead of the WebFont Loader, which could not reach the iframed editor from the dashboard.
+Fix: React-based controls (Color Palette, Slider, Input Slider, Margin/Padding, Color Picker, Select) now cache and reuse their React root, preventing leaked roots on React 18 and errors on React 19 when a section is reopened.
+Security: Downloaded webfont URLs are now validated by host and file extension, and filenames are sanitized before being written to the fonts directory.
+Security: Settings stored as site options now require the network capability on multisite, so a single-site administrator can no longer write network-wide options.
+Update: The plugin no longer defines `FS_METHOD`, so the site's configured filesystem transport is respected.
+
 = 5.2.3 - April 10, 2026
 
 Update: Performance optimizations and random fixes.

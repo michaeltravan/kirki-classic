@@ -1,3 +1,26 @@
+### 5.2.4 - August 04, 2026 ###
+- Update: Added compatibility with WordPress 7.0.
+- Fix: Generated CSS now reaches the block editor canvas. It is enqueued via `enqueue_block_assets` instead of `enqueue_block_editor_assets`, which never applied inside the iframed editor.
+- Fix: Editor fonts are now served by the generated stylesheet instead of the WebFont Loader, which could not reach the iframed editor from the dashboard.
+- Fix: React-based controls (Color Palette, Slider, Input Slider, Margin/Padding, Color Picker, Select) now cache and reuse their React root, preventing leaked roots on React 18 and errors on React 19 when a section is reopened.
+- Security: Downloaded webfont URLs are now validated by host and file extension, and filenames are sanitized before being written to the fonts directory.
+- Security: Settings stored as site options now require the network capability on multisite, so a single-site administrator can no longer write network-wide options.
+- Update: The plugin no longer defines `FS_METHOD`, so the site's configured filesystem transport is respected.
+
+### 5.2.3 - April 10, 2026 ###
+- Update: Performance optimizations and random fixes.
+
+### 5.2.2 - February 17, 2026 ###
+- Fix: Color palette not displaying in the Customizer in certain cases.
+- Fix: Select field inside Repeater control not retaining the selected value.
+
+### 5.2.1 - February 10, 2026 ###
+- Fix: Fixed an issue where the file path was used incorrectly.
+
+### 5.2.0 - February 09, 2026 ###
+- Update: Performance optimizations across the platform.
+- Update: Added compatibility with WordPress 6.9.
+
 ### 5.2.0-beta.1 - February 02, 2026 ###
 
 Update: Performance improvement

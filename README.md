@@ -43,4 +43,4 @@ Install as a standard WordPress plugin and activate. To bundle it in a theme or 
 
 ## Changelog ##
 
-See [CHANGELOG.md](CHANGELOG.md) for the upstream history up to v5.2.3.
+See [CHANGELOG.md](CHANGELOG.md) for the Kirki Classic releases and the upstream history up to v5.2.3.
